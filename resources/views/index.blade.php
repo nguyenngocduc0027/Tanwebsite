@@ -50,6 +50,11 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/ajaxcart.scss.css">
+    <link rel="stylesheet" href="/assets/css/quickview_popup_cart.scss.css">
+    <link rel="stylesheet" href="/assets/css/main.scss.css">
+    <link rel="stylesheet" href="/assets/css/font.scss.css">
+    <link rel="stylesheet" href="/assets/css/index.scss.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -66,6 +71,8 @@
     <!-- Content -->
 
 
+    <!-- Footer -->
+    @include('layouts.footer')
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
