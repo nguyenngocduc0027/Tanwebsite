@@ -16,8 +16,8 @@
                     <ul class="ul-default promo-list js-promo">
                         <li class="promo-item  see-block">
                             <a class="duration-300 line-clamp-2-new" href="#"
-                                title="[05.09 - 01.10] Càng mua càng giảm: mua 6 tặng 1, mua 10 tặng 2, mua 20 tặng 5">[05.09
-                                - 01.10] Càng mua càng giảm: mua 6 tặng <span>1</span>, mua 10 tặng <span>2</span>, mua
+                                title="[10.04-10.05] Càng mua càng giảm: mua 6 tặng 1, mua 10 tặng 2, mua 20 tặng 5">[10.04-10.05]
+                                Càng mua càng giảm: mua 6 tặng <span>1</span>, mua 10 tặng <span>2</span>, mua
                                 20 tặng <span>5</span></a>
                         </li>
                         <li class="promo-item  see-none">
@@ -71,8 +71,9 @@
             <div class="box-hearder">
                 <div class="row align-items-center">
                     <div class="col-6 col-lg-3 col-md-4 header-logo">
-                        <a href="#" class="logo-wrapper" title="Sudes Nest">
-                            <img width="300" height="96" src="/images/logo/logo.png" data-src="/images/logo/logo.png" alt="Sudes Nest" class="">
+                        <a href="{{ route('home') }}" class="logo-wrapper" title="Xã Hội Vạn Thiện">
+                            <img width="300" height="96" src="/images/logo/logo.png"
+                                data-src="/images/logo/logo.png" alt="Xã Hội Vạn Thiện" class="">
                         </a>
                     </div>
                     <div class="col-12 col-md-12 col-lg-6 header-mid">
@@ -130,18 +131,17 @@
                                             <a href="#" class="search-item" title="Tìm kiếm Sản Phẩm 1">
                                                 Sản Phẩm 1
                                             </a>
-                                            <a href="#" class="search-item" title="Tìm kiếm Yến chưng sẵn">
-                                                Yến chưng sẵn
+                                            <a href="#" class="search-item" title="Tìm kiếm Sản Phẩm 2">
+                                                Sản Phẩm 2
                                             </a>
-                                            <a href="#" class="search-item" title="Tìm kiếm Sữa hạt Sản Phẩm">
-                                                Sữa hạt Sản Phẩm
+                                            <a href="#" class="search-item" title="Tìm kiếm Sản Phẩm 3">
+                                                Sản Phẩm 3
                                             </a>
-                                            <a href="#" class="search-item" title="Tìm kiếm Sản Phẩm thô">
-                                                Sản Phẩm thô
+                                            <a href="#" class="search-item" title="Tìm kiếm Sản Phẩm 4">
+                                                Sản Phẩm 4
                                             </a>
-                                            <a href="#" class="search-item"
-                                                title="Tìm kiếm Sản Phẩm không đường">
-                                                Sản Phẩm không đường
+                                            <a href="#" class="search-item" title="Tìm kiếm Sản Phẩm 5">
+                                                Sản Phẩm 5
                                             </a>
                                         </div>
                                     </div>
@@ -297,253 +297,128 @@
                         </div>
 
                         <div class="sudes-list-cate" data-section="header_nav_cate">
-                            {{-- <script type="text/x-custom-template" data-template="header_nav_cate"> --}}
-                                <ul class="sudes-main-cate">
-                                    <li class="sudes-main-cate-has-child menu-item-count ">
-                                        <a href="#" title="Tổ yến">
-                                            <img class="lazyload" src="/images/index-cate/index-cate-icon-1.png"
-                                                data-src="/images/index-cate/index-cate-icon-1.png" alt="Tổ yến" />
-                                            Tổ yến
-                                        </a>
-                                        <i class="open_mnu down_icon"></i>
-                                        <ul class="menu-child sub-menu sudes-sub-mega-menu">
-                                            <!-- Tổ yến thô -->
-                                            <li class="sudes-main-cate-has-child clearfix">
-                                                <a href="#" title="Tổ yến thô">Tổ yến thô</a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                    <li><a href="#" title="Tổ yến thô loại 1">Tổ yến thô loại 1</a>
-                                                    </li>
-                                                    <li><a href="#" title="Tổ yến thô loại 2">Tổ yến thô loại 2</a>
-                                                    </li>
-                                                    <li><a href="#" title="Tổ yến thô loại 3">Tổ yến thô loại 3</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
+                            <ul class="sudes-main-cate">
+                                <li class="sudes-main-cate-has-child menu-item-count ">
+                                    <a href="#" title="Sản Phẩm 1">
+                                        <img class="lazyload" src="/images/index-cate/index-cate-icon-2.png"
+                                            data-src="/images/index-cate/index-cate-icon-2.png" alt="Tổ yến" />
+                                        Sản Phẩm 1
+                                    </a>
+                                    <i class="open_mnu down_icon"></i>
+                                    <ul class="menu-child sub-menu sudes-sub-mega-menu">
 
-                                            <!-- Tổ yến làm sạch -->
-                                            <li class="sudes-main-cate-has-child clearfix">
-                                                <a href="#" title="Tổ yến làm sạch">Tổ yến làm sạch</a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                    <li><a href="#" title="Tổ yến làm sạch thường">Tổ yến làm sạch
-                                                            thường</a></li>
-                                                    <li><a href="#" title="Tổ yến làm sạch cao cấp">Tổ yến làm sạch
-                                                            cao cấp</a></li>
-                                                    <li><a href="#" title="Tổ yến làm sạch đặc biệt">Tổ yến làm sạch
-                                                            đặc biệt</a></li>
-                                                </ul>
-                                            </li>
+                                        <li class="sudes-main-cate-has-child clearfix">
+                                            <a href="#" title="Loại 1">Loại 1</a>
+                                            <i class="open_mnu down_icon"></i>
+                                            <ul class="menu-child menu-child-2 sub-menu clearfix">
+                                                <li><a href="#" title="Kiểu 1">Kiểu 1</a>
+                                                </li>
+                                                <li><a href="#" title="Kiểu 2">Kiểu 2</a>
+                                                </li>
+                                                <li><a href="#" title="Kiểu 3">Kiểu 3</a>
+                                                </li>
+                                            </ul>
+                                        </li>
 
-                                            <!-- Tổ yến tinh chế -->
-                                            <li class="sudes-main-cate-has-child clearfix">
-                                                <a href="#" title="Tổ yến tinh chế">Tổ yến tinh chế</a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                    <li><a href="#" title="Tổ yến tinh chế loại 1">Tổ yến tinh chế
-                                                            loại 1</a></li>
-                                                    <li><a href="#" title="Tổ yến tinh chế loại 2">Tổ yến tinh chế
-                                                            loại 2</a></li>
-                                                    <li><a href="#" title="Tổ yến tinh chế cao cấp">Tổ yến tinh chế
-                                                            cao cấp</a></li>
-                                                </ul>
-                                            </li>
+                                        <li class="sudes-main-cate-has-child clearfix">
+                                            <a href="#" title="Loại 2">Loại 2</a>
+                                            <i class="open_mnu down_icon"></i>
+                                            <ul class="menu-child menu-child-2 sub-menu clearfix">
+                                                <li><a href="#" title="Kiểu 1">Kiểu 1</a>
+                                                </li>
+                                                <li><a href="#" title="Kiểu 2">Kiểu 2</a>
+                                                </li>
+                                                <li><a href="#" title="Kiểu 3">Kiểu 3</a>
+                                                </li>
+                                            </ul>
+                                        </li>
 
-                                            <!-- Tổ yến cao cấp -->
-                                            <li class="sudes-main-cate-has-child clearfix">
-                                                <a href="#" title="Tổ yến cao cấp">Tổ yến cao cấp</a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                    <li><a href="#" title="Tổ yến cao cấp có đường">Tổ yến cao cấp
-                                                            có đường</a></li>
-                                                    <li><a href="#" title="Tổ yến cao cấp ít đường">Tổ yến cao cấp
-                                                            ít đường</a></li>
-                                                    <li><a href="#" title="Tổ yến cao cấp không đường">Tổ yến cao
-                                                            cấp không đường</a></li>
-                                                </ul>
-                                            </li>
+                                        <li class="sudes-main-cate-has-child clearfix">
+                                            <a href="#" title="Loại 3">Loại 3</a>
+                                            <i class="open_mnu down_icon"></i>
+                                            <ul class="menu-child menu-child-2 sub-menu clearfix">
+                                                <li><a href="#" title="Kiểu 1">Kiểu 1</a>
+                                                </li>
+                                                <li><a href="#" title="Kiểu 2">Kiểu 2</a>
+                                                </li>
+                                                <li><a href="#" title="Kiểu 3">Kiểu 3</a>
+                                                </li>
+                                            </ul>
+                                        </li>
 
-                                            <!-- Tổ yến rút lông -->
-                                            <li class="sudes-main-cate-has-child clearfix">
-                                                <a href="#" title="Tổ yến rút lông">Tổ yến rút lông</a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                    <li><a href="#" title="Chân yến rút lông">Chân yến rút lông</a>
-                                                    </li>
-                                                    <li><a href="#" title="Hồng yến rút lông">Hồng yến rút lông</a>
-                                                    </li>
-                                                    <li><a href="#" title="Yến huyết rút lông">Yến huyết rút
-                                                            lông</a></li>
-                                                </ul>
-                                            </li>
+                                        <li class="sudes-main-cate-has-child clearfix">
+                                            <a href="#" title="Loại 4">Loại 4</a>
+                                            <i class="open_mnu down_icon"></i>
+                                            <ul class="menu-child menu-child-2 sub-menu clearfix">
+                                                <li><a href="#" title="Kiểu 1">Kiểu 1</a>
+                                                </li>
+                                                <li><a href="#" title="Kiểu 2">Kiểu 2</a>
+                                                </li>
+                                                <li><a href="#" title="Kiểu 3">Kiểu 3</a>
+                                                </li>
+                                            </ul>
+                                        </li>
 
-                                            <!-- Yến vụn -->
-                                            <li class="sudes-main-cate-has-child clearfix">
-                                                <a href="#" title="Yến vụn">Yến vụn</a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                    <li><a href="#" title="Yến vụn baby">Yến vụn baby</a></li>
-                                                    <li><a href="#" title="Yến vụn tinh chế">Yến vụn tinh chế</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                        <li class="sudes-main-cate-has-child clearfix">
+                                            <a href="#" title="Loại 5">Loại 5</a>
+                                            <i class="open_mnu down_icon"></i>
+                                            <ul class="menu-child menu-child-2 sub-menu clearfix">
+                                                <li><a href="#" title="Kiểu 1">Kiểu 1</a>
+                                                </li>
+                                                <li><a href="#" title="Kiểu 2">Kiểu 2</a>
+                                                </li>
+                                                <li><a href="#" title="Kiểu 3">Kiểu 3</a>
+                                                </li>
+                                            </ul>
+                                        </li>
 
-                                    <li class="sudes-main-cate-has-child menu-item-count">
-                                        <a href="#" title="Yến chưng tươi">
-                                            <img class="lazyload" src="/images/index-cate/index-cate-icon-2.png"
-                                                data-src="/images/index-cate/index-cate-icon-2.png" alt="Yến chưng tươi" />
-                                            Yến chưng tươi
-                                        </a>
-                                        <i class="open_mnu down_icon"></i>
-                                        <ul class="menu-child sub-menu sudes-sub-mega-menu">
-                                            <li>
-                                                <a href="#" title="Yến chưng dinh dưỡng">Yến chưng dinh dưỡng</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="Yến hũ chưng sẵn cho bé">Yến hũ chưng sẵn cho
-                                                    bé</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="Yến hũ chưng không đường">Yến hũ chưng không
-                                                    đường</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="Yến hũ chưng ít đường">Yến hũ chưng ít đường</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="Yến chưng hạt sen">Yến chưng hạt sen</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                        <li class="sudes-main-cate-has-child clearfix">
+                                            <a href="#" title="Loại 6">Loại 6</a>
+                                            <i class="open_mnu down_icon"></i>
+                                            <ul class="menu-child menu-child-2 sub-menu clearfix">
+                                                <li><a href="#" title="Kiểu 1">Kiểu 1</a>
+                                                </li>
+                                                <li><a href="#" title="Kiểu 2">Kiểu 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
 
-                                    <li class="sudes-main-cate-has-child menu-item-count">
-                                        <a href="#" title="Yến nước">
-                                            <img class="lazyload" src="/images/index-cate/index-cate-icon-3.png"
-                                                data-src="/images/index-cate/index-cate-icon-3.png" alt="Yến nước" />
-                                            Yến nước
-                                        </a>
-                                        <i class="open_mnu down_icon"></i>
-                                        <ul class="menu-child sub-menu sudes-sub-mega-menu">
-                                            <li><a href="#" title="Yến nước chưng đường phèn">Yến nước chưng đường
-                                                    phèn</a></li>
-                                            <li><a href="#" title="Yến nước kỳ tử">Yến nước kỳ tử</a></li>
-                                            <li><a href="#" title="Yến nước đường ăn kiêng">Yến nước đường ăn
-                                                    kiêng</a></li>
-                                            <li><a href="#" title="Yến nước nha đam hạt chia">Yến nước nha đam hạt
-                                                    chia</a></li>
-                                        </ul>
-                                    </li>
+                                <li class="sudes-main-cate-has-child menu-item-count">
+                                    <a href="#" title="Yến chưng tươi">
+                                        <img class="lazyload" src="/images/index-cate/index-cate-icon-2.png"
+                                            data-src="/images/index-cate/index-cate-icon-2.png" alt="Sản Phẩm 2" />
+                                        Sản Phẩm 2
+                                    </a>
+                                    <i class="open_mnu down_icon"></i>
+                                    <ul class="menu-child sub-menu sudes-sub-mega-menu">
+                                        <li>
+                                            <a href="#" title="Loại 1">Loại 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="Loại 2">Loại 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="Loại 3">Loại 3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="Loại 4">Loại 4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="Loại 5">Loại 5</a>
+                                        </li>
+                                    </ul>
+                                </li>
 
-                                    <li class="sudes-main-cate-has-child menu-item-count">
-                                        <a href="#" title="Đông trùng hạ thảo">
-                                            <img class="lazyload" src="/images/index-cate/index-cate-icon-4.png"
-                                                data-src="/images/index-cate/index-cate-icon-4.png" alt="Đông trùng hạ thảo" />
-                                            Đông trùng hạ thảo
-                                        </a>
-                                        <i class="open_mnu down_icon"></i>
-                                        <ul class="menu-child sub-menu sudes-sub-mega-menu">
-                                            <li><a href="#" title="Nấm đông trùng hạ thảo tươi">Nấm đông trùng hạ
-                                                    thảo tươi</a></li>
-                                            <li><a href="#" title="Nấm đông trùng hạ thảo khô">Nấm đông trùng hạ
-                                                    thảo khô</a></li>
-                                            <li><a href="#" title="Viên đông trùng hạ thảo">Viên đông trùng hạ
-                                                    thảo</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="sudes-main-cate-has-child menu-item-count">
-                                        <a href="#" title="Sâm Hàn Quốc">
-                                            <img class="lazyload" src="/images/index-cate/index-cate-icon-5.png"
-                                                data-src="/images/index-cate/index-cate-icon-5.png" alt="Sâm Hàn Quốc" />
-                                            Sâm Hàn Quốc
-                                        </a>
-                                        <i class="open_mnu down_icon"></i>
-                                        <ul class="menu-child sub-menu sudes-sub-mega-menu">
-                                            <li class="sudes-main-cate-has-child clearfix">
-                                                <a href="#" title="Hồng sâm">Hồng sâm</a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                    <li><a href="#" title="Kẹo hồng sâm">Kẹo hồng sâm</a></li>
-                                                    <li><a href="#" title="Trà hồng sâm">Trà hồng sâm</a></li>
-                                                    <li><a href="#" title="Cao hồng sâm">Cao hồng sâm</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="sudes-main-cate-has-child clearfix">
-                                                <a href="#" title="Thiên sâm">Thiên sâm</a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                    <li><a href="#" title="Thiên sâm premium">Thiên sâm premium</a>
-                                                    </li>
-                                                    <li><a href="#" title="Thiên sâm đông trùng">Thiên sâm đông
-                                                            trùng</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="sudes-main-cate-has-child clearfix">
-                                                <a href="#" title="Hắc sâm">Hắc sâm</a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                    <li><a href="#" title="Kẹo hắc sâm">Kẹo hắc sâm</a></li>
-                                                    <li><a href="#" title="Nước hắc sâm">Nước hắc sâm</a></li>
-                                                    <li><a href="#" title="Cao hắc sâm">Cao hắc sâm</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="sudes-main-cate-has-child clearfix">
-                                                <a href="#" title="Sâm tươi">Sâm tươi</a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                    <li><a href="#" title="Sâm củ tươi">Sâm củ tươi</a></li>
-                                                    <li><a href="#" title="Bình sâm tươi ngâm sẵn">Bình sâm tươi
-                                                            ngâm sẵn</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="sudes-main-cate-has-child menu-item-count">
-                                        <a href="#" title="Saffron">
-                                            <img class="lazyload" src="/images/index-cate/index-cate-icon-6.png"
-                                                data-src="/images/index-cate/index-cate-icon-6.png" alt="Saffron" />
-                                            Saffron
-                                        </a>
-                                        <i class="open_mnu down_icon"></i>
-                                        <ul class="menu-child sub-menu sudes-sub-mega-menu">
-                                            <li><a href="#" title="Saffron Tây Á">Saffron Tây Á</a></li>
-                                            <li><a href="#" title="Set quà tặng Saffron">Set quà tặng Saffron</a>
-                                            </li>
-                                            <li><a href="#" title="Mật ong Saffron">Mật ong Saffron</a></li>
-                                            <li><a href="#" title="Mỹ phẩm Saffron">Mỹ phẩm Saffron</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="sudes-main-cate-has-child menu-item-count">
-                                        <a href="#" title="Soup">
-                                            <img class="lazyload" src="/images/index-cate/index-cate-icon-7.png"
-                                                data-src="/images/index-cate/index-cate-icon-7.png" alt="Soup" />
-                                            Soup
-                                        </a>
-                                        <i class="open_mnu down_icon"></i>
-                                        <ul class="menu-child sub-menu sudes-sub-mega-menu">
-                                            <li><a href="#" title="Soup Vi cá - bào ngư - tổ yến">Soup Vi cá - bào
-                                                    ngư - tổ yến</a></li>
-                                            <li><a href="#" title="Soup Vi cá - bào ngư">Soup Vi cá - bào ngư</a>
-                                            </li>
-                                            <li><a href="#" title="Bát Trân Ngư Xí Ngự Thiện">Bát Trân Ngư Xí Ngự
-                                                    Thiện</a></li>
-                                            <li><a href="#" title="Bát Trân Uy Uy Ngự Thiện">Bát Trân Uy Uy Ngự
-                                                    Thiện</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="menu-item-count">
-                                        <a href="#" title="Quà biếu cao cấp">
-                                            <img class="lazyload" src="/images/index-cate/index-cate-icon-8.png"
-                                                data-src="/images/index-cate/index-cate-icon-8.png" alt="Quà biếu cao cấp" />
-                                            Quà biếu cao cấp
-                                        </a>
-                                    </li>
-                                </ul>
+                                <li class="menu-item-count">
+                                    <a href="#" title="Quà biếu cao cấp">
+                                        <img class="lazyload" src="/images/index-cate/index-cate-icon-2.png"
+                                            data-src="/images/index-cate/index-cate-icon-2.png" alt="Sản Phẩm 3" />
+                                        Sản Phẩm 3
+                                    </a>
+                                </li>
+                            </ul>
                             {{-- </script> --}}
                         </div>
                         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -581,13 +456,13 @@
                         <div class="col-menu has-promo-btn">
                             <ul id="nav" class="nav">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#" title="Trang chủ">Trang chủ</a>
+                                    <a class="nav-link" href="{{ route('home') }}" title="Trang chủ">Trang chủ</a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="#" title="Giới thiệu">Giới thiệu</a>
+                                    <a class="nav-link" href="{{ route('about') }}" title="Giới thiệu">Giới thiệu</a>
                                 </li>
                                 <li class="nav-item has-childs " data-section="header_nav">
-                                    <a href="#" class="nav-link" title="Sản phẩm">Sản phẩm
+                                    <a href="{{ route('product') }}" class="nav-link" title="Sản phẩm">Sản phẩm
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd"
@@ -598,7 +473,7 @@
                                     {{-- <script type="text/x-custom-template" data-template="header_nav"> --}}
                                         <ul class="dropdown-menu">
                                             <li class="dropdown-submenu nav-item-lv2 has-childs2">
-                                                <a class="nav-link" href="#" title="Tổ yến">Tổ yến <svg
+                                                <a class="nav-link" href="#" title="Sản Phẩm 1">Sản Phẩm 1<svg
                                                         width="8" height="17" viewBox="0 0 8 17" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path
@@ -607,33 +482,29 @@
                                                     </svg></a>
                                                 <i class="open_mnu down_icon"></i>
                                                 <ul class="dropdown-menu">
-                                                    <li class="nav-item-lv3"><a class="nav-link" href="#"
-                                                            title="Tổ yến thô">Tổ yến thô</a></li>
                                                     <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Tổ yến làm sạch">Tổ yến
-                                                            làm sạch</a>
+                                                        <a class="nav-link" href="#" title="Loại 1">Loại 1</a>
                                                     </li>
                                                     <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Tổ yến tinh chế">Tổ yến
-                                                            tinh chế</a>
+                                                        <a class="nav-link" href="#" title="Loại 2">Loại 2</a>
                                                     </li>
                                                     <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Tổ yến cao cấp">Tổ yến
-                                                            cao cấp</a>
+                                                        <a class="nav-link" href="#" title="Loại 3">Loại 3</a>
                                                     </li>
                                                     <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Tổ yến rút lông">Tổ yến
-                                                            rút lông</a>
+                                                        <a class="nav-link" href="#" title="Loại 4">Loại 4</a>
                                                     </li>
                                                     <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Yến vụn">Yến vụn</a>
+                                                        <a class="nav-link" href="#" title="Loại 5">Loại 5</a>
+                                                    </li>
+                                                    <li class="nav-item-lv3">
+                                                        <a class="nav-link" href="#" title="Loại 6">Loại 6</a>
                                                     </li>
                                                 </ul>
                                             </li>
 
                                             <li class="dropdown-submenu nav-item-lv2 has-childs2">
-                                                <a class="nav-link" href="#" title="Yến chưng tươi">Yến
-                                                    chưng tươi <svg width="8" height="17" viewBox="0 0 8 17"
+                                                <a class="nav-link" href="#" title="Sản Phẩm 2">Sản Phẩm 2<svg width="8" height="17" viewBox="0 0 8 17"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M7.13382 7.1278L7.13379 7.12777L0.512271 0.509686L0.795057 0.226752L0.51227 0.509685C0.512123 0.509538 0.51201 0.509431 0.511927 0.509356L7.13382 7.1278ZM7.13382 7.1278C7.62239 7.61603 7.622 8.40641 7.13301 8.89414L7.13298 8.89417L0.502368 15.5089C0.50222 15.509 0.502106 15.5091 0.502022 15.5092C0.501841 15.5092 0.501547 15.5093 0.501149 15.5093C0.500827 15.5093 0.500574 15.5093 0.500392 15.5092L7.13055 8.89499C7.13056 8.89498 7.13057 8.89497 7.13058 8.89495C7.61976 8.407 7.62011 7.61541 7.13138 7.12699L7.13382 7.1278Z">
@@ -643,172 +514,29 @@
                                                 <ul class="dropdown-menu">
                                                     <li class="nav-item-lv3">
                                                         <a class="nav-link" href="#"
-                                                            title="Yến chưng dinh dưỡng">Yến chưng dinh dưỡng</a>
+                                                            title="Sản Phẩm 2 - Loại 1">Sản Phẩm 2 - Loại 1</a>
                                                     </li>
                                                     <li class="nav-item-lv3">
                                                         <a class="nav-link" href="#"
-                                                            title="Yến hũ chưng sẵn cho bé">Yến hũ chưng sẵn cho bé</a>
+                                                            title="Sản Phẩm 2 - Loại 2">Sản Phẩm 2 - Loại 2</a>
                                                     </li>
                                                     <li class="nav-item-lv3">
                                                         <a class="nav-link" href="#"
-                                                            title="Yến hũ chưng không đường">Yến hũ chưng không đường</a>
+                                                            title="Sản Phẩm 2 - Loại 3">Sản Phẩm 2 - Loại 3</a>
                                                     </li>
                                                     <li class="nav-item-lv3">
                                                         <a class="nav-link" href="#"
-                                                            title="Yến hũ chưng ít đường">Yến hũ chưng ít đường</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Yến chưng hạt sen">Yến
-                                                            chưng hạt sen</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-
-                                            <li class="dropdown-submenu nav-item-lv2 has-childs2">
-                                                <a class="nav-link" href="#" title="Yến nước">Yến nước <svg
-                                                        width="8" height="17" viewBox="0 0 8 17" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M7.13382 7.1278L7.13379 7.12777L0.512271 0.509686L0.795057 0.226752L0.51227 0.509685C0.512123 0.509538 0.51201 0.509431 0.511927 0.509356L7.13382 7.1278ZM7.13382 7.1278C7.62239 7.61603 7.622 8.40641 7.13301 8.89414L7.13298 8.89417L0.502368 15.5089C0.50222 15.509 0.502106 15.5091 0.502022 15.5092C0.501841 15.5092 0.501547 15.5093 0.501149 15.5093C0.500827 15.5093 0.500574 15.5093 0.500392 15.5092L7.13055 8.89499C7.13056 8.89498 7.13057 8.89497 7.13058 8.89495C7.61976 8.407 7.62011 7.61541 7.13138 7.12699L7.13382 7.1278Z">
-                                                        </path>
-                                                    </svg></a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="dropdown-menu">
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#"
-                                                            title="Yến nước chưng đường phèn">Yến nước chưng đường phèn</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Yến nước kỳ tử">Yến
-                                                            nước kỳ tử</a>
+                                                            title="Sản Phẩm 2 - Loại 4">Sản Phẩm 2 - Loại 4</a>
                                                     </li>
                                                     <li class="nav-item-lv3">
                                                         <a class="nav-link" href="#"
-                                                            title="Yến nước đường ăn kiêng">Yến nước đường ăn kiêng</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#"
-                                                            title="Yến nước nha đam hạt chia">Yến nước nha đam hạt chia</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-
-                                            <li class="dropdown-submenu nav-item-lv2 has-childs2">
-                                                <a class="nav-link" href="#" title="Đông trùng hạ thảo">Đông trùng
-                                                    hạ thảo <svg width="8" height="17" viewBox="0 0 8 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M7.13382 7.1278L7.13379 7.12777L0.512271 0.509686L0.795057 0.226752L0.51227 0.509685C0.512123 0.509538 0.51201 0.509431 0.511927 0.509356L7.13382 7.1278ZM7.13382 7.1278C7.62239 7.61603 7.622 8.40641 7.13301 8.89414L7.13298 8.89417L0.502368 15.5089C0.50222 15.509 0.502106 15.5091 0.502022 15.5092C0.501841 15.5092 0.501547 15.5093 0.501149 15.5093C0.500827 15.5093 0.500574 15.5093 0.500392 15.5092L7.13055 8.89499C7.13056 8.89498 7.13057 8.89497 7.13058 8.89495C7.61976 8.407 7.62011 7.61541 7.13138 7.12699L7.13382 7.1278Z">
-                                                        </path>
-                                                    </svg></a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="dropdown-menu">
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#"
-                                                            title="Nấm đông trùng hạ thảo tươi">Nấm đông trùng hạ thảo
-                                                            tươi</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#"
-                                                            title="Nấm đông trùng hạ thảo khô">Nấm đông trùng hạ thảo
-                                                            khô</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#"
-                                                            title="Viên đông trùng hạ thảo">Viên đông trùng hạ thảo</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-
-                                            <li class="dropdown-submenu nav-item-lv2 has-childs2">
-                                                <a class="nav-link" href="#" title="Sâm Hàn Quốc">Sâm Hàn
-                                                    Quốc <svg width="8" height="17" viewBox="0 0 8 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M7.13382 7.1278L7.13379 7.12777L0.512271 0.509686L0.795057 0.226752L0.51227 0.509685C0.512123 0.509538 0.51201 0.509431 0.511927 0.509356L7.13382 7.1278ZM7.13382 7.1278C7.62239 7.61603 7.622 8.40641 7.13301 8.89414L7.13298 8.89417L0.502368 15.5089C0.50222 15.509 0.502106 15.5091 0.502022 15.5092C0.501841 15.5092 0.501547 15.5093 0.501149 15.5093C0.500827 15.5093 0.500574 15.5093 0.500392 15.5092L7.13055 8.89499C7.13056 8.89498 7.13057 8.89497 7.13058 8.89495C7.61976 8.407 7.62011 7.61541 7.13138 7.12699L7.13382 7.1278Z">
-                                                        </path>
-                                                    </svg></a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="dropdown-menu">
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Hồng sâm">Hồng
-                                                            sâm</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Thiên sâm">Thiên
-                                                            sâm</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Hắc sâm">Hắc sâm</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Sâm tươi">Sâm
-                                                            tươi</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-
-                                            <li class="dropdown-submenu nav-item-lv2 has-childs2">
-                                                <a class="nav-link" href="#" title="Saffron">Saffron <svg
-                                                        width="8" height="17" viewBox="0 0 8 17" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M7.13382 7.1278L7.13379 7.12777L0.512271 0.509686L0.795057 0.226752L0.51227 0.509685C0.512123 0.509538 0.51201 0.509431 0.511927 0.509356L7.13382 7.1278ZM7.13382 7.1278C7.62239 7.61603 7.622 8.40641 7.13301 8.89414L7.13298 8.89417L0.502368 15.5089C0.50222 15.509 0.502106 15.5091 0.502022 15.5092C0.501841 15.5092 0.501547 15.5093 0.501149 15.5093C0.500827 15.5093 0.500574 15.5093 0.500392 15.5092L7.13055 8.89499C7.13056 8.89498 7.13057 8.89497 7.13058 8.89495C7.61976 8.407 7.62011 7.61541 7.13138 7.12699L7.13382 7.1278Z">
-                                                        </path>
-                                                    </svg></a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="dropdown-menu">
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Saffron Tây Á">Saffron
-                                                            Tây Á</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#"
-                                                            title="Set quà tặng Saffron">Set quà tặng Saffron</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Mật ong Saffron">Mật
-                                                            ong Saffron</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Mỹ phẩm Saffron">Mỹ
-                                                            phẩm Saffron</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-
-                                            <li class="dropdown-submenu nav-item-lv2 has-childs2">
-                                                <a class="nav-link" href="/" title="Soup">Soup <svg
-                                                        width="8" height="17" viewBox="0 0 8 17" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M7.13382 7.1278L7.13379 7.12777L0.512271 0.509686L0.795057 0.226752L0.51227 0.509685C0.512123 0.509538 0.51201 0.509431 0.511927 0.509356L7.13382 7.1278ZM7.13382 7.1278C7.62239 7.61603 7.622 8.40641 7.13301 8.89414L7.13298 8.89417L0.502368 15.5089C0.50222 15.509 0.502106 15.5091 0.502022 15.5092C0.501841 15.5092 0.501547 15.5093 0.501149 15.5093C0.500827 15.5093 0.500574 15.5093 0.500392 15.5092L7.13055 8.89499C7.13056 8.89498 7.13057 8.89497 7.13058 8.89495C7.61976 8.407 7.62011 7.61541 7.13138 7.12699L7.13382 7.1278Z">
-                                                        </path>
-                                                    </svg></a>
-                                                <i class="open_mnu down_icon"></i>
-                                                <ul class="dropdown-menu">
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="/"
-                                                            title="Soup Vi cá - bào ngư - tổ yến">Soup Vi cá - bào ngư - tổ
-                                                            yến</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="/"
-                                                            title="Soup Vi cá - bào ngư">Soup Vi cá - bào ngư</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="/"
-                                                            title="Bát Trân Ngư Xí Ngự Thiện">Bát Trân Ngư Xí Ngự Thiện</a>
-                                                    </li>
-                                                    <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="/"
-                                                            title="Bát Trân Uy Uy Ngự Thiện">Bát Trân Uy Uy Ngự Thiện</a>
+                                                            title="Sản Phẩm 2 - Loại 5">Sản Phẩm 2 - Loại 5</a>
                                                     </li>
                                                 </ul>
                                             </li>
 
                                             <li class="nav-item-lv2">
-                                                <a class="nav-link" href="/" title="Quà biếu cao cấp">Quà
+                                                <a class="nav-link" href="#" title="Quà biếu cao cấp">Quà
                                                     biếu cao cấp</a>
                                             </li>
                                         </ul>
@@ -827,10 +555,10 @@
                                     {{-- <script type="text/x-custom-template" data-template="header_nav"> --}}
                                         <ul class="dropdown-menu">
                                             <li class="nav-item-lv2">
-                                                <a class="nav-link" href="/" title="Kiến thức">Kiến thức</a>
+                                                <a class="nav-link" href="#" title="Kiến thức">Kiến thức</a>
                                             </li>
                                             <li class="nav-item-lv2">
-                                                <a class="nav-link" href="/" title="Kinh nghiệm">Kinh
+                                                <a class="nav-link" href="#" title="Kinh nghiệm">Kinh
                                                     nghiệm</a>
                                             </li>
                                         </ul>
@@ -849,27 +577,27 @@
                                     {{-- <script type="text/x-custom-template" data-template="header_nav"> --}}
                                         <ul class="dropdown-menu">
                                             <li class="nav-item-lv2">
-                                                <a class="nav-link" href="/" title="Chính sách mua hàng">Chính sách
+                                                <a class="nav-link" href="#" title="Chính sách mua hàng">Chính sách
                                                     mua hàng</a>
                                             </li>
                                             <li class="nav-item-lv2">
-                                                <a class="nav-link" href="/" title="Chính sách thanh toán">Chính
+                                                <a class="nav-link" href="#" title="Chính sách thanh toán">Chính
                                                     sách thanh toán</a>
                                             </li>
                                             <li class="nav-item-lv2">
-                                                <a class="nav-link" href="/" title="Chính sách vận chuyển">Chính
+                                                <a class="nav-link" href="#" title="Chính sách vận chuyển">Chính
                                                     sách vận chuyển</a>
                                             </li>
                                             <li class="nav-item-lv2">
-                                                <a class="nav-link" href="/" title="Cam kết cửa hàng">Cam
+                                                <a class="nav-link" href="#" title="Cam kết cửa hàng">Cam
                                                     kết cửa hàng</a>
                                             </li>
                                             <li class="nav-item-lv2">
-                                                <a class="nav-link" href="/" title="Chính sách bảo mật">Chính sách
+                                                <a class="nav-link" href="#" title="Chính sách bảo mật">Chính sách
                                                     bảo mật</a>
                                             </li>
                                             <li class="nav-item-lv2">
-                                                <a class="nav-link" href="/" title="Chính sách thành viên">Chính
+                                                <a class="nav-link" href="#" title="Chính sách thành viên">Chính
                                                     sách thành viên</a>
                                             </li>
                                         </ul>
@@ -1041,3 +769,4 @@
 
     document.addEventListener('DOMContentLoaded', initializeTabs);
 </script>
+

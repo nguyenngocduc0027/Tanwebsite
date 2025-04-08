@@ -3,13 +3,13 @@
         <div class="container">
             <div class="section-title">
                 <span class="sub-title">
-                    Yến sào Sudes Nest
+                    XÃ HỘI VẠN THIỆN
                 </span>
                 <h2>
                     Khách hàng nói về chúng tôi
                 </h2>
                 <div class="desc">
-                    Hơn +50,000 khách hàng đã sử dụng cảm nhận như thế nào về Sudes Nest
+                    Hơn +5,000 khách hàng đã sử dụng cảm nhận như thế nào về sản phẩm và dịch vụ của Xã Hội Vạn Thiện?
                 </div>
                 <div class="title-separator">
                     <div class="separator-center"></div>
@@ -25,13 +25,10 @@
                             </div>
                             <div class="feedback-item">
                                 <div class="block-content">
-                                    <b>Ngọc Vy</b>
+                                    <b>Khách hàng số {{$i}}</b>
                                     <span>Kế toán</span>
                                     <div class="feedback-content">
-                                        "Tôi đã lựa chọn Sudes Nest để dành tặng cho người yêu của mình những món quà
-                                        thật ý nghĩa. Tôi rất hài lòng với dịch vụ chuyên nghiệp, chất lượng sản phẩm
-                                        cũng như sự tận tình của Sudes Nest. Chắc chắn rằng tôi sẽ quay lại nhiều lần
-                                        nữa."
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, atque omnis distinctio iure dignissimos quam nisi ad cum id eveniet tenetur ea provident, sunt dolorem quos eum hic praesentium eos!
                                     </div>
                                 </div>
                             </div>

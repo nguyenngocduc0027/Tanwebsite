@@ -2,7 +2,7 @@
     <div class="container">
         <div class="section-title">
             <span class="sub-title">
-                Yến sào Sudes Nest
+                Xã Hội Vạn Thiện
             </span>
             <h2>
                 Mã giảm giá dành cho bạn
@@ -21,10 +21,10 @@
                                 <img width="88" height="88" class="lazyload"
                                     src="/images/coupon/img_coupon_1.jpg"
                                     data-src="/images/coupon/img_coupon_1.jpg"
-                                    alt="NEST200">
+                                    alt="COUPON200">
                             </div>
                             <div class="content_wrap">
-                                <a title="Chi tiết" href="javascript:void(0)" class="info-button" data-coupon="NEST20{{$i}}"
+                                <a title="Chi tiết" href="javascript:void(0)" class="info-button" data-coupon="COUPON20{{$i}}"
                                     data-time="1{{$i}}/12/2025"
                                     data-content="Áp dụng cho đơn hàng từ <b>{{$i}}</b> trở lên. Không đi kèm với chương trình khác">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
@@ -34,12 +34,12 @@
                                     </svg>
                                 </a>
                                 <div class="content-top">
-                                    NEST20{{$i}}
+                                    COUPON20{{$i}}
                                     <span class="line-clamp line-clamp-2">Giảm 20{{$i}}k giá trị đơn hàng</span>
                                 </div>
                                 <div class="content-bottom">
                                     <span>HSD: 1{{$i}}/12/2025</span>
-                                    <div class="coupon-code js-copy" data-copy="NEST200" title="Sao chép">Copy mã</div>
+                                    <div class="coupon-code js-copy" data-copy="COUPON20{{$i}}" title="Sao chép">Copy mã</div>
                                 </div>
                             </div>
                         </div>

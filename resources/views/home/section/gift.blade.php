@@ -17,16 +17,16 @@
         <div class="row load-after" data-section="section_4_banner">
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <div class="three_banner">
-                    <a class="duration-300" href="#" title="Bộ quà 4 mùa">
+                    <a class="duration-300" href="#" title="SET Sản Phẩm 1">
                         <picture>
                             <source media="(max-width: 480px)" srcset="/images/img_banner/img_4banner_1.jpg" />
                             <img width="382" height="574" loading="lazy" class="lazyload duration-300"
                                 src="/images/img_banner/img_4banner_1.jpg"
-                                data-src="/images/img_banner/img_4banner_1.jpg" alt="Bộ quà 4 mùa" />
+                                data-src="/images/img_banner/img_4banner_1.jpg" alt="SET Sản Phẩm 1" />
                         </picture>
                         <div class="banner-info duration-300">
                             <h3>
-                                Bộ quà 4 mùa
+                                SET Sản Phẩm 1
                             </h3>
                             <span>
                                 Giá chỉ từ 499k
@@ -40,19 +40,19 @@
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <div class="three_banner">
-                    <a class="duration-300" href="#" title="Bộ quà Lộc Phát">
+                    <a class="duration-300" href="#" title="SET Sản Phẩm 1">
                         <picture>
-                            <source media="(max-width: 480px)" srcset="/images/img_banner/img_4banner_2.jpg" />
+                            <source media="(max-width: 480px)" srcset="/images/img_banner/img_4banner_1.jpg" />
                             <img width="382" height="574" loading="lazy" class="lazyload duration-300"
-                                src="/images/img_banner/img_4banner_2.jpg"
-                                data-src="/images/img_banner/img_4banner_2.jpg" alt="Bộ quà Lộc Phát" />
+                                src="/images/img_banner/img_4banner_1.jpg"
+                                data-src="/images/img_banner/img_4banner_1.jpg" alt="SET Sản Phẩm 1" />
                         </picture>
                         <div class="banner-info duration-300">
                             <h3>
-                                Bộ quà Lộc Phát
+                                SET Sản Phẩm 1
                             </h3>
                             <span>
-                                Giá chỉ từ 599k
+                                Giá chỉ từ 499k
                             </span>
                             <div class="btn">
                                 Xem ngay »
@@ -63,19 +63,19 @@
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <div class="three_banner">
-                    <a class="duration-300" href="#" title="Bộ quà Thịnh Vượng">
+                    <a class="duration-300" href="#" title="SET Sản Phẩm 1">
                         <picture>
-                            <source media="(max-width: 480px)" srcset="/images/img_banner/img_4banner_3.jpg" />
+                            <source media="(max-width: 480px)" srcset="/images/img_banner/img_4banner_1.jpg" />
                             <img width="382" height="574" loading="lazy" class="lazyload duration-300"
-                                src="/images/img_banner/img_4banner_3.jpg"
-                                data-src="/images/img_banner/img_4banner_3.jpg" alt="Bộ quà Thịnh Vượng" />
+                                src="/images/img_banner/img_4banner_1.jpg"
+                                data-src="/images/img_banner/img_4banner_1.jpg" alt="SET Sản Phẩm 1" />
                         </picture>
                         <div class="banner-info duration-300">
                             <h3>
-                                Bộ quà Thịnh Vượng
+                                SET Sản Phẩm 1
                             </h3>
                             <span>
-                                Giá chỉ từ 799k
+                                Giá chỉ từ 499k
                             </span>
                             <div class="btn">
                                 Xem ngay »
@@ -86,19 +86,19 @@
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <div class="three_banner">
-                    <a class="duration-300" href="#" title="Bộ quà Tài lộc">
+                    <a class="duration-300" href="#" title="SET Sản Phẩm 1">
                         <picture>
-                            <source media="(max-width: 480px)" srcset="/images/img_banner/img_4banner_4.jpg" />
+                            <source media="(max-width: 480px)" srcset="/images/img_banner/img_4banner_1.jpg" />
                             <img width="382" height="574" loading="lazy" class="lazyload duration-300"
-                                src="/images/img_banner/img_4banner_4.jpg"
-                                data-src="/images/img_banner/img_4banner_4.jpg" alt="Bộ quà Tài lộc" />
+                                src="/images/img_banner/img_4banner_1.jpg"
+                                data-src="/images/img_banner/img_4banner_1.jpg" alt="SET Sản Phẩm 1" />
                         </picture>
                         <div class="banner-info duration-300">
                             <h3>
-                                Bộ quà Tài lộc
+                                SET Sản Phẩm 1
                             </h3>
                             <span>
-                                Giá chỉ từ 999k
+                                Giá chỉ từ 499k
                             </span>
                             <div class="btn">
                                 Xem ngay »

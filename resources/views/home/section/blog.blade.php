@@ -2,11 +2,11 @@
     <div class="container">
         <div class="section-title">
             <span class="sub-title">
-                Yến sào Sudes Nest
+                Xã Hội Vạn Thiện
             </span>
             <h2>
                 <a href="#" title="Tin tức - Tư vấn từ Sudes Nest">
-                    Tin tức - Tư vấn từ Sudes Nest
+                    Tin tức - Sự Kiện - Tư vấn
                 </a>
             </h2>
             <div class="title-separator">
@@ -17,21 +17,19 @@
         <div class="content-group3 row">
             <div class="col-lg-4 col-md-12 big-news">
                 <a href="#"
-                    title="1 tai yến chưng bao nhi&#234;u nước? C&#225;ch chưng 1 tai yến kh&#244;ng bị mất chất"
+                    title="Thông tin về blog số 1"
                     class="news-top_item_img clearfix">
                     <div class="grow-0">
                         <div class="item-img">
                             <img src="/images/blog/09.jpg" data-src="/images/blog/09.jpg"
-                                alt="1 tai yến chưng bao nhi&#234;u nước? C&#225;ch chưng 1 tai yến kh&#244;ng bị mất chất"
+                                alt="Thông tin về blog số 1"
                                 class="lazyload duration-300" />
                         </div>
                     </div>
                     <div class="item-img-content">
-                        <h3>1 tai yến chưng bao nhiêu nước? Cách chưng 1 tai yến không bị mất chất</h3>
+                        <h3>Đây là tiêu đề thông tin về blog số 1</h3>
                         <div class="content-des d-md-block d-lg-none line-clamp line-clamp-3">
-                            1 tai yến chưng bao nhiêu nước? 1 tai yến ăn được bao nhiêu lần?… là những câu hỏi rất được
-                            quan tâm bởi những người muốn tìm hiểu và sử dụng yến sào. Những câu hỏi này sẽ giúp bạn
-                            dùng yến sào đạt...
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem itaque a, rem omnis hic aut voluptas voluptate illo magni temporibus libero inventore perspiciatis, blanditiis accusantium, natus minima est corrupti sequi.
                         </div>
                         <p class="time-post">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -49,17 +47,17 @@
             </div>
             <div class="col-lg-8 col-md-12 list-news">
                 <div class="swapper-articles">
-                    <a href="#" title="Yến n&#234;n ăn n&#243;ng hay lạnh để c&#243; hiệu quả tốt nhất?"
+                    <a href="#" title="Thông tin về blog số 2"
                         class="news-top_item_img">
                         <div class="grow-0">
                             <div class="item-img">
                                 <img src="/images/blog/09.jpg" data-src="/images/blog/09.jpg"
-                                    alt="Yến n&#234;n ăn n&#243;ng hay lạnh để c&#243; hiệu quả tốt nhất?"
+                                    alt="Thông tin về blog số 2"
                                     class="lazyload duration-300" />
                             </div>
                         </div>
                         <div class="item-img-content">
-                            <h3 class="line-clamp-2-new">Yến nên ăn nóng hay lạnh để có hiệu quả tốt nhất?</h3>
+                            <h3 class="line-clamp-2-new">Đây là tiêu đề thông tin về blog số 2</h3>
                             <p class="time-post">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
@@ -74,17 +72,17 @@
                         </div>
                     </a>
 
-                    <a href="#" title="Gi&#225; tổ yến vụn bao nhi&#234;u lạng? Lưu &#253; khi mua yến vụn"
+                    <a href="#" title="Thông tin về blog số 3"
                         class="news-top_item_img">
                         <div class="grow-0">
                             <div class="item-img">
                                 <img src="/images/blog/09.jpg" data-src="/images/blog/09.jpg"
-                                    alt="Gi&#225; tổ yến vụn bao nhi&#234;u lạng? Lưu &#253; khi mua yến vụn"
+                                    alt="Thông tin về blog số 3"
                                     class="lazyload duration-300" />
                             </div>
                         </div>
                         <div class="item-img-content">
-                            <h3 class="line-clamp-2-new">Giá tổ yến vụn bao nhiêu lạng? Lưu ý khi mua yến vụn</h3>
+                            <h3 class="line-clamp-2-new">Đây là tiêu đề thông tin về blog số 3</h3>
                             <p class="time-post">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
@@ -99,17 +97,17 @@
                         </div>
                     </a>
 
-                    <a href="#" title="Bật M&#237; T&#225;c Dụng Của Yến S&#224;o Đối Với Nam Giới"
+                    <a href="#" title="Thông tin về blog số 4"
                         class="news-top_item_img">
                         <div class="grow-0">
                             <div class="item-img">
                                 <img src="/images/blog/09.jpg" data-src="/images/blog/09.jpg"
-                                    alt="Bật M&#237; T&#225;c Dụng Của Yến S&#224;o Đối Với Nam Giới"
+                                    alt="Thông tin về blog số 4"
                                     class="lazyload duration-300" />
                             </div>
                         </div>
                         <div class="item-img-content">
-                            <h3 class="line-clamp-2-new">Bật Mí Tác Dụng Của Yến Sào Đối Với Nam Giới</h3>
+                            <h3 class="line-clamp-2-new">Đây là tiêu đề thông tin về blog số 4</h3>
                             <p class="time-post">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
@@ -124,17 +122,17 @@
                         </div>
                     </a>
 
-                    <a href="an-yen-nhu-the-nao-la-tot-nhat.html" title="Ăn Yến Như Thế N&#224;o L&#224; Tốt Nhất?"
+                    <a href="#" title="Thông tin về blog số 5"
                         class="news-top_item_img">
                         <div class="grow-0">
                             <div class="item-img">
                                 <img src="/images/blog/09.jpg"
                                     data-src="/images/blog/09.jpg"
-                                    alt="Ăn Yến Như Thế N&#224;o L&#224; Tốt Nhất?" class="lazyload duration-300" />
+                                    alt="Thông tin về blog số 5" class="lazyload duration-300" />
                             </div>
                         </div>
                         <div class="item-img-content">
-                            <h3 class="line-clamp-2-new">Ăn Yến Như Thế Nào Là Tốt Nhất?</h3>
+                            <h3 class="line-clamp-2-new">Đây là tiêu đề thông tin về blog số 5</h3>
                             <p class="time-post">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
@@ -150,18 +148,18 @@
                     </a>
 
                     <a href="#"
-                        title="Ch&#226;n Yến L&#224; G&#236;? Ch&#226;n Yến C&#243; Chất Lượng Kh&#244;ng?"
+                        title="Thông tin về blog số 6"
                         class="news-top_item_img">
                         <div class="grow-0">
                             <div class="item-img">
                                 <img src="/images/blog/09.jpg"
                                     data-src="/images/blog/09.jpg"
-                                    alt="Ch&#226;n Yến L&#224; G&#236;? Ch&#226;n Yến C&#243; Chất Lượng Kh&#244;ng?"
+                                    alt="Thông tin về blog số 6"
                                     class="lazyload duration-300" />
                             </div>
                         </div>
                         <div class="item-img-content">
-                            <h3 class="line-clamp-2-new">Chân Yến Là Gì? Chân Yến Có Chất Lượng Không?</h3>
+                            <h3 class="line-clamp-2-new">Đây là tiêu đề thông tin về blog số 6</h3>
                             <p class="time-post">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
@@ -177,18 +175,18 @@
                     </a>
 
                     <a href="#"
-                        title="Yến S&#224;o Bao Nhi&#234;u Calo? Ăn Yến S&#224;o C&#243; Tăng C&#226;n Kh&#244;ng?"
+                        title="Thông tin về blog số 7"
                         class="news-top_item_img">
                         <div class="grow-0">
                             <div class="item-img">
                                 <img src="/images/blog/09.jpg"
                                     data-src="/images/blog/09.jpg"
-                                    alt="Yến S&#224;o Bao Nhi&#234;u Calo? Ăn Yến S&#224;o C&#243; Tăng C&#226;n Kh&#244;ng?"
+                                    alt="Thông tin về blog số 7"
                                     class="lazyload duration-300" />
                             </div>
                         </div>
                         <div class="item-img-content">
-                            <h3 class="line-clamp-2-new">Yến Sào Bao Nhiêu Calo? Ăn Yến Sào Có Tăng Cân Không?</h3>
+                            <h3 class="line-clamp-2-new">Đây là tiêu đề thông tin về blog số 7</h3>
                             <p class="time-post">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">

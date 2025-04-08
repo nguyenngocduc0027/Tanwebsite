@@ -2,7 +2,7 @@
     <div class="container">
         <div class="section-title">
             <span class="sub-title">
-                Yến sào Sudes Nest
+                Xã hội vạn thiện
             </span>
             <h2>
                 Đối tác của chúng tôi

@@ -2,10 +2,10 @@
     <div class="container">
         <div class="section-title">
             <span class="sub-title">
-                Dầu Xã - Xã Hội Vạn Thiện
+                Xã Hội Vạn Thiện
             </span>
             <h2>
-                <a href="san-pham-khuyen-mai.html" title="Khuyến mãi đặc biệt">
+                <a href="#" title="Khuyến mãi đặc biệt">
                     Khuyến mãi đặc biệt
                 </a>
             </h2>
@@ -13,7 +13,7 @@
                 <div class="separator-center"></div>
             </div>
             <div class="count-down">
-                <div class="timer-view" data-countdown="countdown" data-date="04-10-2025-23-20-45"></div>
+                <div class="timer-view" data-countdown="countdown" data-date="04-09-2025-23-20-45"></div>
             </div>
         </div>
         <div class="block-product-sale  has-deal-time">
@@ -37,9 +37,11 @@
                                             <div class="promotion-content">
                                                 <div class="line-clamp-5-new" title="">
                                                     <ul>
-                                                        <li>Kẹo Hồng Sâm Không Đường 365 Hàn Quốc Gói 500g</li>
-                                                        <li>Nước Hồng Sâm Daesan</li>
-                                                        <li>Chiết khấu cao cho các doanh nghiệp. Có VAT đầy đủ.</li>
+                                                        <li>Khuyến Mãi Sản Phẩm 1</li>
+                                                        <li>Khuyến Mãi Sản Phẩm 2</li>
+                                                        <li>Khuyến Mãi Sản Phẩm 3</li>
+                                                        <li>Khuyến Mãi Sản Phẩm 4</li>
+                                                        <li>Khuyến Mãi Sản Phẩm 5</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -47,18 +49,18 @@
                                     @endif
                                     <div class="product-thumbnail">
                                         <a class="image_thumb scale_hover" href="#"
-                                            title="Set quà 2010 – Maneli #1 bồi bổ sức khỏe, dưỡng nhan">
+                                            title="Sản Phẩm Khuyến Mãi ">
                                             <img class="lazyload duration-300"
                                                 src="/images/products/dauxa.jpg"
                                                 data-src="/images/products/dauxa.jpg"
-                                                alt="Set quà 2010 – Maneli #1 bồi bổ sức khỏe, dưỡng nhan">
+                                                alt="Sản Phẩm Khuyến Mãi ">
                                         </a>
                                     </div>
                                     <div class="product-info">
                                         <div class="name-price">
                                             <h3 class="product-name line-clamp-2-new">
                                                 <a href="#"
-                                                    title="Set quà 2010 – Maneli #1 bồi bổ sức khỏe, dưỡng nhan">Dầu Xã Hương Hồi Long</a>
+                                                    title="Sản Phẩm Khuyến Mãi ">Sản Phẩm Khuyến Mãi </a>
                                             </h3>
                                             <div class="product-price-cart">
                                                 <span class="compare-price">799.000₫</span>

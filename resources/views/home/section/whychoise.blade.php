@@ -3,7 +3,7 @@
 		<div class="section-title">
 
 			<span class="sub-title">
-				Yến sào Sudes Nest
+				XÃ HỘI VẠN THIỆN
 			</span>
 
 			<h2>
@@ -18,11 +18,11 @@
 				<div class="wrap-choise-mb">
 					<div class="choise_item">
 						<div class="img_choise">
-							<img class="lazyload" alt="Yến sào cao cấp" data-src="/images/why/why_choise_1_icon.png" src="/images/why/why_choise_1_icon.png">
+							<img class="lazyload" alt="Dược liệu thiên " data-src="/images/why/why_choise_1_icon.png" src="/images/why/why_choise_1_icon.png">
 						</div>
 						<div class="text_choise">
-							<h3>Yến sào cao cấp</h3>
-							<div class="content_choise">Hoàn toàn được gia công</div>
+							<h3>Dược liệu thiên </h3>
+							<div class="content_choise">Hoàn toàn được gia công thủ công</div>
 						</div>
 					</div>
 					<div class="choise_item">

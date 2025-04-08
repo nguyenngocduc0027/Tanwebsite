@@ -1,13 +1,12 @@
-
 <section class="section-index section_product_tab section_product_tab_2">
     <div class="container">
         <div class="wrap_tab_index not-dqtab e-tabs ajax-tab-1" data-section-2="ajax-tab-1">
             <div class="section-title">
                 <span class="sub-title">
-                    Yến sào Sudes Nest
+                    XÃ HỘI VẠN THIỆN
                 </span>
                 <h2>
-                    <a href="sam-han-quoc.html" title="Sâm Hàn Quốc">Sâm Hàn Quốc</a>
+                    <a href="#" title="SẢN PHẨM ĐANG BÁN">SẢN PHẨM ĐANG BÁN</a>
                 </h2>
                 <div class="title-separator">
                     <div class="separator-center"></div>
@@ -16,16 +15,16 @@
                     <div class="tab_ul">
                         <ul class="tabs tabs-title tab-pc tabtitle2 ajax clearfix">
                             <li class="tab-link tab_cate has-content" data-tab="tab1-1">
-                                <span>Hồng sâm</span>
+                                <span>SẢN PHẨM 1</span>
                             </li>
                             <li class="tab-link tab_cate has-content" data-tab="tab1-2">
-                                <span>Thiên sâm</span>
+                                <span>SẢN PHẨM 2</span>
                             </li>
                             <li class="tab-link tab_cate has-content" data-tab="tab1-3">
-                                <span>Hắc sâm</span>
+                                <span>SẢN PHẨM 3</span>
                             </li>
                             <li class="tab-link tab_cate has-content" data-tab="tab1-4">
-                                <span>Sâm tươi</span>
+                                <span>SẢN PHẨM 4</span>
                             </li>
                         </ul>
                         <div class="grad-left">
@@ -90,11 +89,11 @@
                                                     class="lazyload" />
                                                 <div class="promotion-content">
                                                     <div class="line-clamp-5-new"
-                                                        title="Kẹo Hồng Sâm Không Đường 365 Hàn Quốc Gói 500gNước Hồng Sâm DaesanChiết khấu cao cho các doanh nghiệp. Có VAT đầy đủ.">
+                                                        title="Quà Tặng 1 - Không BánQuà Tặng 2 - Không BánQuà Tặng 3 - Không Bán">
                                                         <ul>
-                                                            <li>Kẹo Hồng Sâm Không Đường 365 Hàn Quốc Gói 500g</li>
-                                                            <li>Nước Hồng Sâm Daesan</li>
-                                                            <li>Chiết khấu cao cho các doanh nghiệp. Có VAT đầy đủ.</li>
+                                                            <li>Quà Tặng 1 - Không Bán</li>
+                                                            <li>Quà Tặng 2 - Không Bán</li>
+                                                            <li>Quà Tặng 3 - Không Bán</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -103,18 +102,18 @@
 
                                         <div class="product-thumbnail">
                                             <a class="image_thumb scale_hover" href="#"
-                                                title="Cao Thiên Sâm KGC Hàn Quốc Extract Master Class Hộp 200g">
+                                                title="Sản Phẩm 1 - Loại {{ $i }}">
                                                 <img class="lazyload duration-300" src="/images/products/dauxa.jpg"
                                                     data-src="/images/products/dauxa.jpg"
-                                                    alt="Cao Thiên Sâm KGC Hàn Quốc Extract Master Class Hộp 200g">
+                                                    alt="Sản Phẩm 1 - Loại {{ $i }}">
                                             </a>
                                         </div>
                                         <div class="product-info">
                                             <div class="name-price">
                                                 <h3 class="product-name line-clamp-2-new">
                                                     <a href="#"
-                                                        title="Cao Thiên Sâm KGC Hàn Quốc Extract Master Class Hộp 200g">Cao
-                                                        Thiên Sâm KGC Hàn Quốc Extract Master Class Hộp 200g</a>
+                                                        title="Sản Phẩm 1 - Loại {{ $i }}">Sản Phẩm 1 - Loại
+                                                        {{ $i }}</a>
                                                 </h3>
                                                 <div class="product-price-cart">
                                                     <span class="compare-price">18.500.000₫</span>
@@ -125,8 +124,7 @@
                                                 <input type="hidden" name="variantId" value="110199750" />
                                                 @if ($i % 3 == 0)
                                                     <button class="btn-cart btn-views disable btn btn-primary"
-                                                        title="Xem chi tiết" type="button"
-                                                        onclick="#">
+                                                        title="Xem chi tiết" type="button" onclick="#">
                                                         <span>Xem chi tiết</span>
                                                         <svg width="24" height="24" class="duration-300"
                                                             viewBox="0 0 61 63" fill="none"
@@ -206,11 +204,11 @@
                                                     class="lazyload" />
                                                 <div class="promotion-content">
                                                     <div class="line-clamp-5-new"
-                                                        title="Kẹo Hồng Sâm Không Đường 365 Hàn Quốc Gói 500gNước Hồng Sâm DaesanChiết khấu cao cho các doanh nghiệp. Có VAT đầy đủ.">
+                                                        title="Quà Tặng 1 - Không BánQuà Tặng 2 - Không BánQuà Tặng 3 - Không Bán">
                                                         <ul>
-                                                            <li>Kẹo Hồng Sâm Không Đường 365 Hàn Quốc Gói 500g</li>
-                                                            <li>Nước Hồng Sâm Daesan</li>
-                                                            <li>Chiết khấu cao cho các doanh nghiệp. Có VAT đầy đủ.</li>
+                                                            <li>Quà Tặng 1 - Không Bán</li>
+                                                            <li>Quà Tặng 2 - Không Bán</li>
+                                                            <li>Quà Tặng 3 - Không Bán</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -219,18 +217,18 @@
 
                                         <div class="product-thumbnail">
                                             <a class="image_thumb scale_hover" href="#"
-                                                title="Cao Thiên Sâm KGC Hàn Quốc Extract Master Class Hộp 200g">
+                                                title="Sản Phẩm 2 - Loại {{ $i }}">
                                                 <img class="lazyload duration-300" src="/images/products/dauxa.jpg"
                                                     data-src="/images/products/dauxa.jpg"
-                                                    alt="Cao Thiên Sâm KGC Hàn Quốc Extract Master Class Hộp 200g">
+                                                    alt="Sản Phẩm 2 - Loại {{ $i }}">
                                             </a>
                                         </div>
                                         <div class="product-info">
                                             <div class="name-price">
                                                 <h3 class="product-name line-clamp-2-new">
                                                     <a href="#"
-                                                        title="Cao Thiên Sâm KGC Hàn Quốc Extract Master Class Hộp 200g">Cao
-                                                        Thiên Sâm KGC Hàn Quốc Extract Master Class Hộp 200g</a>
+                                                        title="Sản Phẩm 2 - Loại {{ $i }}">Sản Phẩm 2 - Loại
+                                                        {{ $i }}</a>
                                                 </h3>
                                                 <div class="product-price-cart">
                                                     <span class="compare-price">18.500.000₫</span>
@@ -241,8 +239,7 @@
                                                 <input type="hidden" name="variantId" value="110199750" />
                                                 @if ($i % 3 == 0)
                                                     <button class="btn-cart btn-views disable btn btn-primary"
-                                                        title="Xem chi tiết" type="button"
-                                                        onclick="#">
+                                                        title="Xem chi tiết" type="button" onclick="#">
                                                         <span>Xem chi tiết</span>
                                                         <svg width="24" height="24" class="duration-300"
                                                             viewBox="0 0 61 63" fill="none"
@@ -322,11 +319,11 @@
                                                     class="lazyload" />
                                                 <div class="promotion-content">
                                                     <div class="line-clamp-5-new"
-                                                        title="Kẹo Hồng Sâm Không Đường 365 Hàn Quốc Gói 500gNước Hồng Sâm DaesanChiết khấu cao cho các doanh nghiệp. Có VAT đầy đủ.">
+                                                        title="Quà Tặng 1 - Không BánQuà Tặng 2 - Không BánQuà Tặng 3 - Không Bán">
                                                         <ul>
-                                                            <li>Kẹo Hồng Sâm Không Đường 365 Hàn Quốc Gói 500g</li>
-                                                            <li>Nước Hồng Sâm Daesan</li>
-                                                            <li>Chiết khấu cao cho các doanh nghiệp. Có VAT đầy đủ.</li>
+                                                            <li>Quà Tặng 1 - Không Bán</li>
+                                                            <li>Quà Tặng 2 - Không Bán</li>
+                                                            <li>Quà Tặng 3 - Không Bán</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -335,18 +332,17 @@
 
                                         <div class="product-thumbnail">
                                             <a class="image_thumb scale_hover" href="#"
-                                                title="Cao Thiên Sâm KGC Hàn Quốc Extract Master Class Hộp 200g">
+                                                title="Sản Phẩm 3 - Loại {{ $i }}">
                                                 <img class="lazyload duration-300" src="/images/products/dauxa.jpg"
                                                     data-src="/images/products/dauxa.jpg"
-                                                    alt="Cao Thiên Sâm KGC Hàn Quốc Extract Master Class Hộp 200g">
+                                                    alt="Sản Phẩm 3 - Loại {{ $i }}">
                                             </a>
                                         </div>
                                         <div class="product-info">
                                             <div class="name-price">
                                                 <h3 class="product-name line-clamp-2-new">
                                                     <a href="#"
-                                                        title="Cao Thiên Sâm KGC Hàn Quốc Extract Master Class Hộp 200g">Cao
-                                                        Thiên Sâm KGC Hàn Quốc Extract Master Class Hộp 200g</a>
+                                                        title="Sản Phẩm 3 - Loại {{ $i }}">Sản Phẩm 3 - Loại {{ $i }}</a>
                                                 </h3>
                                                 <div class="product-price-cart">
                                                     <span class="compare-price">18.500.000₫</span>
@@ -357,8 +353,7 @@
                                                 <input type="hidden" name="variantId" value="110199750" />
                                                 @if ($i % 3 == 0)
                                                     <button class="btn-cart btn-views disable btn btn-primary"
-                                                        title="Xem chi tiết" type="button"
-                                                        onclick="#">
+                                                        title="Xem chi tiết" type="button" onclick="#">
                                                         <span>Xem chi tiết</span>
                                                         <svg width="24" height="24" class="duration-300"
                                                             viewBox="0 0 61 63" fill="none"
@@ -419,7 +414,7 @@
                 </div>
                 <div class="tab1-4 tab-content">
                     <div class="row load-after" data-section="section_product_tab_4">
-                        <div class="alert alert-warning alert-dismissible show margin-bottom-0" role="alert" bis_skin_checked="1">
+                        <div class="alert alert-warning alert-dismissible show margin-bottom-0" role="alert">
                             <span>Hiện tại chưa có sản phẩm nào trong danh mục này!...</span>
                         </div>
                     </div>
@@ -429,8 +424,8 @@
         <div class="view-more clearfix"
             style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; padding-top: 2rem;">
             <a href="#" title="Xem tất cả" class="btn btn-primary frame">
-                <svg width="14" height="32" viewBox="0 0 14 32" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="border-svg border-svg-left">
+                <svg width="14" height="32" viewBox="0 0 14 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" class="border-svg border-svg-left">
                     <path
                         d="M13.3726 0H0.372559V13.2018L3.16222 16L6.37256 19L9.5 16L7.93628 14.5L6.37256 13L0.372559 18.6069V32H13.3726"
                         fill="none" />
@@ -439,8 +434,8 @@
                         stroke="white" />
                 </svg>
                 Xem tất cả
-                <svg width="14" height="32" viewBox="0 0 14 32" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="border-svg border-svg-right">
+                <svg width="14" height="32" viewBox="0 0 14 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" class="border-svg border-svg-right">
                     <path
                         d="M13.3726 0H0.372559V13.2018L3.16222 16L6.37256 19L9.5 16L7.93628 14.5L6.37256 13L0.372559 18.6069V32H13.3726"
                         fill="none" />
@@ -489,8 +484,8 @@
     });
 </script>
 <script>
-    $(document).ready(function () {
-        $('.section_product_tab_2 .tab-link').click(function () {
+    $(document).ready(function() {
+        $('.section_product_tab_2 .tab-link').click(function() {
             var tab_id = $(this).data('tab');
 
             // Xóa active ở tất cả li và content

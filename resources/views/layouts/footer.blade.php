@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col-xs-12 col-md-12 col-lg-cus-30 footer-info">
 					<div class="logo-footer">
-						<a href="/" title="">
+						<a href="{{route('home')}}" title="">
 							<img width="300" height="96" src="/images/logo/logo.png" data-src="/images/logo/logo.png" alt="" class="lazyload">
 						</a>
 					</div>
