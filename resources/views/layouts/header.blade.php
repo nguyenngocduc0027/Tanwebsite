@@ -299,7 +299,7 @@
                         <div class="sudes-list-cate" data-section="header_nav_cate">
                             <ul class="sudes-main-cate">
                                 <li class="sudes-main-cate-has-child menu-item-count ">
-                                    <a href="#" title="Sản Phẩm 1">
+                                    <a href="{{ route('product_category') }}" title="Sản Phẩm 1">
                                         <img class="lazyload" src="/images/index-cate/index-cate-icon-2.png"
                                             data-src="/images/index-cate/index-cate-icon-2.png" alt="Tổ yến" />
                                         Sản Phẩm 1
@@ -308,10 +308,10 @@
                                     <ul class="menu-child sub-menu sudes-sub-mega-menu">
 
                                         <li class="sudes-main-cate-has-child clearfix">
-                                            <a href="#" title="Loại 1">Loại 1</a>
+                                            <a href="{{ route('product_sub_category') }}" title="Loại 1">Loại 1</a>
                                             <i class="open_mnu down_icon"></i>
                                             <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                <li><a href="#" title="Kiểu 1">Kiểu 1</a>
+                                                <li><a href="{{ route('product_subsub_category') }}" title="Kiểu 1">Kiểu 1</a>
                                                 </li>
                                                 <li><a href="#" title="Kiểu 2">Kiểu 2</a>
                                                 </li>
@@ -470,10 +470,9 @@
                                         </svg>
                                     </a>
                                     <i class="open_mnu down_icon"></i>
-                                    {{-- <script type="text/x-custom-template" data-template="header_nav"> --}}
                                         <ul class="dropdown-menu">
                                             <li class="dropdown-submenu nav-item-lv2 has-childs2">
-                                                <a class="nav-link" href="#" title="Sản Phẩm 1">Sản Phẩm 1<svg
+                                                <a class="nav-link" href="{{ route('product_category') }}" title="Sản Phẩm 1">Sản Phẩm 1<svg
                                                         width="8" height="17" viewBox="0 0 8 17" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path
@@ -483,7 +482,7 @@
                                                 <i class="open_mnu down_icon"></i>
                                                 <ul class="dropdown-menu">
                                                     <li class="nav-item-lv3">
-                                                        <a class="nav-link" href="#" title="Loại 1">Loại 1</a>
+                                                        <a class="nav-link" href="{{ route('product_sub_category') }}" title="Loại 1">Loại 1</a>
                                                     </li>
                                                     <li class="nav-item-lv3">
                                                         <a class="nav-link" href="#" title="Loại 2">Loại 2</a>
@@ -540,29 +539,10 @@
                                                     biếu cao cấp</a>
                                             </li>
                                         </ul>
-                                    {{-- </script> --}}
                                 </li>
 
-                                <li class="nav-item has-childs " data-section="header_nav">
-                                    <a href="#" class="nav-link" title="Tin tức">Tin tức
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
-                                        </svg>
-                                    </a>
-                                    <i class="open_mnu down_icon"></i>
-                                    {{-- <script type="text/x-custom-template" data-template="header_nav"> --}}
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item-lv2">
-                                                <a class="nav-link" href="#" title="Kiến thức">Kiến thức</a>
-                                            </li>
-                                            <li class="nav-item-lv2">
-                                                <a class="nav-link" href="#" title="Kinh nghiệm">Kinh
-                                                    nghiệm</a>
-                                            </li>
-                                        </ul>
-                                    {{-- </script> --}}
+                                <li class="nav-item" data-section="header_nav">
+                                    <a href="#" class="nav-link" title="Tin tức">Tin tức</a>
                                 </li>
 
                                 <li class="nav-item has-childs " data-section="header_nav">
@@ -574,7 +554,6 @@
                                         </svg>
                                     </a>
                                     <i class="open_mnu down_icon"></i>
-                                    {{-- <script type="text/x-custom-template" data-template="header_nav"> --}}
                                         <ul class="dropdown-menu">
                                             <li class="nav-item-lv2">
                                                 <a class="nav-link" href="#" title="Chính sách mua hàng">Chính sách
@@ -601,7 +580,6 @@
                                                     sách thành viên</a>
                                             </li>
                                         </ul>
-                                    {{-- </script> --}}
                                 </li>
                                 <li class="nav-item ">
                                     <a class="nav-link" href="#" title="Liên hệ">Liên hệ</a>

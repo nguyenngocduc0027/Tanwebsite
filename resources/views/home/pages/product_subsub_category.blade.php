@@ -8,6 +8,10 @@
                         <a href="{{ route('home') }}" title="Trang chủ"><span>Trang chủ</span></a>
                         <span class="mr_lr">></span>
                     </li>
+                    <li class="home">
+                        <a href="{{ route('product_sub_category') }}" title="Loại 1"><span>Loại 1</span></a>
+                        <span class="mr_lr">></span>
+                    </li>
                     <li><strong><span> Tất cả sản phẩm</span></strong></li>
                 </ul>
             </div>
@@ -15,29 +19,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <img src="/images/bg/collection_banner.jpg" alt="" class="pb-3 object-fit-cover">
-                </div>
-                <div class="col-12">
                     <div class="col-title">
                         <h1>Tất cả sản phẩm</h1>
                         <div class="title-separator">
                             <div class="separator-center"></div>
-                        </div>
-                    </div>
-                    <div class="col-list-cate">
-                        <div class="menu-list">
-                            <a class="cate-item duration-300 " href="#" title="Dầu Gội">
-                                <div class="cate-info-title">Dầu Gội</div>
-                            </a>
-                            <a class="cate-item duration-300 " href="#" title="Dầu Xã">
-                                <div class="cate-info-title">Dầu Xã</div>
-                            </a>
-                            <a class="cate-item duration-300 " href="#" title="Nước Rửa Chén">
-                                <div class="cate-info-title">Nước Rửa Chén</div>
-                            </a>
-                            <a class="cate-item duration-300 " href="#" title="Tinh Dầu">
-                                <div class="cate-info-title">Tinh Dầu</div>
-                            </a>
                         </div>
                     </div>
                     <div class="col-desc">

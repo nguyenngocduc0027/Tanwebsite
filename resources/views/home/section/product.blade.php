@@ -111,7 +111,7 @@
                                         <div class="product-info">
                                             <div class="name-price">
                                                 <h3 class="product-name line-clamp-2-new">
-                                                    <a href="#"
+                                                    <a href="{{ route('product_detail') }}"
                                                         title="Sản Phẩm 1 - Loại {{ $i }}">Sản Phẩm 1 - Loại
                                                         {{ $i }}</a>
                                                 </h3>

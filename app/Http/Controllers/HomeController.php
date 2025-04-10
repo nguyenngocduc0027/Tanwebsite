@@ -20,4 +20,28 @@ class HomeController extends Controller
     {
         return view('home.pages.product');
     }
+
+    public function product_category()
+    {
+        return view('home.pages.product_category');
+    }
+    public function product_sub_category()
+    {
+        return view('home.pages.product_sub_category');
+    }
+
+    public function product_subsub_category()
+    {
+        return view('home.pages.product_subsub_category');
+    }
+
+    public function product_detail()
+    {
+        return view('home.pages.product_detail');
+    }
+
+    public function blog()
+    {
+        return view('home.pages.blog');
+    }
 }

@@ -31,7 +31,10 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    {{-- <link rel="stylesheet" href="/assets/css/fonts.css" /> --}}
     <link rel="stylesheet" href="/assets/css/bootstrap-4-3-min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/assets/css/index.css" />
@@ -40,6 +43,7 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/breadcrumb_style.css" />
     <link rel="stylesheet" href="/assets/css/collection_style.css" />
+    <link rel="stylesheet" href="/assets/css/product_style.scss.css" />
 
 
     <script src="/assets/js/swiper.js"></script>
@@ -257,8 +261,8 @@
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/index.js"></script>
 
-    <script src="/assets/js/jquery-ui-min.js"></script>
-    <script src="/assets/js/search_filter.js"></script>
+    {{-- <script src="/assets/js/jquery-ui-min.js"></script>
+    <script src="/assets/js/search_filter.js"></script> --}}
 </body>
 
 </html>
