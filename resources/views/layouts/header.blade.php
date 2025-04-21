@@ -201,7 +201,7 @@
                             </a>
                             <ul>
                                 <li class="li-account">
-                                    <a rel="nofollow" href="#" title="Đăng nhập">
+                                    <a rel="nofollow" href="{{route('login')}}" title="Đăng nhập">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd"
@@ -213,7 +213,7 @@
                                     </a>
                                 </li>
                                 <li class="li-account">
-                                    <a rel="nofollow" href="#" title="Đăng ký">
+                                    <a rel="nofollow" href="{{route('register')}}" title="Đăng ký">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
                                             <path
@@ -542,7 +542,7 @@
                                 </li>
 
                                 <li class="nav-item" data-section="header_nav">
-                                    <a href="#" class="nav-link" title="Tin tức">Tin tức</a>
+                                    <a href="{{route('blog')}}" class="nav-link" title="Tin tức">Tin tức</a>
                                 </li>
 
                                 <li class="nav-item has-childs " data-section="header_nav">
@@ -556,7 +556,7 @@
                                     <i class="open_mnu down_icon"></i>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item-lv2">
-                                                <a class="nav-link" href="#" title="Chính sách mua hàng">Chính sách
+                                                <a class="nav-link" href="{{route('blank')}}" title="Chính sách mua hàng">Chính sách
                                                     mua hàng</a>
                                             </li>
                                             <li class="nav-item-lv2">
@@ -582,7 +582,7 @@
                                         </ul>
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="#" title="Liên hệ">Liên hệ</a>
+                                    <a class="nav-link" href="{{route('contact')}}" title="Liên hệ">Liên hệ</a>
                                 </li>
                             </ul>
                         </div>

@@ -44,4 +44,19 @@ class HomeController extends Controller
     {
         return view('home.pages.blog');
     }
+
+    public function blog_detail()
+    {
+        return view('home.pages.blog_detail');
+    }
+
+    public function contact()
+    {
+        return view('home.pages.contact');
+    }
+
+    public function blank()
+    {
+        return view('home.pages.blank');
+    }
 }

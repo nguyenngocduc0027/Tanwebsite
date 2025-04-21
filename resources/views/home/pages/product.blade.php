@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="col-desc">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt earum hic explicabo maiores ex
+                        <p class="p_style sm-hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt earum hic explicabo maiores ex
                             id eligendi, molestiae natus eum, voluptates eaque ratione a blanditiis illum veritatis debitis,
                             non voluptate! Enim?</p>
                     </div>

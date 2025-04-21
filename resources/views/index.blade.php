@@ -44,6 +44,10 @@
     <link rel="stylesheet" href="/assets/css/breadcrumb_style.css" />
     <link rel="stylesheet" href="/assets/css/collection_style.css" />
     <link rel="stylesheet" href="/assets/css/product_style.scss.css" />
+    <link rel="stylesheet" href="/assets/css/blog_article_style.css" />
+    <link rel="stylesheet" href="/assets/css/sidebar_style.css" />
+    <link rel="stylesheet" href="/assets/css/contact_style.css" />
+    <link rel="stylesheet" href="/assets/css/account_oder_style.css" />
 
 
     <script src="/assets/js/swiper.js"></script>
@@ -217,6 +221,8 @@
 
 <body>
     <div class="opacity_menu"></div>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v19.0"></script>
     @include('layouts.header')
     <div class="bodywrap">
         <h1 class="d-none">MetaSoft - Đến nay đã chiếm trọn niềm tin của khách hàng bởi chất lượng - tinh
