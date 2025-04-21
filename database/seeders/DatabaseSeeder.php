@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +19,28 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+
+        $cat = Category::create(['name' => 'Điện tử']);
+
+        $types = $cat->types()->createMany([
+            ['name' => 'Điện thoại'],
+            ['name' => 'Laptop']
+        ]);
+
+        // Thêm level cho từng type
+        foreach ($types as $type) {
+            if ($type->name === 'Điện thoại') {
+                $type->levels()->createMany([
+                    ['name' => 'iPhone'],
+                    ['name' => 'Samsung'],
+                ]);
+            } elseif ($type->name === 'Laptop') {
+                $type->levels()->createMany([
+                    ['name' => 'MacBook'],
+                    ['name' => 'Asus'],
+                ]);
+            }
+        }
     }
 }

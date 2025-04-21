@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Models\User;
 use App\Models\ListShop;
 use App\Models\NotificationSale;
+use App\Models\Type;
+use App\Models\Level;
 
 class AdminController extends Controller
 {
@@ -45,6 +48,7 @@ class AdminController extends Controller
 
     public function category()
     {
-        return view('admin.pages.category');
+        $categories = Category::with('types.levels')->get();
+        return view('admin.pages.category', compact('categories'));
     }
 }

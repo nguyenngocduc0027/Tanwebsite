@@ -8,6 +8,7 @@ use App\Http\Controllers\ListShopController;
 use App\Http\Controllers\NotificationSaleController;
 use App\Http\Controllers\PopupAdsController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -80,4 +81,18 @@ Route::delete('/account/{id}', [AccountController::class, 'destroy'])->name('acc
 
 // Category
 Route::get('/category', [AdminController::class, 'category'])->name('admin.category');
+// Category CRUD
+Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
+Route::put('/category/update/{id}', [CategoryController::class, 'updateCategory'])->name('category.update');
+Route::delete('/category/delete/{id}', [CategoryController::class, 'destroyCategory'])->name('category.delete');
+
+// Type CRUD
+Route::post('/type/store', [CategoryController::class, 'storeType'])->name('type.store');
+Route::put('/type/update/{id}', [CategoryController::class, 'updateType'])->name('type.update');
+Route::delete('/type/delete/{id}', [CategoryController::class, 'destroyType'])->name('type.delete');
+
+// Level CRUD
+Route::post('/level/store', [CategoryController::class, 'storeLevel'])->name('level.store');
+Route::put('/level/update/{id}', [CategoryController::class, 'updateLevel'])->name('level.update');
+Route::delete('/level/delete/{id}', [CategoryController::class, 'destroyLevel'])->name('level.delete');
 
