@@ -23,6 +23,16 @@ class AdminController extends Controller
         return view('admin.pages.web_config');
     }
 
+    public function home_page()
+    {
+        return view('admin.pages.home_page');
+    }
+
+    public function about_page()
+    {
+        return view('admin.pages.about_page');
+    }
+
     public function notification_sale()
     {
         $notification_sale = NotificationSale::all();
@@ -51,4 +61,6 @@ class AdminController extends Controller
         $categories = Category::with('types.levels')->get();
         return view('admin.pages.category', compact('categories'));
     }
+
+
 }

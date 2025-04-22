@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
+use App\Models\HomePage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,27 +21,81 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        $categories = ['Dầu Gội', 'Dầu Xả', 'Nước Rửa Chén', 'Tinh Dầu'];
+        $types = ['Chanh', 'Khổ Qua', 'Bưởi'];
+        $levels = ['Chai 250ml', 'Can 1000ml'];
 
-        $cat = Category::create(['name' => 'Điện tử']);
+        foreach ($categories as $category) {
+            $cat = Category::create(['name' => $category]);
 
-        $types = $cat->types()->createMany([
-            ['name' => 'Điện thoại'],
-            ['name' => 'Laptop']
-        ]);
+            foreach ($types as $type) {
+                $cat->types()->create(['name' => $type]);
 
-        // Thêm level cho từng type
-        foreach ($types as $type) {
-            if ($type->name === 'Điện thoại') {
-                $type->levels()->createMany([
-                    ['name' => 'iPhone'],
-                    ['name' => 'Samsung'],
-                ]);
-            } elseif ($type->name === 'Laptop') {
-                $type->levels()->createMany([
-                    ['name' => 'MacBook'],
-                    ['name' => 'Asus'],
-                ]);
+                foreach ($levels as $level) {
+                    $cat->types()->first()->levels()->create(['name' => $level]);
+                }
             }
         }
+
+        HomePage::create([
+            'service1' => 'Dịch Vụ 1',
+            'content1' => 'Nội Dung 1',
+            'image1' => '/images/ser/ser_1.png',
+            'service2' => 'Dịch Vụ 2',
+            'content2' => 'Nội Dung 2',
+            'image2' => '/images/ser/ser_2.png',
+            'service3' => 'Dịch Vụ 3',
+            'content3' => 'Nội Dung 3',
+            'image3' => '/images/ser/ser_3.png',
+            'service4' => 'Dịch Vụ 4',
+            'content4' => 'Nội Dung 4',
+            'image4' => '/images/ser/ser_4.png',
+            'set_product_title' => 'Tiêu đề SET sản phẩm',
+            'set_product_subtitle' => 'Phụ đề SET sản phẩm',
+            'set_product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deleniti, ea mollitia similique officia corrupti soluta libero, necessitatibus, doloribus sed delectus facere possimus',
+            'sale_product_title' => 'Tiêu đề SALE sản phẩm',
+            'sale_product_subtitle' => 'Phụ đề SALE sản phẩm',
+            'sale_product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deleniti, ea mollitia similique officia corrupti soluta libero, necessitatibus, doloribus sed delectus facere possimus',
+            'coupon_title' => 'Tiêu đề mã giảm giá',
+            'coupon_subtitle' => 'Phụ đề mã giảm giá',
+            'coupon_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deleniti, ea mollitia similique officia corrupti soluta libero, necessitatibus, doloribus sed delectus facere possimus',
+            'about_title' => 'Tiêu đề về chúng tôi',
+            'about_subtitle' => 'Phụ đề về chúng tôi',
+            'about_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deleniti, ea mollitia similique officia corrupti soluta libero, necessitatibus, doloribus sed delectus facere possimus Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deleniti, ea mollitia similique officia corrupti soluta libero, necessitatibus, doloribus sed delectus facere possimus Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deleniti, ea mollitia similique officia corrupti soluta libero, necessitatibus, doloribus sed delectus facere possimus',
+            'image_about' => '/images/products/section_about_product_1.png',
+            'why_title' => 'Tiêu đề vì sao chọn chúng tôi',
+            'why_subtitle' => 'Phụ đề vì sao chọn chúng tôi',
+            'why1' => 'Vì sao 1',
+            'content_why1' => 'Nội dung vì sao 1',
+            'image_why1' => '/images/why/why_choise_1_icon.png',
+            'why2' => 'Vì sao 2',
+            'content_why2' => 'Nội dung vì sao 2',
+            'image_why2' => '/images/why/why_choise_2_icon.png',
+            'why3' => 'Vì sao 3',
+            'content_why3' => 'Nội dung vì sao 3',
+            'image_why3' => '/images/why/why_choise_3_icon.png',
+            'why4' => 'Vì sao 4',
+            'content_why4' => 'Nội dung vì sao 4',
+            'image_why4' => '/images/why/why_choise_4_icon.png',
+            'why5' => 'Vì sao 5',
+            'content_why5' => 'Nội dung vì sao 5',
+            'image_why5' => '/images/why/why_choise_5_icon.png',
+            'why6' => 'Vì sao 6',
+            'content_why6' => 'Nội dung vì sao 6',
+            'image_why6' => '/images/why/why_choise_6_icon.png',
+            'img_why' => '/images/why/banner_choise.png',
+            'product_title' => 'Tiêu đề sản phẩm',
+            'product_subtitle' => 'Phụ đề sản phẩm',
+            'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deleniti, ea mollitia similique officia corrupti soluta libero, necessitatibus, doloribus sed delectus facere possimus',
+            'feedback_title' => 'Tiêu đề phê duyệt',
+            'feedback_subtitle' => 'Phụ đề phê duyệt',
+            'feedback_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deleniti, ea mollitia similique officia corrupti soluta libero, necessitatibus, doloribus sed delectus facere possimus',
+            'blog_title' => 'Tiêu đề blog',
+            'blog_subtitle' => 'Phụ đề blog',
+            'blog_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deleniti, ea mollitia similique officia corrupti soluta libero, necessitatibus, doloribus sed delectus facere possimus',
+            'partner_title' => 'Tiêu đề đối tác',
+            'partner_subtitle' => 'Phụ đề đối tác',
+            'partner_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deleniti, ea mollitia similique officia corrupti soluta libero, necessitatibus, doloribus sed delectus facere possimus',
+        ]);
     }
 }

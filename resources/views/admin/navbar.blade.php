@@ -101,6 +101,27 @@
                     <h4 class="text-section">Danh Mục Cài Đặt</h4>
                 </li>
                 <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#content-page">
+                        <i class="fas fa-file"></i>
+                        <p>Nội Dung Website</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="content-page">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ route('admin.home_page') }}">
+                                    <span class="sub-item">Trang Chủ</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.about_page') }}">
+                                    <span class="sub-item">Trang Giới Thiệu</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#settings">
                         <i class="fas fa-cog"></i>
                         <p>Cài Đặt</p>

@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ListShopController;
 use App\Http\Controllers\NotificationSaleController;
 use App\Http\Controllers\PopupAdsController;
@@ -49,6 +50,13 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.ind
 Route::get('/web_config', [AdminController::class, 'web_config'])->name('admin.web_config');
 Route::get('/settings/data', [SettingController::class, 'show'])->name('settings.data');
 Route::post('/settings/update', [SettingController::class, 'update'])->name('settings.update');
+// About Page
+Route::get('/about_page', [AdminController::class, 'about_page'])->name('admin.about_page');
+
+// Home Page
+Route::get('/home_page', [AdminController::class, 'home_page'])->name('admin.home_page');
+Route::get('/home_page/data', [HomePageController::class, 'show'])->name('homePage.data');
+Route::post('/home_page/update', [HomePageController::class, 'update'])->name('homePage.update');
 
 // Notification Sale
 Route::get('/notification_sale', [AdminController::class, 'notification_sale'])->name('admin.notification_sale');
