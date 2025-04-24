@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -12,9 +13,28 @@ class AuthController extends Controller
     }
     public function login(Request $request)
     {
-        // Handle the login logic here
-        // For example, validate the request and authenticate the user
-        return redirect()->route('home');
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+            if ($user->role === 'admin' || $user->role === 'manager') {
+                return response()->json([
+                    'status' => 'success',
+                    'redirect' => route('admin.index')
+                ]);
+            }
+
+            return response()->json([
+                'status' => 'success',
+                'redirect' => route('user.index')
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Tài khoản hoặc mật khẩu không đúng.'
+        ]);
     }
 
     public function view_register()
@@ -33,10 +53,9 @@ class AuthController extends Controller
         return view('auth.forgot');
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
-        // Handle the logout logic here
-        // For example, log out the user and redirect to the home page
+        Auth::logout();
         return redirect()->route('home');
     }
 }

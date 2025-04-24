@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 use App\Models\HomePage;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +21,14 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
+            'password' => bcrypt('123456'),
+            'phone' => '0123456789',
+            'role' => 'admin',
+        ]);
 
         $categories = ['Dầu Gội', 'Dầu Xả', 'Nước Rửa Chén', 'Tinh Dầu'];
         $types = ['Chanh', 'Khổ Qua', 'Bưởi'];

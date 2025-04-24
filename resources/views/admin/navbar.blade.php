@@ -52,6 +52,12 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.blog')}}" class="collapsed" >
+                        <i class="fas fa-bookmark"></i>
+                        <p>Blog - Tin Tức</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#notification-sale">
                         <i class="fas fa-tags"></i>
                         <p>Tin Khuyến Mãi</p>
@@ -114,8 +120,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.about_page') }}">
-                                    <span class="sub-item">Trang Giới Thiệu</span>
+                                <a href="{{ route('admin.blank_page') }}">
+                                    <span class="sub-item">Trang khác</span>
                                 </a>
                             </li>
                         </ul>

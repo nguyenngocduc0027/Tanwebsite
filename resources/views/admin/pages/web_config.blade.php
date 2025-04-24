@@ -87,6 +87,13 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group" id="div-subtitle">
+                                            <label for="maps">Bản Đồ</label>
+                                            <input type="text" class="form-control" id="maps" name="maps"
+                                                placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group" id="div-subtitle">
                                             <label for="subtitle">Mô tả ngắn</label>
                                             <textarea name="subtitle" id="subtitle" rows="5" class="form-control"></textarea>
                                         </div>
@@ -151,6 +158,50 @@
                                         </div>
                                         <div class="form-group">
                                             <img id="preview-favicon" src="" width="30%"
+                                                style="margin-top:10px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group" id="div-certi1">
+                                            <label for="certi1">Chứng chỉ 1</label>
+                                            <input type="file" class="form-control" id="certi1" name="certi1"
+                                                placeholder="certi1">
+                                        </div>
+                                        <div class="form-group">
+                                            <img id="preview-certi1" src="" width="30%"
+                                                style="margin-top:10px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group" id="div-certi2">
+                                            <label for="certi2">Chứng chỉ 2</label>
+                                            <input type="file" class="form-control" id="certi2" name="certi2"
+                                                placeholder="certi2">
+                                        </div>
+                                        <div class="form-group">
+                                            <img id="preview-certi2" src="" width="30%"
+                                                style="margin-top:10px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group" id="div-certi3">
+                                            <label for="certi3">Chứng chỉ 3</label>
+                                            <input type="file" class="form-control" id="certi3" name="certi3"
+                                                placeholder="certi3">
+                                        </div>
+                                        <div class="form-group">
+                                            <img id="preview-certi3" src="" width="30%"
+                                                style="margin-top:10px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group" id="div-certi4">
+                                            <label for="certi4">Chứng chỉ 4</label>
+                                            <input type="file" class="form-control" id="certi4" name="certi4"
+                                                placeholder="certi4">
+                                        </div>
+                                        <div class="form-group">
+                                            <img id="preview-certi4" src="" width="30%"
                                                 style="margin-top:10px;">
                                         </div>
                                     </div>
@@ -225,6 +276,47 @@
             }
         });
 
+        document.getElementById('certi1').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('preview-certi1').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+        document.getElementById('certi2').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('preview-certi2').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+        document.getElementById('certi3').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('preview-certi3').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+        document.getElementById('certi4').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('preview-certi4').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
         // Show data from SettingController
         $(document).ready(function() {
             $.ajax({
@@ -240,6 +332,7 @@
                     $('#shoppe').val(response.shoppe);
                     $('#lazada').val(response.lazada);
                     $('#tiktok').val(response.tiktok);
+                    $('#maps').val(response.maps);
                     $('#subtitle').val(response.subtitle);
                     $('#momo').prop('checked', response.momo == '1')
                     $('#zalopay').prop('checked', response.zalopay == '1');
@@ -250,6 +343,11 @@
                     // Hiển thị ảnh logo và favicon
                     $('#preview-logo').attr('src', '/images/logo/' + response.logo);
                     $('#preview-favicon').attr('src', '/images/favicon/' + response.favicon);
+
+                    $('#preview-certi1').attr('src', response.certi1);
+                    $('#preview-certi2').attr('src', response.certi2);
+                    $('#preview-certi3').attr('src', response.certi3);
+                    $('#preview-certi4').attr('src', response.certi4);
 
                     // SEO
                     $('#seo_author').val(response.seo_author);
@@ -278,6 +376,7 @@
                 formData.append('shoppe', $('#shoppe').val());
                 formData.append('lazada', $('#lazada').val());
                 formData.append('tiktok', $('#tiktok').val());
+                formData.append('maps', $('#maps').val());
 
                 let logo = $('#logo')[0].files[0];
                 if (logo) {
@@ -287,6 +386,23 @@
                 let favicon = $('#favicon')[0].files[0];
                 if (favicon) {
                     formData.append('favicon', favicon);
+                }
+
+                let certi1 = $('#certi1')[0].files[0];
+                if (certi1) {
+                    formData.append('certi1', certi1);
+                }
+                let certi2 = $('#certi2')[0].files[0];
+                if (certi2) {
+                    formData.append('certi2', certi2);
+                }
+                let certi3 = $('#certi3')[0].files[0];
+                if (certi3) {
+                    formData.append('certi3', certi3);
+                }
+                let certi4 = $('#certi4')[0].files[0];
+                if (certi4) {
+                    formData.append('certi4', certi4);
                 }
 
                 formData.append('momo', $('#momo').is(':checked') ? 1 : 0);

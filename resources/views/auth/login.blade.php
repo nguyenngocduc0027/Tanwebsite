@@ -22,31 +22,25 @@
                                 <div class="wpx">
                                     <h1 class="title_heads a-center"><span>Đăng nhập</span></h1>
                                     <div id="login" class="section">
-                                        <form method="post" action="#" id="customer_login" accept-charset="UTF-8">
+                                        <form id="customer_login" method="POST">
+                                            @csrf
                                             <div class="form-signup clearfix">
                                                 <fieldset class="form-group">
-                                                    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$"
-                                                        class="form-control form-control-lg" value="" name="email"
-                                                        id="customer_email" placeholder="Email" Required>
+                                                    <input type="email" class="form-control form-control-lg"
+                                                        name="email" id="customer_email" placeholder="Email" required>
                                                 </fieldset>
                                                 <fieldset class="form-group">
                                                     <input type="password" class="form-control form-control-lg"
-                                                        value="" name="password" id="customer_password"
-                                                        placeholder="Mật khẩu" Required>
+                                                        name="password" id="customer_password" placeholder="Mật khẩu"
+                                                        required>
                                                 </fieldset>
                                                 <div class="pull-xs-left">
-                                                    <button type="submit" value="Đăng nhập"
-                                                        class="btn btn-primary btn-style">Đăng nhập</button>
-                                                </div>
-                                                <div class="btn_boz_khac">
-                                                    <div class="btn_khac">
-                                                        <span class="quenmk"><a href="{{route('forgot')}}">Quên mật khẩu?</a></span>
-                                                        <a href="{{route('register')}}" class="btn-link-style btn-register"
-                                                            title="Đăng ký tại đây">Đăng ký tại đây</a>
-                                                    </div>
+                                                    <button type="submit" class="btn btn-primary btn-style">Đăng
+                                                        nhập</button>
                                                 </div>
                                             </div>
                                         </form>
+                                        <div id="login-message" class="mt-2 text-danger"></div>
                                     </div>
                                 </div>
                             </div>
@@ -56,4 +50,56 @@
             </div>
         </section>
     </div>
+    <script>
+        document.getElementById('customer_login').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('customer_email').value;
+            const password = document.getElementById('customer_password').value;
+
+
+            fetch("{{ route('login') }}", {
+                method: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Đăng nhập thành công!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        window.location.href = data.redirect;
+                    });
+                } else {
+                    Toastify({
+                        text: data.message,
+                        duration: 3000,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "#ff4d4f",
+                        stopOnFocus: true,
+                    }).showToast();
+                }
+            })
+            .catch(error => {
+                Toastify({
+                    text: "Lỗi kết nối, vui lòng thử lại.",
+                    duration: 3000,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "#ff4d4f",
+                    stopOnFocus: true,
+                }).showToast();
+            });
+        });
+    </script>
+
 @endsection

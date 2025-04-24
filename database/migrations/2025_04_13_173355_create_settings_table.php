@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('shoppe')->nullable();
             $table->string('lazada')->nullable();
             $table->string('tiktok')->nullable();
+            $table->string('maps')->nullable();
             $table->text('subtitle')->nullable();
 
             $table->boolean('momo')->default(false);
@@ -31,6 +32,10 @@ return new class extends Migration
 
             $table->string('logo')->nullable();
             $table->string('favicon')->nullable();
+            $table->string('certi1')->nullable();
+            $table->string('certi2')->nullable();
+            $table->string('certi3')->nullable();
+            $table->string('certi4')->nullable();
 
             $table->string('seo_author')->nullable();
             $table->text('seo_keywords')->nullable();

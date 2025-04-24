@@ -15,9 +15,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <img src="/images/bg/collection_banner.jpg" alt="" class="pb-3 object-fit-cover">
-                </div>
-                <div class="col-12">
                     <div class="col-title">
                         <h1>Tất cả sản phẩm</h1>
                         <div class="title-separator">

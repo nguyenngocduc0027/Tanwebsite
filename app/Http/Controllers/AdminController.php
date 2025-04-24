@@ -8,6 +8,8 @@ use App\Models\Setting;
 use App\Models\User;
 use App\Models\ListShop;
 use App\Models\NotificationSale;
+use App\Models\BlankPage;
+use App\Models\Blog;
 use App\Models\Type;
 use App\Models\Level;
 
@@ -28,11 +30,11 @@ class AdminController extends Controller
         return view('admin.pages.home_page');
     }
 
-    public function about_page()
+    public function blank_page()
     {
-        return view('admin.pages.about_page');
+        $blank_page = BlankPage::all();
+        return view('admin.pages.blank_page', compact('blank_page'));
     }
-
     public function notification_sale()
     {
         $notification_sale = NotificationSale::all();
@@ -62,5 +64,8 @@ class AdminController extends Controller
         return view('admin.pages.category', compact('categories'));
     }
 
-
+    public function blog(){
+        $blogs = Blog::latest()->get();
+        return view('admin.pages.blog', compact('blogs'));
+    }
 }

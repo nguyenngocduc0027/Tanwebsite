@@ -45,6 +45,7 @@ class SettingController extends Controller
             'shoppe' => $web_config->shoppe,
             'lazada' => $web_config->lazada,
             'tiktok' => $web_config->tiktok,
+            'maps' => $web_config->maps,
             'subtitle' => $web_config->subtitle,
             'momo' => $web_config->momo,
             'zalopay' => $web_config->zalopay,
@@ -53,6 +54,10 @@ class SettingController extends Controller
             'bank' => $web_config->bank,
             'logo' => $web_config->logo,
             'favicon' => $web_config->favicon,
+            'certi1' => $web_config->certi1,
+            'certi2' => $web_config->certi2,
+            'certi3' => $web_config->certi3,
+            'certi4' => $web_config->certi4,
             'seo_author' => $web_config->seo_author,
             'seo_keywords' => $web_config->seo_keywords,
             'seo_site_name' => $web_config->seo_site_name,
@@ -87,6 +92,7 @@ class SettingController extends Controller
         $web_config->shoppe = $request->shoppe;
         $web_config->lazada = $request->lazada;
         $web_config->tiktok = $request->tiktok;
+        $web_config->maps = $request->maps;
 
         $web_config->momo = $request->momo;
         $web_config->zalopay = $request->zalopay;
@@ -107,6 +113,32 @@ class SettingController extends Controller
             $favicon->move(public_path('/images/favicon/'), $faviconName);
             $web_config->favicon = $faviconName;
         }
+
+        if ($request->hasFile('certi1')) {
+            $certi1 = $request->file('certi1');
+            $certi1Name = 'certi1.' . $certi1->getClientOriginalExtension();
+            $certi1->move(public_path('/images/certi/'), $certi1Name);
+            $web_config->certi1 = '/images/certi/'.$certi1Name;
+        }
+        if ($request->hasFile('certi2')) {
+            $certi2 = $request->file('certi2');
+            $certi2Name = 'certi2.' . $certi2->getClientOriginalExtension();
+            $certi2->move(public_path('/images/certi/'), $certi2Name);
+            $web_config->certi2 = '/images/certi/'.$certi2Name;
+        }
+        if ($request->hasFile('certi3')) {
+            $certi3 = $request->file('certi3');
+            $certi3Name = 'certi3.' . $certi3->getClientOriginalExtension();
+            $certi3->move(public_path('/images/certi/'), $certi3Name);
+            $web_config->certi3 = '/images/certi/'.$certi3Name;
+        }
+        if ($request->hasFile('certi4')) {
+            $certi4 = $request->file('certi4');
+            $certi4Name = 'certi4.' . $certi4->getClientOriginalExtension();
+            $certi4->move(public_path('/images/certi/'), $certi4Name);
+            $web_config->certi4 = '/images/certi/'.$certi4Name;
+        }
+
 
         $web_config->seo_author = $request->seo_author;
         $web_config->seo_keywords = $request->seo_keywords;

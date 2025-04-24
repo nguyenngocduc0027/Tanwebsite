@@ -66,6 +66,21 @@
 
                                 <div class="inventory_quantity">
                                     <span class="mb-break">
+                                        <span class="stock-brand-title">Danh mục:</span>
+                                        <span class="a-vendor">Đang cập nhật</span>
+                                    </span>
+                                    <span class="line">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                    <span class="mb-break">
+                                        <span class="stock-brand-title">Loại:</span>
+                                        <span class="a-vendor">Đang cập nhật</span>
+                                    </span>
+                                    <span class="line">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                    <span class="mb-break">
+                                        <span class="stock-brand-title">Kiểu:</span>
+                                        <span class="a-stock">Còn hàng</span>
+                                    </span>
+                                    <span class="line">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                    <span class="mb-break">
                                         <span class="stock-brand-title">Mã:</span>
                                         <span class="a-vendor">Đang cập nhật</span>
                                     </span>

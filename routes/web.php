@@ -10,6 +10,9 @@ use App\Http\Controllers\NotificationSaleController;
 use App\Http\Controllers\PopupAdsController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BlankPageController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,77 +33,96 @@ Route::get('/product_category', [HomeController::class, 'product_category'])->na
 Route::get('/product_sub_category', [HomeController::class, 'product_sub_category'])->name('product_sub_category');
 Route::get('/product_subsub_category', [HomeController::class, 'product_subsub_category'])->name('product_subsub_category');
 Route::get('/product_detail', [HomeController::class, 'product_detail'])->name('product_detail');
-Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
+Route::get('/blogs', [HomeController::class, 'blog'])->name('blogs');
 Route::get('/blog_detail', [HomeController::class, 'blog_detail'])->name('blog_detail');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/blank', [HomeController::class, 'blank'])->name('blank');
 
-
+// Auth
 Route::get('/login', [AuthController::class, 'view_login'])->name('login');
-
+Route::post('/login', [AuthController::class, 'login'])->name('dologin');
 Route::get('/register', [AuthController::class, 'view_register'])->name('register');
 
 Route::get('/forgot_password', [AuthController::class, 'view_forgot_password'])->name('forgot');
 
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
-// Admin
-Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.index');
-// Web Config
-Route::get('/web_config', [AdminController::class, 'web_config'])->name('admin.web_config');
-Route::get('/settings/data', [SettingController::class, 'show'])->name('settings.data');
-Route::post('/settings/update', [SettingController::class, 'update'])->name('settings.update');
-// About Page
-Route::get('/about_page', [AdminController::class, 'about_page'])->name('admin.about_page');
 
-// Home Page
-Route::get('/home_page', [AdminController::class, 'home_page'])->name('admin.home_page');
-Route::get('/home_page/data', [HomePageController::class, 'show'])->name('homePage.data');
-Route::post('/home_page/update', [HomePageController::class, 'update'])->name('homePage.update');
+Route::middleware(['auth', 'role:admin,manager'])->group(function () {
+    // Admin
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.index');
+    // Web Config
+    Route::get('/web_config', [AdminController::class, 'web_config'])->name('admin.web_config');
+    Route::get('/settings/data', [SettingController::class, 'show'])->name('settings.data');
+    Route::post('/settings/update', [SettingController::class, 'update'])->name('settings.update');
 
-// Notification Sale
-Route::get('/notification_sale', [AdminController::class, 'notification_sale'])->name('admin.notification_sale');
-Route::get('/notification_sale/data', [NotificationSaleController::class, 'show'])->name('notificationSale.data');
-Route::post('/notification_sale/store', [NotificationSaleController::class, 'store'])->name('notificationSale.store');
-Route::put('/notification_sale/{id}', [NotificationSaleController::class, 'update'])->name('notificationSale.update');
-Route::delete('/notification_sale/{id}', [NotificationSaleController::class, 'destroy'])->name('notificationSale.destroy');
+    // Home Page
+    Route::get('/home_page', [AdminController::class, 'home_page'])->name('admin.home_page');
+    Route::get('/home_page/data', [HomePageController::class, 'show'])->name('homePage.data');
+    Route::post('/home_page/update', [HomePageController::class, 'update'])->name('homePage.update');
 
-// Popup Ads
-Route::get('/popup_ads', [AdminController::class, 'popup_ads'])->name('admin.popup_ads');
-Route::get('/popup_ads/data', [PopupAdsController::class, 'show'])->name('popupAds.data');
-Route::post('/popup_ads/update', [PopupAdsController::class, 'update'])->name('popupAds.update');
+    // Blank Page
+    Route::get('/blank_page', [AdminController::class, 'blank_page'])->name('admin.blank_page');
+    Route::post('/blank_page/store', action: [BlankPageController::class, 'store'])->name('blankPage.store');
+    Route::put('/blank_page/update/{id}', [BlankPageController::class, 'update'])->name('blankPage.update');
+    Route::delete('/blank_page/{id}', [BlankPageController::class, 'destroy'])->name('blankPage.destroy');
 
-// List Shop
-Route::get('/list_shop', [AdminController::class, 'list_shop'])->name('admin.list_shop');
-Route::get('/list_shop/data', [ListShopController::class, 'show'])->name('listShop.data');
-Route::post('/list_shop/store', [ListShopController::class, 'store'])->name('listShop.store');
-Route::put('/list_shop/{id}', [ListShopController::class, 'update'])->name('listShop.update');
-Route::delete('/list_shop/{id}', [ListShopController::class, 'destroy'])->name('listShop.destroy');
+    // Notification Sale
+    Route::get('/notification_sale', [AdminController::class, 'notification_sale'])->name('admin.notification_sale');
+    Route::get('/notification_sale/data', [NotificationSaleController::class, 'show'])->name('notificationSale.data');
+    Route::post('/notification_sale/store', [NotificationSaleController::class, 'store'])->name('notificationSale.store');
+    Route::put('/notification_sale/{id}', [NotificationSaleController::class, 'update'])->name('notificationSale.update');
+    Route::delete('/notification_sale/{id}', [NotificationSaleController::class, 'destroy'])->name('notificationSale.destroy');
 
+    // Popup Ads
+    Route::get('/popup_ads', [AdminController::class, 'popup_ads'])->name('admin.popup_ads');
+    Route::get('/popup_ads/data', [PopupAdsController::class, 'show'])->name('popupAds.data');
+    Route::post('/popup_ads/update', [PopupAdsController::class, 'update'])->name('popupAds.update');
 
-// Account
-Route::get('/account', [AdminController::class, 'account'])->name('admin.account');
-Route::get('/account/data', [AccountController::class, 'show'])->name('account.data');
-Route::post('/account/store', [AccountController::class, 'store'])->name('account.store');
-Route::put('/account/{id}', [AccountController::class, 'update'])->name('account.update');
-Route::put('/account/pass/{id}', [AccountController::class, 'update_password'])->name('account.update.pass');
-Route::delete('/account/{id}', [AccountController::class, 'destroy'])->name('account.destroy');
+    // List Shop
+    Route::get('/list_shop', [AdminController::class, 'list_shop'])->name('admin.list_shop');
+    Route::get('/list_shop/data', [ListShopController::class, 'show'])->name('listShop.data');
+    Route::post('/list_shop/store', [ListShopController::class, 'store'])->name('listShop.store');
+    Route::put('/list_shop/{id}', [ListShopController::class, 'update'])->name('listShop.update');
+    Route::delete('/list_shop/{id}', [ListShopController::class, 'destroy'])->name('listShop.destroy');
 
 
-// Category
-Route::get('/category', [AdminController::class, 'category'])->name('admin.category');
-// Category CRUD
-Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
-Route::put('/category/update/{id}', [CategoryController::class, 'updateCategory'])->name('category.update');
-Route::delete('/category/delete/{id}', [CategoryController::class, 'destroyCategory'])->name('category.delete');
+    // Account
+    Route::get('/account', [AdminController::class, 'account'])->name('admin.account');
+    Route::get('/account/data', [AccountController::class, 'show'])->name('account.data');
+    Route::post('/account/store', [AccountController::class, 'store'])->name('account.store');
+    Route::put('/account/{id}', [AccountController::class, 'update'])->name('account.update');
+    Route::put('/account/pass/{id}', [AccountController::class, 'update_password'])->name('account.update.pass');
+    Route::delete('/account/{id}', [AccountController::class, 'destroy'])->name('account.destroy');
 
-// Type CRUD
-Route::post('/type/store', [CategoryController::class, 'storeType'])->name('type.store');
-Route::put('/type/update/{id}', [CategoryController::class, 'updateType'])->name('type.update');
-Route::delete('/type/delete/{id}', [CategoryController::class, 'destroyType'])->name('type.delete');
 
-// Level CRUD
-Route::post('/level/store', [CategoryController::class, 'storeLevel'])->name('level.store');
-Route::put('/level/update/{id}', [CategoryController::class, 'updateLevel'])->name('level.update');
-Route::delete('/level/delete/{id}', [CategoryController::class, 'destroyLevel'])->name('level.delete');
+    // Category
+    Route::get('/category', [AdminController::class, 'category'])->name('admin.category');
+    // Category CRUD
+    Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
+    Route::put('/category/update/{id}', [CategoryController::class, 'updateCategory'])->name('category.update');
+    Route::delete('/category/delete/{id}', [CategoryController::class, 'destroyCategory'])->name('category.delete');
 
+    // Type CRUD
+    Route::post('/type/store', [CategoryController::class, 'storeType'])->name('type.store');
+    Route::put('/type/update/{id}', [CategoryController::class, 'updateType'])->name('type.update');
+    Route::delete('/type/delete/{id}', [CategoryController::class, 'destroyType'])->name('type.delete');
+
+    // Level CRUD
+    Route::post('/level/store', [CategoryController::class, 'storeLevel'])->name('level.store');
+    Route::put('/level/update/{id}', [CategoryController::class, 'updateLevel'])->name('level.update');
+    Route::delete('/level/delete/{id}', [CategoryController::class, 'destroyLevel'])->name('level.delete');
+
+    // Blog
+    Route::get('/blog', [AdminController::class, 'blog'])->name('admin.blog');
+    Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
+
+
+
+});
+
+// User
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::get('/user', [UserController::class, 'dashboard'])->name('user.index');
+});

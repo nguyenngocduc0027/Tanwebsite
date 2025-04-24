@@ -542,7 +542,7 @@
                                 </li>
 
                                 <li class="nav-item" data-section="header_nav">
-                                    <a href="{{route('blog')}}" class="nav-link" title="Tin tức">Tin tức</a>
+                                    <a href="{{route('blogs')}}" class="nav-link" title="Tin tức">Tin tức</a>
                                 </li>
 
                                 <li class="nav-item has-childs " data-section="header_nav">
