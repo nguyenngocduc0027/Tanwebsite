@@ -13,6 +13,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BlankPageController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +48,7 @@ Route::get('/forgot_password', [AuthController::class, 'view_forgot_password'])-
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::post('/admin/upload-image', [UploadController::class, 'uploadImage']);
 
 
 Route::middleware(['auth', 'role:admin,manager'])->group(function () {
@@ -117,7 +119,10 @@ Route::middleware(['auth', 'role:admin,manager'])->group(function () {
     // Blog
     Route::get('/blog', [AdminController::class, 'blog'])->name('admin.blog');
     Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
-
+    Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
+    Route::get('/blog/{id}/edit', [BlogController::class, 'edit'])->name('blog.edit');
+    Route::post('/blog/update/{id}', [BlogController::class, 'update'])->name('blog.update');
+    Route::delete('/blog/{id}/delete', [BlogController::class, 'destroy'])->name('blog.destroy');
 
 
 });

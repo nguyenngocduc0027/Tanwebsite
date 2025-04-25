@@ -97,6 +97,7 @@
 
     <!-- Kaiadmin JS -->
     <script src="/admin/js/kaiadmin.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $("#basic-datatables").DataTable({});

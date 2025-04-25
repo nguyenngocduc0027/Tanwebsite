@@ -66,8 +66,14 @@
                 window.location.href = '{{ route('blog.create') }}';
             });
 
+            // Edit
+            $(document).on('click', '.btn-edit-blog', function() {
+                const id = $(this).data('id');
+                window.location.href = `/blog/${id}/edit`;
+            });
+
             // Delete
-            $(document).on('click', '.btn-delete-list-shop', function() {
+            $(document).on('click', '.btn-delete-blog', function() {
                 const id = $(this).data('id');
 
                 Swal.fire({
@@ -82,7 +88,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: `/list_shop/${id}`,
+                            url: `/blog/${id}/delete`,
                             method: 'DELETE',
                             headers: {
                                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
