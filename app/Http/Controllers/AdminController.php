@@ -10,6 +10,8 @@ use App\Models\ListShop;
 use App\Models\NotificationSale;
 use App\Models\BlankPage;
 use App\Models\Blog;
+use App\Models\Gift;
+use App\Models\Product;
 use App\Models\Type;
 use App\Models\Level;
 
@@ -67,5 +69,15 @@ class AdminController extends Controller
     public function blog(){
         $blogs = Blog::latest()->get();
         return view('admin.pages.blog', compact('blogs'));
+    }
+
+    public function product(){
+        $products = Product::latest()->get();
+        return view('admin.pages.product', compact('products'));
+    }
+
+    public function gift(){
+        $gifts = Gift::all();
+        return view('admin.pages.gift', compact('gifts'));
     }
 }

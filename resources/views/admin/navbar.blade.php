@@ -48,6 +48,16 @@
                                     <span class="sub-item">Danh Mục</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.product')  }}">
+                                    <span class="sub-item">Sản Phẩm</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.gift')  }}">
+                                    <span class="sub-item">Quà Tặng</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

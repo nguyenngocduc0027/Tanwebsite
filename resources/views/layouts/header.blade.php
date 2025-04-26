@@ -228,7 +228,7 @@
                             </ul>
                         </div>
                         <div class="sudes-header-cart header-action_cart">
-                            <a class="a-hea" href="#" aria-label="Giỏ hàng" title="Giỏ hàng">
+                            <a class="a-hea" href="{{route('cart.index')}}" aria-label="Giỏ hàng" title="Giỏ hàng">
                                 <span class="box-icon">
                                     <svg width="512" height="512" viewBox="0 0 512 512" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">

@@ -12,8 +12,12 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BlankPageController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\MyController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\GiftController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +43,14 @@ Route::get('/blog_detail', [HomeController::class, 'blog_detail'])->name('blog_d
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/blank', [HomeController::class, 'blank'])->name('blank');
 
+// cart
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::get('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
+Route::get('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+
+
 // Auth
 Route::get('/login', [AuthController::class, 'view_login'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('dologin');
@@ -52,6 +64,10 @@ Route::post('/admin/upload-image', [UploadController::class, 'uploadImage']);
 
 
 Route::middleware(['auth', 'role:admin,manager'])->group(function () {
+    // My Controller
+    Route::get('/get-types/{category_id}', [MyController::class, 'getTypes']);
+    Route::get('/get-levels/{type_id}', [MyController::class, 'getLevels']);
+
     // Admin
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.index');
     // Web Config
@@ -124,6 +140,21 @@ Route::middleware(['auth', 'role:admin,manager'])->group(function () {
     Route::post('/blog/update/{id}', [BlogController::class, 'update'])->name('blog.update');
     Route::delete('/blog/{id}/delete', [BlogController::class, 'destroy'])->name('blog.destroy');
 
+    // Product
+    Route::get('/admin/product', [AdminController::class, 'product'])->name('admin.product');
+    Route::get('/admin/product/create', [ProductController::class, 'create'])->name('product.create');
+    Route::post('/admin/products/store', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/admin/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+    Route::post('/admin/products/{id}/update', [ProductController::class, 'update'])->name('products.update');
+    Route::delete('/admin/products/{id}/delete', [ProductController::class, 'destroy'])->name('product.destroy');
+
+    // Gift
+    Route::get('/admin/gift', [AdminController::class, 'gift'])->name('admin.gift');
+    Route::get('/admin/gifts/create', [GiftController::class, 'create'])->name('gift.create');
+    Route::post('/admin/gifts/store', [GiftController::class, 'store'])->name('gifts.store');
+    Route::get('/admin/gifts/{id}/edit', [GiftController::class, 'edit'])->name('gifts.edit');
+    Route::put('/admin/gifts/{id}/update', [GiftController::class, 'update'])->name('gifts.update');
+    Route::delete('/admin/gifts/{id}/delete', [GiftController::class, 'destroy'])->name('gift.destroy');
 
 });
 

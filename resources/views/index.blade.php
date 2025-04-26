@@ -3,6 +3,7 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
 <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#8d251c" />
@@ -12,6 +13,9 @@
     <meta name="description" content="Xã Hội Vạn Thiện - Tinh Chất Thiên Nhiên." />
     <meta name="keywords" content="dầu gội, Xã Hội Vạn Thiện, dầu xã, tinh dầu, xà phòng" />
     <title>Xã Hội Vạn Thiện - Thương hiệu yến sào cao cấp, chất lượng và uy tín</title>
+
+    <!-- Meta Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />

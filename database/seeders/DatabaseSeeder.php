@@ -5,6 +5,8 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
+use App\Models\Type;
+use App\Models\Level;
 use App\Models\HomePage;
 use App\Models\User;
 
@@ -30,18 +32,29 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
         ]);
 
-        $categories = ['Dầu Gội', 'Dầu Xả', 'Nước Rửa Chén', 'Tinh Dầu'];
-        $types = ['Chanh', 'Khổ Qua', 'Bưởi'];
-        $levels = ['Chai 250ml', 'Can 1000ml'];
+        // Tạo 3 danh mục
+        $categories = [
+            'Đồ điện tử',
+            'Thời trang',
+            'Nội thất'
+        ];
 
-        foreach ($categories as $category) {
-            $cat = Category::create(['name' => $category]);
+        foreach ($categories as $catName) {
+            $category = Category::create(['name' => $catName]);
 
-            foreach ($types as $type) {
-                $cat->types()->create(['name' => $type]);
+            // Mỗi danh mục có 2 loại
+            for ($i = 1; $i <= 2; $i++) {
+                $type = Type::create([
+                    'name' => "Loại $i của $catName",
+                    'category_id' => $category->id
+                ]);
 
-                foreach ($levels as $level) {
-                    $cat->types()->first()->levels()->create(['name' => $level]);
+                // Mỗi loại có 2 kiểu
+                for ($j = 1; $j <= 2; $j++) {
+                    Level::create([
+                        'name' => "Kiểu $j của Loại $i - $catName",
+                        'type_id' => $type->id
+                    ]);
                 }
             }
         }
