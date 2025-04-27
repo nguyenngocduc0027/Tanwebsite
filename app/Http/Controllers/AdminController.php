@@ -14,6 +14,7 @@ use App\Models\Gift;
 use App\Models\Product;
 use App\Models\Type;
 use App\Models\Level;
+use App\Models\Slider;
 
 class AdminController extends Controller
 {
@@ -79,5 +80,10 @@ class AdminController extends Controller
     public function gift(){
         $gifts = Gift::all();
         return view('admin.pages.gift', compact('gifts'));
+    }
+
+    public function slider(){
+        $sliders = Slider::all();
+        return view('admin.pages.slider', compact('sliders'));
     }
 }

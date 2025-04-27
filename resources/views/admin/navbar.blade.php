@@ -134,6 +134,11 @@
                                     <span class="sub-item">Trang khác</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.slider') }}">
+                                    <span class="sub-item">Slider</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

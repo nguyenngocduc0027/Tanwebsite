@@ -17,6 +17,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\GiftController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,13 +43,6 @@ Route::get('/blogs', [HomeController::class, 'blog'])->name('blogs');
 Route::get('/blog_detail', [HomeController::class, 'blog_detail'])->name('blog_detail');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/blank', [HomeController::class, 'blank'])->name('blank');
-
-// cart
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::get('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
-Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
-Route::get('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
-Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 
 // Auth
@@ -155,6 +149,12 @@ Route::middleware(['auth', 'role:admin,manager'])->group(function () {
     Route::get('/admin/gifts/{id}/edit', [GiftController::class, 'edit'])->name('gifts.edit');
     Route::put('/admin/gifts/{id}/update', [GiftController::class, 'update'])->name('gifts.update');
     Route::delete('/admin/gifts/{id}/delete', [GiftController::class, 'destroy'])->name('gift.destroy');
+
+    // Slider
+    Route::get('/admin/slider', [AdminController::class, 'slider'])->name('admin.slider');
+    Route::post('/slider/store', [SliderController::class, 'store'])->name('slider.store');
+    Route::put('/slider/{id}', [SliderController::class, 'update'])->name('slider.update');
+    Route::delete('/slider/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
 
 });
 

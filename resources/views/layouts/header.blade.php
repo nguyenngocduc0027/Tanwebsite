@@ -228,7 +228,7 @@
                             </ul>
                         </div>
                         <div class="sudes-header-cart header-action_cart">
-                            <a class="a-hea" href="{{route('cart.index')}}" aria-label="Giỏ hàng" title="Giỏ hàng">
+                            <a class="a-hea" href="#" aria-label="Giỏ hàng" title="Giỏ hàng">
                                 <span class="box-icon">
                                     <svg width="512" height="512" viewBox="0 0 512 512" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -598,23 +598,23 @@
                                         d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
                                 </svg></a>
                         </div>
-                        <div class="button-promo">
+                        {{-- <div class="button-promo">
                             <a href="#" title="Hot deal" class="duration-300">
                                 <img src="/images/btn_promotion_icon.png" data-src="/images/btn_promotion_icon.png"
                                     alt="Hot deal" class="lazyload" />
                                 <span>Hot deal</span>
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <ul class="md-hidden list-menu-account">
-                    <li class="li-account">
+                    {{-- <li class="li-account">
                         <a href="#" title="Hot deal" class="promo">
                             <img src="/images/btn_promotion_icon.png" data-src="/images/btn_promotion_icon.png"
                                 alt="Hot deal" class="lazyload" />
                             Hot deal
                         </a>
-                    </li>
+                    </li> --}}
 
                     <li class="li-account">
                         <a href="#" title="Danh sách yêu thích">
