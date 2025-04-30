@@ -87,7 +87,7 @@
                             url: `/admin/gifts/${id}/delete`,
                             method: 'DELETE',
                             headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
                             success: function(response) {
                                 Swal.fire({

@@ -34,12 +34,10 @@
                                                     <button type="button" data-bs-toggle="modal"
                                                         data-bs-target="#edit-slider" title="Edit"
                                                         class="btn btn-link btn-primary btn-lg btn-edit-slider"
-                                                        data-id="{{ $item->id }}"
-                                                        data-title="{{ $item->title }}"
+                                                        data-id="{{ $item->id }}" data-title="{{ $item->title }}"
                                                         data-subtitle="{{ $item->subtitle }}"
-                                                        data-link="{{ $item->link }}"
-                                                        data-status="{{ $item->status }}"
-                                                        data-image="{{ $item->image }}">
+                                                        data-link="{{ $item->link }}" data-status="{{ $item->status }}"
+                                                        data-image="{{ asset($item->image) }}">
                                                         <i class="fa fa-edit"></i>
                                                     </button>
                                                     <button type="button" data-bs-toggle="tooltip" title="Remove"
@@ -100,7 +98,6 @@
                                 <input type="file" class="form-control" id="add-image" name="image">
                             </div>
                             <div class="form-group" id="div-preview-image">
-                                <label for="preview">Xem Trước</label>
                                 <img id="preview-image" src="" alt="Preview"
                                     style="display:none; max-width: 100%;">
                             </div>
@@ -157,9 +154,7 @@
                                 <input type="file" class="form-control" id="edit-image" name="image">
                             </div>
                             <div class="form-group" id="div-preview-image">
-                                <label for="preview">Xem Trước</label>
-                                <img id="preview-image" src="" alt="Preview"
-                                    style="display:none; max-width: 100%;">
+                                <img id="preview-edit-image" src="" alt="Preview" style=" max-width: 100%;">
                             </div>
                         </div>
                     </div>
@@ -175,7 +170,6 @@
 
     <script>
         $(document).ready(function() {
-
             // Preview image
             $('#add-image').on('change', function() {
                 const file = this.files[0];
@@ -186,85 +180,80 @@
                 };
                 reader.readAsDataURL(file);
             })
-            // add notification
+            $('#edit-image').on('change', function() {
+                const file = this.files[0];
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#preview-edit-image').attr('src', e.target.result);
+                    $('#preview-edit-image').show();
+                };
+                reader.readAsDataURL(file);
+            })
+
+            // Thêm mới
             $('.btn-add-slider').on('click', function() {
                 let formData = new FormData();
                 formData.append('title', $('#add-title').val());
                 formData.append('subtitle', $('#add-subtitle').val());
                 formData.append('link', $('#add-link').val());
                 formData.append('status', $('#add-status').val());
-
-                const imageFile = $('#add-image')[0].files[0];
-                if (imageFile) {
-                    formData.append('image', imageFile);
-                }
+                formData.append('image', $('#add-image')[0].files[0]);
 
                 $.ajax({
                     url: '{{ route('slider.store') }}',
-                    method: 'POST',
+                    type: 'POST',
                     data: formData,
-                    contentType: false, // Add this line
-                    processData: false, // Add this line
+                    contentType: false,
+                    processData: false,
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
-                        $('#add-slider').modal('hide');
-                        $('#add-title, #add-subtitle, #add-link, #add-status').val('');
-
-                        // Hiển thị Swal khi thành công
                         Swal.fire({
                             icon: 'success',
                             title: 'Thành công!',
                             text: response.message,
-                            confirmButtonColor: '#3085d6',
-                            confirmButtonText: 'OK'
+                            timer: 1500,
+                            showConfirmButton: false
                         }).then(() => {
                             location.reload();
                         });
                     },
                     error: function(xhr) {
-                        if (xhr.status === 422) {
-                            let errors = xhr.responseJSON.errors;
-                            // Hiển thị mỗi lỗi bằng Toastify
-                            let errorMessage = Object.values(errors)[0][0];
+                        const errors = xhr.responseJSON.errors;
+                        for (const key in errors) {
                             Toastify({
-                                text: errorMessage,
+                                text: errors[key][0],
                                 duration: 3000,
-                                close: true,
-                                gravity: "top",
-                                position: "right",
+                                gravity: 'top',
+                                position: 'right',
                                 style: {
-                                    background: "#e74c3c"
-                                }
-                            }).showToast();
-                        } else {
-                            Toastify({
-                                text: "Đã có lỗi xảy ra. Vui lòng thử lại.",
-                                duration: 3000,
-                                close: true,
-                                gravity: "top",
-                                position: "right",
-                                style: {
-                                    background: "#e74c3c"
+                                    background: "#f44336"
                                 }
                             }).showToast();
                         }
-                    },
+                    }
                 });
             });
 
-            // Edit
-            $(document).on('click', '.btn-edit-slider', function() {
-                $('#edit-id').val($(this).data('id'));
-                $('#edit-title').val($(this).data('title'));
-                $('#edit-subtitle').val($(this).data('subtitle'));
-                $('#edit-link').val($(this).data('link'));
-                $('#edit-status').val($(this).data('status'));
-                $('#preview-image').attr('src', $(this).data('image'));
-                $('#preview-image').show();
+            // Hiển thị dữ liệu khi click sửa
+            $('.btn-edit-slider').on('click', function() {
+                const id = $(this).data('id');
+                const title = $(this).data('title');
+                const subtitle = $(this).data('subtitle');
+                const link = $(this).data('link');
+                const status = $(this).data('status');
+                const image = $(this).data('image');
+
+                $('#edit-id').val(id);
+                $('#edit-title').val(title);
+                $('#edit-subtitle').val(subtitle);
+                $('#edit-link').val(link);
+                $('#edit-status').val(status);
+                $('#preview-edit-image').attr('src', image);
             });
-            // Update
+
+            // Cập nhật
             $('.btn-update-slider').on('click', function() {
                 const id = $('#edit-id').val();
                 const formData = new FormData();
@@ -272,107 +261,99 @@
                 formData.append('subtitle', $('#edit-subtitle').val());
                 formData.append('link', $('#edit-link').val());
                 formData.append('status', $('#edit-status').val());
-                const imageFile = $('#edit-image')[0].files[0];
-                if (imageFile) {
-                    formData.append('image', imageFile);
+                if ($('#edit-image')[0].files[0]) {
+                    formData.append('image', $('#edit-image')[0].files[0]);
                 }
-                formData.append('_method', 'PUT');
+                formData.append('_method', 'PUT'); // Laravel cần dòng này khi dùng POST giả PUT
+
 
                 $.ajax({
-                    url: `/slider/${id}`,
-                    method: 'PUT',
+                    url: '/slider/' + $('#edit-id').val(),
+                    type: 'POST',
+                    data: formData,
                     contentType: false,
                     processData: false,
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
                     },
-                    data: formData,
                     success: function(response) {
-                        $('#edit-slider').modal('hide');
                         Swal.fire({
                             icon: 'success',
-                            title: 'Cập nhật thành công!',
-                            text: response.message || 'Đã được cập nhật.',
-                            confirmButtonText: 'OK'
+                            title: 'Đã cập nhật!',
+                            text: response.message,
+                            timer: 1500,
+                            showConfirmButton: false
                         }).then(() => {
                             location.reload();
                         });
                     },
                     error: function(xhr) {
-                        if (xhr.status === 422) {
-                            const errors = xhr.responseJSON.errors;
-                            $.each(errors, function(key, message) {
-                                Toastify({
-                                    text: message[0],
-                                    duration: 3000,
-                                    close: true,
-                                    gravity: 'top',
-                                    position: 'right',
-                                    style: {
-                                        background: "#e74c3c"
-                                    }
-                                }).showToast();
-                            });
-                        } else {
+                        const errors = xhr.responseJSON.errors;
+                        for (const key in errors) {
                             Toastify({
-                                text: "Đã có lỗi xảy ra.",
+                                text: errors[key][0],
                                 duration: 3000,
-                                close: true,
                                 gravity: 'top',
                                 position: 'right',
                                 style: {
-                                    background: "#e74c3c"
+                                    background: "#f44336"
                                 }
                             }).showToast();
                         }
                     }
                 });
+
             });
 
-            // Delete
-            $(document).on('click', '.btn-delete-slider', function() {
-                const id = $(this).data('id');
-
+            // Xoá
+            $('.btn-delete-slider').on('click', function() {
+                let id = $(this).data('id');
                 Swal.fire({
-                    title: 'Bạn có chắc chắn muốn xoá?',
-                    text: "Thao tác này sẽ không thể hoàn tác!",
+                    title: 'Xác nhận xoá?',
+                    text: "Slider sẽ bị xoá vĩnh viễn!",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d33',
                     cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Xoá',
-                    cancelButtonText: 'Huỷ'
+                    confirmButtonText: 'Xoá'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: `/slider/${id}`,
-                            method: 'DELETE',
+                            url: '/slider/' + id,
+                            type: 'DELETE',
                             headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            data: {
+                                id: id
                             },
                             success: function(response) {
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Đã xoá!',
-                                    text: response.message
+                                    text: response.message,
+                                    timer: 1500,
+                                    showConfirmButton: false
                                 }).then(() => {
                                     location.reload();
                                 });
                             },
-                            error: function() {
+                            error: function(xhr) {
                                 Toastify({
-                                    text: "Không thể xoá. Đã có lỗi xảy ra.",
+                                    text: "Không thể xoá slider",
                                     duration: 3000,
-                                    close: true,
-                                    gravity: "top",
-                                    position: "right",
-                                    backgroundColor: "#e74c3c"
+                                    gravity: 'top',
+                                    position: 'right',
+                                    style: {
+                                        background: "#f44336"
+                                    }
                                 }).showToast();
                             }
                         });
                     }
                 });
             });
+
         });
     </script>
 @endsection

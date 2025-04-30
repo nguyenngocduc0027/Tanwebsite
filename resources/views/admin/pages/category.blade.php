@@ -376,7 +376,7 @@
                         name: name,
                     },
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
                         $('#add-category').modal('hide');
@@ -437,7 +437,7 @@
                         category_id: category_id,
                     },
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
                         $('#add-sub-category').modal('hide');
@@ -498,7 +498,7 @@
                         type_id: type_id,
                     },
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
                         $('#add-subsub-category').modal('hide');
@@ -566,7 +566,7 @@
                         name: name,
                     },
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
                         $('#edit-category').modal('hide');
@@ -638,7 +638,7 @@
                         category_id: category_id,
                     },
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
                         $('#edit-sub-category').modal('hide');
@@ -710,7 +710,7 @@
                         type_id: type_id,
                     },
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
                         $('#edit-subsub-category').modal('hide');
@@ -778,7 +778,7 @@
                             url: `/category/delete/${id}`,
                             method: 'DELETE',
                             headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
                             success: function(response) {
                                 Swal.fire({
@@ -823,7 +823,7 @@
                             url: `/type/delete/${id}`,
                             method: 'DELETE',
                             headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
                             success: function(response) {
                                 Swal.fire({
@@ -868,7 +868,7 @@
                             url: `/level/delete/${id}`,
                             method: 'DELETE',
                             headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
                             success: function(response) {
                                 Swal.fire({

@@ -156,7 +156,7 @@
                     method: 'POST',
                     data: formData,
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
                         $('#add-list-shop').modal('hide');
@@ -223,7 +223,7 @@
                     url: `/list_shop/${id}`,
                     method: 'PUT',
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     data: formData,
                     success: function(response) {
@@ -283,7 +283,7 @@
                             url: `/list_shop/${id}`,
                             method: 'DELETE',
                             headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
                             success: function(response) {
                                 Swal.fire({

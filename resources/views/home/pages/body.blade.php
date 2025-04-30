@@ -4,7 +4,7 @@
     @include('home.section.service')
     @include('home.section.gift')
     @include('home.section.flashsale')
-    @include('home.section.coupon')
+    {{-- @include('home.section.coupon') --}}
     @include('home.section.about')
     @include('home.section.whychoise')
     @include('home.section.product')

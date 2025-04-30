@@ -175,7 +175,7 @@
                         content: $('#add-content').val(),
                     },
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
                         $('#add-blank-page').modal('hide');
@@ -245,7 +245,7 @@
                     url: `/blank_page/update/${id}`,
                     method: 'PUT',
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     data: formData,
                     success: function(response) {
@@ -305,7 +305,7 @@
                             url: `/blank_page/${id}`,
                             method: 'DELETE',
                             headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
                             success: function(response) {
                                 Swal.fire({

@@ -110,6 +110,12 @@
                         <p>Hệ Thống Cửa Hàng</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="collapsed" >
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Phản Hồi</p>
+                    </a>
+                </li>
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>

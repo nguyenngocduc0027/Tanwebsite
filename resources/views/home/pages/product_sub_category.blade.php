@@ -178,5 +178,5 @@
             </div>
         </div>
     </div>
-    @include('home.section.coupon')
+    {{-- @include('home.section.coupon') --}}
 @endsection

@@ -214,7 +214,7 @@
                     url: '{{ route('products.store') }}',
                     method: 'POST',
                     headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     data: formData,
                     processData: false,
