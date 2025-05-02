@@ -212,7 +212,7 @@
                     </div>
                     <div class="row">
 
-                        <div class="col-12 product-coupons margin-bottom-20">
+                        {{-- <div class="col-12 product-coupons margin-bottom-20">
                             <div class="bg-shadow">
                                 <div class="title">Khuyến mãi dành cho bạn</div>
                                 <div class="swiper_coupons swiper-container">
@@ -374,7 +374,7 @@
                             $(window).on('resize', function() {
                                 toggleSwiperCoupons();
                             });
-                        </script>
+                        </script> --}}
 
                         <div class="col-12 margin-bottom-20">
                             <div class="bg-shadow">

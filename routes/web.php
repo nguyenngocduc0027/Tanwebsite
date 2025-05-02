@@ -18,6 +18,8 @@ use App\Http\Controllers\GiftController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
@@ -156,6 +158,17 @@ Route::middleware(['auth', 'role:admin,manager'])->group(function () {
     Route::put('/slider/{id}', [SliderController::class, 'update'])->name('slider.update');
     Route::delete('/slider/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
 
+    // Testimonial
+    Route::get('/admin/testimonial', [AdminController::class, 'testimonial'])->name('admin.testimonial');
+    Route::post('/admin/testimonial/store', [TestimonialController::class, 'store'])->name('testimonial.store');
+    Route::put('/admin/testimonial/{id}', [TestimonialController::class, 'update'])->name('testimonial.update');
+    Route::delete('/admin/testimonial/{id}', [TestimonialController::class, 'destroy'])->name('testimonial.destroy');
+
+    // Partner
+    Route::get('/admin/partner', [AdminController::class, 'partner'])->name('admin.partner');
+    Route::post('/admin/partner/store', [PartnerController::class, 'store'])->name('partner.store');
+    Route::put('/admin/partner/{id}', [PartnerController::class, 'update'])->name('partner.update');
+    Route::delete('/admin/partner/{id}', [PartnerController::class, 'destroy'])->name('partner.destroy');
 });
 
 // User

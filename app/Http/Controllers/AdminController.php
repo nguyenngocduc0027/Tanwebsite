@@ -12,6 +12,8 @@ use App\Models\BlankPage;
 use App\Models\Blog;
 use App\Models\Gift;
 use App\Models\Product;
+use App\Models\Testimonial;
+use App\Models\Partner;
 use App\Models\Type;
 use App\Models\Level;
 use App\Models\Slider;
@@ -85,5 +87,15 @@ class AdminController extends Controller
     public function slider(){
         $sliders = Slider::all();
         return view('admin.pages.slider', compact('sliders'));
+    }
+
+    public function testimonial(){
+        $testimonials = Testimonial::all();
+        return view('admin.pages.testimonial', compact('testimonials'));
+    }
+
+    public function partner(){
+        $partners = Partner::all();
+        return view('admin.pages.partner', compact('partners'));
     }
 }

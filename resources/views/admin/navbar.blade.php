@@ -111,9 +111,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="collapsed" >
-                        <i class="fas fa-map-marked-alt"></i>
+                    <a href="{{ route('admin.testimonial') }}" class="collapsed" >
+                        <i class="fas fa-comments"></i>
                         <p>Phản Hồi</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.partner') }}" class="collapsed" >
+                        <i class="fas fa-user-friends"></i>
+                        <p>Đối Tác</p>
                     </a>
                 </li>
                 <li class="nav-section">

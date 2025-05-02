@@ -9,7 +9,7 @@
                         <span class="mr_lr">></span>
                     </li>
                     <li class="home">
-                        <a href="{{ route('blog') }}" title="Blog"><span>Blog</span></a>
+                        <a href="{{ route('blogs') }}" title="Blog"><span>Blog</span></a>
                         <span class="mr_lr">></span>
                     </li>
                     <li><strong><span>Blog 1</span></strong></li>
