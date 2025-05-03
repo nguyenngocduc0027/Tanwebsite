@@ -84,7 +84,7 @@
                             <select name="product_id" class="form-select" id="add-product-id">
                                 <option value="">Chọn sản phẩm</option>
                                 @foreach ($products as $product)
-                                    <option value="{{ $product->id }}">{{$product->code}}-{{ $product->name }}</option>
+                                    <option value="{{ $product->id }}">{{$product->code}}-{{ $product->name }}-</option>
                                 @endforeach
                             </select>
                         </div>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary btn-add-list-shop">Thêm</button>
+                    <button type="button" class="btn btn-primary btn-add-product-quantity">Thêm</button>
                 </div>
             </div>
         </div>
