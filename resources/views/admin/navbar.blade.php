@@ -105,6 +105,12 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.inventory') }}" class="collapsed" >
+                        <i class="fas fa-box"></i>
+                        <p>Kho Hàng Hóa</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.list_shop')}}" class="collapsed" >
                         <i class="fas fa-map-marked-alt"></i>
                         <p>Hệ Thống Cửa Hàng</p>

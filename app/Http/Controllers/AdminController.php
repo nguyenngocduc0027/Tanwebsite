@@ -14,6 +14,7 @@ use App\Models\Gift;
 use App\Models\Product;
 use App\Models\Testimonial;
 use App\Models\Partner;
+use App\Models\Inventory;
 use App\Models\Type;
 use App\Models\Level;
 use App\Models\Slider;
@@ -97,5 +98,12 @@ class AdminController extends Controller
     public function partner(){
         $partners = Partner::all();
         return view('admin.pages.partner', compact('partners'));
+    }
+
+    public function inventory(){
+        $products = Product::all();
+        $inventories = Inventory::all();
+
+        return view('admin.pages.inventory', compact('products', 'inventories'));
     }
 }

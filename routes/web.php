@@ -169,6 +169,9 @@ Route::middleware(['auth', 'role:admin,manager'])->group(function () {
     Route::post('/admin/partner/store', [PartnerController::class, 'store'])->name('partner.store');
     Route::put('/admin/partner/{id}', [PartnerController::class, 'update'])->name('partner.update');
     Route::delete('/admin/partner/{id}', [PartnerController::class, 'destroy'])->name('partner.destroy');
+
+    // Inventory
+    Route::get('/admin/inventory', [AdminController::class, 'inventory'])->name('admin.inventory');
 });
 
 // User
