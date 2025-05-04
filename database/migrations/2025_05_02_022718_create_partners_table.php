@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('partners', function (Blueprint $table) {
+        Schema::create('partners', function (Blueprint $table) { // đối tác
             $table->id();
             $table->string('name')->nullable();
             $table->string('image')->nullable();

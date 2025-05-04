@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inventories', function (Blueprint $table) {
+        Schema::create('inventories', function (Blueprint $table) { //hàng tồn kho
             $table->id();
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->integer('total_quantity')->default(0);

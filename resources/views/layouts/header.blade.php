@@ -385,7 +385,7 @@
                                     </ul>
                                 </li>
 
-                                <li class="sudes-main-cate-has-child menu-item-count">
+                                {{-- <li class="sudes-main-cate-has-child menu-item-count">
                                     <a href="#" title="Yến chưng tươi">
                                         <img class="lazyload" src="/images/index-cate/index-cate-icon-2.png"
                                             data-src="/images/index-cate/index-cate-icon-2.png" alt="Sản Phẩm 2" />
@@ -417,7 +417,7 @@
                                             data-src="/images/index-cate/index-cate-icon-2.png" alt="Sản Phẩm 3" />
                                         Sản Phẩm 3
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                             {{-- </script> --}}
                         </div>

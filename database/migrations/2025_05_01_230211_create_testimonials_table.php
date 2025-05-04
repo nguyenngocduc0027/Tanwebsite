@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('testimonials', function (Blueprint $table) {
+        Schema::create('testimonials', function (Blueprint $table) {//những lời chứng thực
             $table->id();
             $table->string('name')->nullable();
             $table->string('position')->nullable();
