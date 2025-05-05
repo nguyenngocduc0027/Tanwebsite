@@ -86,91 +86,87 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="products-view products-view-grid list_hover_pro">
                             <div class="row">
-                                @for ($i = 1; $i < 18; $i++)
-                                    <div class="col-6 col-md-3">
-                                        <div class="item_product_main">
-                                            <form action="" method="post"
-                                                class="variants product-action item-product-main duration-300"
-                                                data-cart-form data-id="product-actions-34775949"
-                                                enctype="multipart/form-data">
-                                                <span class="flash-sale">-6%</span>
-                                                <div class="tag-promo" title="Quà tặng">
-                                                    <img src="/images/tag_pro_icon.svg" data-src="/images/tag_pro_icon.svg"
-                                                        alt="Quà tặng" class="lazyload" />
-                                                    <div class="promotion-content">
-                                                        <div class="line-clamp-5-new"
-                                                            title="- Tặng 1 túi giấy xách đi kèm - 1 Hộp đường phèn">
-                                                            <p><span style="letter-spacing: -0.2px;">- Tặng 1 túi giấy xách
-                                                                    đi kèm <br>- 1 Hộp đường phèn </span></p>
-                                                        </div>
-                                                    </div>
+                            @foreach ($products as $product)
+                            <div class="col-6 col-md-3">
+                                <div class="item_product_main">
+                                    <form action="" method="post"
+                                        class="variants product-action item-product-main duration-300"
+                                        data-cart-form data-id="product-actions-34775949"
+                                        enctype="multipart/form-data">
+                                        <span class="flash-sale">-6%</span>
+                                        <div class="tag-promo" title="Quà tặng">
+                                            <img src="/images/tag_pro_icon.svg" data-src="/images/tag_pro_icon.svg"
+                                                alt="Quà tặng" class="lazyload" />
+                                            <div class="promotion-content">
+                                                <div class="line-clamp-5-new"
+                                                    title="- Tặng 1 túi giấy xách đi kèm - 1 Hộp đường phèn">
+                                                    <p><span style="letter-spacing: -0.2px;">- Tặng 1 túi giấy xách
+                                                            đi kèm <br>- 1 Hộp đường phèn </span></p>
                                                 </div>
-                                                <div class="product-thumbnail">
-                                                    <a class="image_thumb scale_hover" href="#"
-                                                        title="San Pham So {{ $i }} ">
-                                                        <img class="lazyload duration-300" src="/images/products/dauxa.jpg"
-                                                            data-src="/images/products/dauxa.jpg"
-                                                            alt="San Pham So {{ $i }} " />
-                                                    </a>
-                                                </div>
-                                                <div class="product-info">
-                                                    <div class="name-price">
-                                                        <h3 class="product-name line-clamp-2-new">
-                                                            <a href="#" title="San Pham So {{ $i }} ">San
-                                                                Pham So {{ $i }} </a>
-                                                        </h3>
-                                                        <div class="product-price-cart">
-                                                            <span class="compare-price">3.100.000₫</span>
-
-                                                            <span class="price">2.900.000₫</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-button">
-                                                        <input type="hidden" name="variantId" value="111118886" />
-                                                        <button class="btn-cart btn-views add_to_cart btn btn-primary "
-                                                            title="Thêm vào giỏ hàng">
-                                                            <span>Thêm vào giỏ</span>
-                                                            <svg enable-background="new 0 0 32 32" height="512"
-                                                                viewBox="0 0 32 32" width="512"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <g>
-                                                                    <g>
-                                                                        <path
-                                                                            d="m23.8 30h-15.6c-3.3 0-6-2.7-6-6v-.2l.6-16c.1-3.3 2.8-5.8 6-5.8h14.4c3.2 0 5.9 2.5 6 5.8l.6 16c.1 1.6-.5 3.1-1.6 4.3s-2.6 1.9-4.2 1.9c0 0-.1 0-.2 0zm-15-26c-2.2 0-3.9 1.7-4 3.8l-.6 16.2c0 2.2 1.8 4 4 4h15.8c1.1 0 2.1-.5 2.8-1.3s1.1-1.8 1.1-2.9l-.6-16c-.1-2.2-1.8-3.8-4-3.8z" />
-                                                                    </g>
-                                                                    <g>
-                                                                        <path
-                                                                            d="m16 14c-3.9 0-7-3.1-7-7 0-.6.4-1 1-1s1 .4 1 1c0 2.8 2.2 5 5 5s5-2.2 5-5c0-.6.4-1 1-1s1 .4 1 1c0 3.9-3.1 7-7 7z" />
-                                                                    </g>
-                                                                </g>
-                                                            </svg>
-                                                        </button>
-                                                        <a href="javascript:void(0)"
-                                                            class="setWishlist btn-views btn-circle"
-                                                            data-wish="copy-of-to-yen-tinh-che-cho-be-baby-loai-3"
-                                                            tabindex="0" title="Thêm vào yêu thích">
-                                                            <img width="25" height="25" src="/images/heart.png"
-                                                                alt="Thêm vào yêu thích" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                @endfor
+                                        <div class="product-thumbnail">
+                                            <a class="image_thumb scale_hover" href="#"
+                                                title="{{$product->name}}">
+                                                <img class="lazyload duration-300" src="/images/products/dauxa.jpg"
+                                                    data-src="/images/products/dauxa.jpg"
+                                                    alt="{{$product->name}}" />
+                                            </a>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="name-price">
+                                                <h3 class="product-name line-clamp-2-new">
+                                                    <a href="#" title="{{$product->name}} ">{{$product->name}} </a>
+                                                </h3>
+                                                <div class="product-price-cart">
+                                                    <span class="compare-price">{{number_format($product->price)}}₫</span>
+
+                                                    <span class="price">{{number_format($product->sale_price)}}₫</span>
+                                                </div>
+                                            </div>
+                                            <div class="product-button">
+                                                <input type="hidden" name="variantId" value="111118886" />
+                                                <button class="btn-cart btn-views add_to_cart btn btn-primary "
+                                                    title="Thêm vào giỏ hàng">
+                                                    <span>Thêm vào giỏ</span>
+                                                    <svg enable-background="new 0 0 32 32" height="512"
+                                                        viewBox="0 0 32 32" width="512"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <g>
+                                                            <g>
+                                                                <path
+                                                                    d="m23.8 30h-15.6c-3.3 0-6-2.7-6-6v-.2l.6-16c.1-3.3 2.8-5.8 6-5.8h14.4c3.2 0 5.9 2.5 6 5.8l.6 16c.1 1.6-.5 3.1-1.6 4.3s-2.6 1.9-4.2 1.9c0 0-.1 0-.2 0zm-15-26c-2.2 0-3.9 1.7-4 3.8l-.6 16.2c0 2.2 1.8 4 4 4h15.8c1.1 0 2.1-.5 2.8-1.3s1.1-1.8 1.1-2.9l-.6-16c-.1-2.2-1.8-3.8-4-3.8z" />
+                                                            </g>
+                                                            <g>
+                                                                <path
+                                                                    d="m16 14c-3.9 0-7-3.1-7-7 0-.6.4-1 1-1s1 .4 1 1c0 2.8 2.2 5 5 5s5-2.2 5-5c0-.6.4-1 1-1s1 .4 1 1c0 3.9-3.1 7-7 7z" />
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+                                                </button>
+                                                <a href="javascript:void(0)"
+                                                    class="setWishlist btn-views btn-circle"
+                                                    data-wish="copy-of-to-yen-tinh-che-cho-be-baby-loai-3"
+                                                    tabindex="0" title="Thêm vào yêu thích">
+                                                    <img width="25" height="25" src="/images/heart.png"
+                                                        alt="Thêm vào yêu thích" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            @endforeach
+                                    
+                               
                             </div>
                         </div>
                         <div class="pagenav">
                             <nav class="collection-paginate clearfix relative nav_pagi w_100">
-                                <ul class="pagination clearfix">
-                                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                                    <li class="active page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link link-next-pre" href="#" title="2">&raquo;</a></li>
-                                </ul>
+                                {{ $products->links('pagination::bootstrap-4') }}
+
                             </nav>
                         </div>
                     </div>

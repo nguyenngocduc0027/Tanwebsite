@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,18 +24,21 @@ class HomeController extends Controller
         return view('home.pages.product');
     }
 
-    public function product_category()
+    public function product_category($id)
     {
-        return view('home.pages.product_category');
+        $products = Product::where('category_id', $id)->paginate(12);
+        return view('home.pages.product_category', compact('products'));
     }
-    public function product_sub_category()
+    public function product_sub_category($id)
     {
-        return view('home.pages.product_sub_category');
+        $products = Product::where('type_id', $id)->paginate(12);
+        return view('home.pages.product_category',  compact('products'));
     }
 
-    public function product_subsub_category()
+    public function product_subsub_category($id)
     {
-        return view('home.pages.product_subsub_category');
+        $products = Product::where('level_id', $id)->paginate(12);
+        return view('home.pages.product_category',  compact('products'));
     }
 
     public function product_detail()
