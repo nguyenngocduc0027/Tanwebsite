@@ -298,126 +298,40 @@
 
                         <div class="sudes-list-cate" data-section="header_nav_cate">
                             <ul class="sudes-main-cate">
+                               
+                                @foreach (category() as $categorie)
+                                    
                                 <li class="sudes-main-cate-has-child menu-item-count ">
                                     <a href="{{ route('product_category') }}" title="Sản Phẩm 1">
                                         <img class="lazyload" src="/images/index-cate/index-cate-icon-2.png"
                                             data-src="/images/index-cate/index-cate-icon-2.png" alt="Tổ yến" />
-                                        Sản Phẩm 1
+                                       {{$categorie->name}}
                                     </a>
                                     <i class="open_mnu down_icon"></i>
                                     <ul class="menu-child sub-menu sudes-sub-mega-menu">
-
+                                        @foreach ($categorie->types as $type)
                                         <li class="sudes-main-cate-has-child clearfix">
-                                            <a href="{{ route('product_sub_category') }}" title="Loại 1">Loại 1</a>
+                                            <a href="{{ route('product_sub_category') }}" title="Loại 1">{{$type->name}}</a>
                                             <i class="open_mnu down_icon"></i>
+                                           
+                                                
                                             <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                <li><a href="{{ route('product_subsub_category') }}" title="Kiểu 1">Kiểu 1</a>
+                                                @foreach ($type->levels as $level)
+                                                <li><a href="{{ route('product_subsub_category') }}" title="{{$level->name}}">{{$level->name}}</a>
                                                 </li>
-                                                <li><a href="#" title="Kiểu 2">Kiểu 2</a>
-                                                </li>
-                                                <li><a href="#" title="Kiểu 3">Kiểu 3</a>
-                                                </li>
+                                                @endforeach
+                                              
                                             </ul>
+                                           
                                         </li>
+                                        @endforeach
+                                        
 
-                                        <li class="sudes-main-cate-has-child clearfix">
-                                            <a href="#" title="Loại 2">Loại 2</a>
-                                            <i class="open_mnu down_icon"></i>
-                                            <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                <li><a href="#" title="Kiểu 1">Kiểu 1</a>
-                                                </li>
-                                                <li><a href="#" title="Kiểu 2">Kiểu 2</a>
-                                                </li>
-                                                <li><a href="#" title="Kiểu 3">Kiểu 3</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                        <li class="sudes-main-cate-has-child clearfix">
-                                            <a href="#" title="Loại 3">Loại 3</a>
-                                            <i class="open_mnu down_icon"></i>
-                                            <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                <li><a href="#" title="Kiểu 1">Kiểu 1</a>
-                                                </li>
-                                                <li><a href="#" title="Kiểu 2">Kiểu 2</a>
-                                                </li>
-                                                <li><a href="#" title="Kiểu 3">Kiểu 3</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                        <li class="sudes-main-cate-has-child clearfix">
-                                            <a href="#" title="Loại 4">Loại 4</a>
-                                            <i class="open_mnu down_icon"></i>
-                                            <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                <li><a href="#" title="Kiểu 1">Kiểu 1</a>
-                                                </li>
-                                                <li><a href="#" title="Kiểu 2">Kiểu 2</a>
-                                                </li>
-                                                <li><a href="#" title="Kiểu 3">Kiểu 3</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                        <li class="sudes-main-cate-has-child clearfix">
-                                            <a href="#" title="Loại 5">Loại 5</a>
-                                            <i class="open_mnu down_icon"></i>
-                                            <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                <li><a href="#" title="Kiểu 1">Kiểu 1</a>
-                                                </li>
-                                                <li><a href="#" title="Kiểu 2">Kiểu 2</a>
-                                                </li>
-                                                <li><a href="#" title="Kiểu 3">Kiểu 3</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                        <li class="sudes-main-cate-has-child clearfix">
-                                            <a href="#" title="Loại 6">Loại 6</a>
-                                            <i class="open_mnu down_icon"></i>
-                                            <ul class="menu-child menu-child-2 sub-menu clearfix">
-                                                <li><a href="#" title="Kiểu 1">Kiểu 1</a>
-                                                </li>
-                                                <li><a href="#" title="Kiểu 2">Kiểu 2</a>
-                                                </li>
-                                            </ul>
-                                        </li>
                                     </ul>
                                 </li>
+                                @endforeach
 
-                                {{-- <li class="sudes-main-cate-has-child menu-item-count">
-                                    <a href="#" title="Yến chưng tươi">
-                                        <img class="lazyload" src="/images/index-cate/index-cate-icon-2.png"
-                                            data-src="/images/index-cate/index-cate-icon-2.png" alt="Sản Phẩm 2" />
-                                        Sản Phẩm 2
-                                    </a>
-                                    <i class="open_mnu down_icon"></i>
-                                    <ul class="menu-child sub-menu sudes-sub-mega-menu">
-                                        <li>
-                                            <a href="#" title="Loại 1">Loại 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Loại 2">Loại 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Loại 3">Loại 3</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Loại 4">Loại 4</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Loại 5">Loại 5</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="menu-item-count">
-                                    <a href="#" title="Quà biếu cao cấp">
-                                        <img class="lazyload" src="/images/index-cate/index-cate-icon-2.png"
-                                            data-src="/images/index-cate/index-cate-icon-2.png" alt="Sản Phẩm 3" />
-                                        Sản Phẩm 3
-                                    </a>
-                                </li> --}}
+                                
                             </ul>
                             {{-- </script> --}}
                         </div>

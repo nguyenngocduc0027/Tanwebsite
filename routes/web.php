@@ -51,6 +51,7 @@ Route::get('/blank', [HomeController::class, 'blank'])->name('blank');
 Route::get('/login', [AuthController::class, 'view_login'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('dologin');
 Route::get('/register', [AuthController::class, 'view_register'])->name('register');
+Route::get('/register', [AuthController::class, 'view_register'])->name('register');
 
 Route::get('/forgot_password', [AuthController::class, 'view_forgot_password'])->name('forgot');
 
