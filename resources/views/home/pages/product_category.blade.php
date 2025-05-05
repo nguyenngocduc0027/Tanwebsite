@@ -12,7 +12,7 @@
                         <a href="{{ route('product') }}" title="Sản phẩm"><span>Sản phẩm</span></a>
                         <span class="mr_lr">></span>
                     </li>
-                    <li><strong><span> Tất cả sản phẩm 1</span></strong></li>
+                    <li><strong><span> Tất cả sản phẩm</span></strong></li>
                 </ul>
             </div>
         </section>
@@ -36,7 +36,7 @@
                     <div class="category-products products-view products-view-grid list_hover_pro">
                         <div class="filter-containers">
                             <div class="sort-cate clearfix">
-                                {{-- <div class="sudes-filter">
+                                <div class="sudes-filter">
                                     <a class="btn btn-outline btn-filter" title="Bộ lọc">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
@@ -83,7 +83,7 @@
                                                 title="Giá cao xuống thấp"><i></i>Giá cao xuống thấp</a>
                                         </li>
                                     </ul>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
 

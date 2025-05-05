@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Type;
 use App\Models\Level;
 use App\Models\HomePage;
+use App\Models\Product;
 use App\Models\User;
 
 class DatabaseSeeder extends Seeder
@@ -119,5 +120,48 @@ class DatabaseSeeder extends Seeder
             'partner_subtitle' => 'Phụ đề đối tác',
             'partner_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deleniti, ea mollitia similique officia corrupti soluta libero, necessitatibus, doloribus sed delectus facere possimus',
         ]);
+
+
+
+        $faker = \Faker\Factory::create('vi_VN');
+
+        $categories = Category::all();
+
+        foreach ($categories as $category) {
+            $types = $category->types;
+
+            foreach ($types as $type) {
+                $levels = $type->levels;
+
+                foreach ($levels as $level) {
+                    // Tạo 3 sản phẩm cho mỗi combination category-type-level
+                    for ($i = 1; $i <= 3; $i++) {
+                        Product::create([
+                            'name' => $faker->words(3, true),
+                            'category_id' => $category->id,
+                            'type_id' => $type->id,
+                            'level_id' => $level->id,
+                            'code' => strtoupper(uniqid('PRD')),
+                            'status' => $faker->randomElement(['còn hàng', 'hết hàng']),
+                            'price' => $faker->numberBetween(100000, 500000),
+                            'sale_price' => $faker->numberBetween(80000, 300000),
+                            'description' => $faker->paragraph,
+                            'document' => $faker->url,
+                            'brand' => $faker->company,
+                        ]);
+                    }
+                }
+            }
+        }
+    
+
+
+
+
+
+
+
+
+
     }
 }
