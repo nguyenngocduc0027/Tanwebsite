@@ -236,6 +236,7 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v19.0">
     </script>
+    {{-- @dd(Auth::user()) --}}
     @include('layouts.header')
     <div class="bodywrap">
         <h1 class="d-none">MetaSoft - Đến nay đã chiếm trọn niềm tin của khách hàng bởi chất lượng - tinh
@@ -279,6 +280,87 @@
     <script src="/assets/js/quickview.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/index.js"></script>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Thành công!',
+                text: '{{ session('success') }}',
+                timer: 3000,
+                showConfirmButton: false
+            });
+        </script>
+    @endif
+
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Lỗi đăng ký!',
+                html: `{!! implode('<br>', $errors->all()) !!}`,
+            });
+        </script>
+    @endif
+    <script>
+        function toggleFavorite(productId, element, isLoggedIn) {
+            if (!isLoggedIn) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Bạn cần đăng nhập để yêu thích sản phẩm!',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Đăng nhập',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '{{ route('login') }}';
+                    }
+                });
+                return;
+            }
+            fetch(`/favorite/${productId}`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(res => res.json())
+                .then(data => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: data.message,
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+
+                    // Toggle SVG (thay đổi nội dung SVG bằng JavaScript)
+                    const svgHeartFilled = `
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" width="24" height="24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 
+                        2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 
+                        4.5 2.09C13.09 3.81 14.76 3 16.5 
+                        3 19.58 3 22 5.42 22 8.5c0 
+                        3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                `;
+
+                    const svgHeartOutline = `
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" 
+                        stroke-width="2" viewBox="0 0 24 24" width="24" height="24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 
+                        12.28 2 8.5 2 5.42 4.42 3 7.5 
+                        3c1.74 0 3.41 0.81 4.5 2.09C13.09 
+                        3.81 14.76 3 16.5 3 19.58 3 
+                        22 5.42 22 8.5c0 3.78-3.4 
+                        6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                `;
+
+                    // Toggle SVG inside <a>
+                    element.innerHTML = element.innerHTML.includes('fill="red"') ? svgHeartOutline : svgHeartFilled;
+                    document.querySelector('.js-wishlist-count').textContent = data.wishlistCount;
+                });
+        }
+    </script>
 
     {{-- <script src="/assets/js/jquery-ui-min.js"></script>
     <script src="/assets/js/search_filter.js"></script> --}}

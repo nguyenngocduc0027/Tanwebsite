@@ -110,9 +110,12 @@
                                         <div class="product-thumbnail">
                                             <a class="image_thumb scale_hover" href="#"
                                                 title="{{$product->name}}">
-                                                <img class="lazyload duration-300" src="/images/products/dauxa.jpg"
-                                                    data-src="/images/products/dauxa.jpg"
-                                                    alt="{{$product->name}}" />
+                                                
+                                                <img class="lazyload duration-300"
+                                                src="{{ asset($product->images->first()->image ?? '/images/products/dauxa.jpg') }}"
+                                                data-src="{{ asset($product->images->first()->image ?? '/images/products/dauxa.jpg') }}"
+                                                alt="{{ $product->name }}" />
+                                           
                                             </a>
                                         </div>
                                         <div class="product-info">
@@ -146,13 +149,34 @@
                                                         </g>
                                                     </svg>
                                                 </button>
-                                                <a href="javascript:void(0)"
-                                                    class="setWishlist btn-views btn-circle"
-                                                    data-wish="copy-of-to-yen-tinh-che-cho-be-baby-loai-3"
-                                                    tabindex="0" title="Thêm vào yêu thích">
-                                                    <img width="25" height="25" src="/images/heart.png"
-                                                        alt="Thêm vào yêu thích" />
+                                                <a href="#" onclick="toggleFavorite({{ $product->id }}, this, {{ auth()->check() ? 'true' : 'false' }})"  class="setWishlist btn-views btn-circle">
+                                                    @php
+                                                        $isFavorited = auth()->check() && auth()->user()->favoriteProducts->contains($product->id);
+                                                    @endphp
+                                                
+                                                    @if($isFavorited)
+                                                        {{-- Trái tim đầy (đã yêu thích) --}}
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" width="24" height="24">
+                                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 
+                                                                5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 
+                                                                4.5 2.09C13.09 3.81 14.76 3 16.5 
+                                                                3 19.58 3 22 5.42 22 8.5c0 
+                                                                3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                                        </svg>
+                                                    @else
+                                                        {{-- Trái tim rỗng (chưa yêu thích) --}}
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" 
+                                                            stroke-width="2" viewBox="0 0 24 24" width="24" height="24">
+                                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 
+                                                                12.28 2 8.5 2 5.42 4.42 3 7.5 
+                                                                3c1.74 0 3.41 0.81 4.5 2.09C13.09 
+                                                                3.81 14.76 3 16.5 3 19.58 3 
+                                                                22 5.42 22 8.5c0 3.78-3.4 
+                                                                6.86-8.55 11.54L12 21.35z"/>
+                                                        </svg>
+                                                    @endif
                                                 </a>
+                                                
                                             </div>
                                         </div>
                                     </form>
@@ -175,4 +199,5 @@
         </div>
     </div>
     {{-- @include('home.section.coupon') --}}
+   
 @endsection

@@ -47,4 +47,8 @@ class Product extends Model
     {
         return $this->hasOne(ProductImage::class)->where('is_thumbnail', true);
     }
+    public function favoritedByUsers()
+{
+    return $this->belongsToMany(User::class, 'favorite_products')->withTimestamps();
+}
 }

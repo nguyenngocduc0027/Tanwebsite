@@ -22,7 +22,9 @@
                                 <div class="wpx">
                                     <h1 class="title_heads a-center"><span>Đăng Ký</span></h1>
                                     <div id="register" class="section">
-                                        <form method="post" action="#" id="customer_register" accept-charset="UTF-8">
+                                        <form method="post" action="{{ route('register') }}" id="customer_register" accept-charset="UTF-8">
+                                            @csrf
+                                        
                                             <div class="form-signup clearfix">
                                                 <fieldset class="form-group">
                                                     <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$"

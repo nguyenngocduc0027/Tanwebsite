@@ -22,7 +22,7 @@
                                 <div class="wpx">
                                     <h1 class="title_heads a-center"><span>Đăng nhập</span></h1>
                                     <div id="login" class="section">
-                                        <form id="customer_login" method="POST">
+                                        <form action="{{ route('login') }}" id="customer_login" method="POST">
                                             @csrf
                                             <div class="form-signup clearfix">
                                                 <fieldset class="form-group">
@@ -50,7 +50,7 @@
             </div>
         </section>
     </div>
-    <script>
+    {{-- <script>
         document.getElementById('customer_login').addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -72,7 +72,7 @@
                 if (data.status === 'success') {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Đăng nhập thành công!',
+                        title: 'Thành công!',
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
@@ -100,6 +100,6 @@
                 }).showToast();
             });
         });
-    </script>
+    </script> --}}
 
 @endsection

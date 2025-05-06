@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FavoriteProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ListShopController;
@@ -51,13 +52,14 @@ Route::get('/blank', [HomeController::class, 'blank'])->name('blank');
 Route::get('/login', [AuthController::class, 'view_login'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('dologin');
 Route::get('/register', [AuthController::class, 'view_register'])->name('register');
-Route::get('/register', [AuthController::class, 'view_register'])->name('register');
+Route::post('/register', [AuthController::class, 'post_register'])->name('register');
 
 Route::get('/forgot_password', [AuthController::class, 'view_forgot_password'])->name('forgot');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::post('/admin/upload-image', [UploadController::class, 'uploadImage']);
+Route::post('/favorite/{productId}', [FavoriteProductController::class, 'toggleFavorite'])->middleware('auth')->name('favorite.toggle');
 
 
 Route::middleware(['auth', 'role:admin,manager'])->group(function () {
