@@ -36,19 +36,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required|string|max:255',
-        //     'code' => 'nullable|string|max:50|unique:products,code',
-        //     'price' => 'required|numeric',
-        //     'sale_price' => 'nullable|numeric',
-        //     'status' => 'required',
-        //     'images.*' => 'image|mimes:jpeg,png,jpg,gif',
-        // ], [
-        //     'name.required' => 'Cần nhập tên.',
-        //     'code.unique' => 'Má sản phẩm đẫ tốn tại.',
-        //     'price.required' => 'Cần nhập giá.',
-        //     'status.required' => 'Cần nhập trạng thái.',
-        // ]);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'code' => 'nullable|string|max:50|unique:products,code',
+            'price' => 'required|numeric',
+            'sale_price' => 'nullable|numeric',
+            'status' => 'required',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif',
+        ], [
+            'name.required' => 'Cần nhập tên.',
+            'code.unique' => 'Má sản phẩm đẫ tốn tại.',
+            'price.required' => 'Cần nhập giá.',
+            'status.required' => 'Cần nhập trạng thái.',
+        ]);
     
         // Tạo sản phẩm
         $product = Product::create([
@@ -78,7 +78,7 @@ class ProductController extends Controller
             }
         }
 
-        return response()->json(['success' => true, 'message' => 'Tạo sản phẩm thành công!']);
+        return response()->redirectTo(route('admin.products.index'))->with('success', 'Thêm sản phẩm thành công!');
     }
 
 
