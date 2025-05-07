@@ -76,7 +76,8 @@ class AdminController extends Controller
     }
 
     public function product(){
-        $products = Product::latest()->get();
+        $products = Product::orderBy('id', 'desc')->get(); // Sắp xếp theo id giảm dần
+
         return view('admin.pages.product', compact('products'));
     }
 

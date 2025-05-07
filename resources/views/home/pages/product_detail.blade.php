@@ -9,7 +9,7 @@
                         <span class="mr_lr">></span>
                     </li>
                     <li class="home">
-                        <a href="{{ route('product_subsub_category') }}" title="Kiểu 1"><span>Kiểu 1</span></a>
+                        {{-- <a href="{{ route('product_subsub_category') }}" title="Kiểu 1"><span>Kiểu 1</span></a> --}}
                         <span class="mr_lr">></span>
                     </li>
                     <li><strong><span>Chi tiết sản phẩm </span></strong></li>

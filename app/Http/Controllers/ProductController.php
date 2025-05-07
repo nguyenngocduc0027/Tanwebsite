@@ -49,7 +49,7 @@ class ProductController extends Controller
         //     'price.required' => 'Cần nhập giá.',
         //     'status.required' => 'Cần nhập trạng thái.',
         // ]);
-        dd($request->file('images'));
+    
         // Tạo sản phẩm
         $product = Product::create([
             'name' => $request->name,
@@ -63,7 +63,6 @@ class ProductController extends Controller
             'description' => $request->description,
             'document' => $request->document,
         ]);
-
         // Lưu ảnh sản phẩm
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $index => $image) {
