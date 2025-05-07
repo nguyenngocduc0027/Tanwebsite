@@ -1,5 +1,68 @@
 @extends('admin.index')
 @section('content-admin')
+    <style>
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .image-container,
+        .image-upload-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .image-container {
+            background-color: #f0f0f0;
+        }
+
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-container .remove-image {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(255, 0, 0, 0.7);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 14px;
+            line-height: 22px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .image-upload-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fafafa;
+            border: 2px dashed #ccc;
+            color: #aaa;
+            font-size: 32px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .image-upload-box:hover {
+            background-color: #eaeaea;
+        }
+    </style>
+
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
             <div>
@@ -16,7 +79,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-9 col-md-9 col-sm-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="row">
                                     <div class="col-lg-9 col-md-9 col-sm-12">
                                         <div class="form-group">
@@ -100,16 +163,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
                                 {{-- Upload nhiều ảnh sản phẩm và preview --}}
                                 <div class="form-group">
                                     <label for="images">Ảnh sản phẩm</label>
-                                    <input type="file" name="images[]" id="images" class="form-control" multiple
-                                        accept="image/*">
+                                    <div class="image-grid" id="imagePreview">
+                                        <!-- Ảnh xem trước + nút thêm nằm ở đây -->
+                                        <div class="image-upload-box" id="addImageButton">+</div>
+                                    </div>
+
+                                    <input type="file" id="images" name="images[]" accept="image/*" multiple
+                                        style="display: none;">
                                 </div>
-                                <div class="preview-images row mt-2" id="preview-images">
-                                    {{-- Ảnh xem trước sẽ hiện ở đây --}}
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -118,35 +184,53 @@
         </div>
     </div>
     <!-- Jquery js CDN -->
+    <script>
+      
+      document.addEventListener("DOMContentLoaded", function () {
+    const imagesInput = document.getElementById('images');
+    const imagePreview = document.getElementById('imagePreview');
+    const addImageButton = document.getElementById('addImageButton');
+
+    addImageButton.addEventListener('click', () => imagesInput.click());
+    imagesInput.addEventListener('change', function(event) {
+    console.log(event.target.files);  // Kiểm tra xem có file nào được chọn không
+});
+    imagesInput.addEventListener('change', function (event) {
+        const files = event.target.files;
+
+        Array.from(files).forEach(file => {
+            if (!file.type.startsWith('image/')) return;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const imageDiv = document.createElement('div');
+                imageDiv.classList.add('image-container');
+                imageDiv.innerHTML = `
+                    <img src="${e.target.result}" alt="Ảnh">
+                    <button type="button" class="remove-image">&times;</button>
+                `;
+                imagePreview.insertBefore(imageDiv, addImageButton);
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Reset để chọn lại ảnh cũ
+        imagesInput.value = '';
+    });
+
+    imagePreview.addEventListener('click', function (event) {
+        if (event.target.classList.contains('remove-image')) {
+            const imageDiv = event.target.closest('.image-container');
+            imageDiv.remove();
+        }
+    });
+});
+
+    </script>
 
     <script>
         $(document).ready(function() {
 
-            $('#images').on('change', function() {
-                let previewContainer = $('#preview-images');
-                previewContainer.html(''); // Clear cũ
-
-                const files = this.files;
-                if (files) {
-                    Array.from(files).forEach(file => {
-                        if (!file.type.startsWith('image/')) return;
-
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            const imgHtml = `
-                                <div class="col-md-4 mb-2">
-                                    <div class="ratio ratio-1x1 border rounded overflow-hidden">
-                                        <img src="${e.target.result}" class="w-100 h-100 object-fit-cover" style="object-fit: cover;">
-                                    </div>
-                                </div>
-                            `;
-
-                            previewContainer.append(imgHtml);
-                        };
-                        reader.readAsDataURL(file);
-                    });
-                }
-            });
 
             // Khi chọn danh mục
             $('#category_id').on('change', function() {
@@ -223,7 +307,8 @@
                         if (res.success) {
                             Swal.fire('Thành công!', res.message, 'success').then((result) => {
                                 if (result.isConfirmed) {
-                                    window.location.href = '{{ route('admin.product') }}';
+                                    window.location.href =
+                                        '{{ route('admin.product') }}';
                                 }
                             });
                             // Optionally reset form

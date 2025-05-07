@@ -213,7 +213,7 @@
 </section>
 
 
-<script>
+{{-- <script>
     $(document).ready(function($) {
         function runSwiperSale() {
             var swiper_sale = null;
@@ -309,4 +309,4 @@
             const interval = setInterval(updateCountdown, 1000);
         });
     });
-</script>
+</script> --}}

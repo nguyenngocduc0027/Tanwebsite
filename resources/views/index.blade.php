@@ -316,24 +316,24 @@
                 });
                 return;
             }
+    
             fetch(`/favorite/${productId}`, {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(res => res.json())
-                .then(data => {
-                    Swal.fire({
-                        icon: 'success',
-                        title: data.message,
-                        timer: 1500,
-                        showConfirmButton: false
-                    });
-
-                    // Toggle SVG (thay đổi nội dung SVG bằng JavaScript)
-                    const svgHeartFilled = `
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                Swal.fire({
+                    icon: 'success',
+                    title: data.message,
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+    
+                const svgHeartFilled = `
                     <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" width="24" height="24">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 
                         2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 
@@ -342,8 +342,8 @@
                         3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
                 `;
-
-                    const svgHeartOutline = `
+    
+                const svgHeartOutline = `
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" 
                         stroke-width="2" viewBox="0 0 24 24" width="24" height="24">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 
@@ -354,13 +354,21 @@
                         6.86-8.55 11.54L12 21.35z"/>
                     </svg>
                 `;
-
-                    // Toggle SVG inside <a>
-                    element.innerHTML = element.innerHTML.includes('fill="red"') ? svgHeartOutline : svgHeartFilled;
-                    document.querySelector('.js-wishlist-count').textContent = data.wishlistCount;
-                });
+    
+                // Toggle icon
+                element.innerHTML = element.innerHTML.includes('fill="red"') ? svgHeartOutline : svgHeartFilled;
+    
+                // Cập nhật số lượng yêu thích
+                document.querySelector('.js-wishlist-count').textContent = data.wishlistCount;
+    
+                // Nếu đang ở trang yêu thích -> xóa sản phẩm khỏi giao diện
+                if (data.message.includes('Đã xóa')) {
+                    window.location.reload();
+                }
+            });
         }
     </script>
+    
 
     {{-- <script src="/assets/js/jquery-ui-min.js"></script>
     <script src="/assets/js/search_filter.js"></script> --}}

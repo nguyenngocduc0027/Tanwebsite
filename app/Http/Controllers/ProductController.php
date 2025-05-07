@@ -36,20 +36,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'code' => 'nullable|string|max:50|unique:products,code',
-            'price' => 'required|numeric',
-            'sale_price' => 'nullable|numeric',
-            'status' => 'required',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-        ], [
-            'name.required' => 'Cần nhập tên.',
-            'code.unique' => 'Má sản phẩm đẫ tốn tại.',
-            'price.required' => 'Cần nhập giá.',
-            'status.required' => 'Cần nhập trạng thái.',
-        ]);
-
+        // $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'code' => 'nullable|string|max:50|unique:products,code',
+        //     'price' => 'required|numeric',
+        //     'sale_price' => 'nullable|numeric',
+        //     'status' => 'required',
+        //     'images.*' => 'image|mimes:jpeg,png,jpg,gif',
+        // ], [
+        //     'name.required' => 'Cần nhập tên.',
+        //     'code.unique' => 'Má sản phẩm đẫ tốn tại.',
+        //     'price.required' => 'Cần nhập giá.',
+        //     'status.required' => 'Cần nhập trạng thái.',
+        // ]);
+        dd($request->file('images'));
         // Tạo sản phẩm
         $product = Product::create([
             'name' => $request->name,

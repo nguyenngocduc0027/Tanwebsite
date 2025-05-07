@@ -40,7 +40,7 @@ class Product extends Model
 
     public function images()
     {
-        return $this->hasMany(ProductImage::class)->orderBy('position');
+        return $this->hasMany(ProductImage::class)->orderBy(column: 'position');
     }
 
     public function thumbnail()

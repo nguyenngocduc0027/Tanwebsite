@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FavoriteProductController extends Controller
 {
     public function toggleFavorite($productId)
     {
         $user = auth()->user();
-        $product = Product::findOrFail($productId);
-    
         if ($user->favoriteProducts()->where('product_id', $productId)->exists()) {
             $user->favoriteProducts()->detach($productId);
             return response()->json([
@@ -25,6 +24,12 @@ class FavoriteProductController extends Controller
                 'wishlistCount' => $user->favoriteProducts()->count()
             ]);
         }
+    }
+    public function index(){
+        $user = Auth::user();
+    $wishlists = $user->favoriteProducts()->get();
+    return view('home.pages.favorite_product', compact('wishlists'));
+
     }
     
 }

@@ -32,6 +32,13 @@ class DatabaseSeeder extends Seeder
             'phone' => '0123456789',
             'role' => 'admin',
         ]);
+        User::create([
+            'name' => 'Admin2',
+            'email' => 'admin@metasoft.com',
+            'password' => bcrypt('123456789'),
+            'phone' => '0921933898',
+            'role' => 'admin',
+        ]);
 
         // Tạo 3 danh mục
         $categories = [

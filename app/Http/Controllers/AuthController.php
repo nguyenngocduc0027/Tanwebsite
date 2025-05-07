@@ -26,11 +26,9 @@ class AuthController extends Controller
 
             return redirect()->route('home')->with('success', 'Đăng nhập thành công!');
         }
+        return redirect()->back()->with('error', 'Tài khoản hoặc mật khẩu không đúng.');
 
-        return response()->json([
-            'status' => 'error',
-            'message' => 'Tài khoản hoặc mật khẩu không đúng.'
-        ]);
+       
     }
 
     public function view_register()
