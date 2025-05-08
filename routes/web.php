@@ -41,7 +41,7 @@ Route::get('/product', [HomeController::class, 'product'])->name('product');
 Route::get('/product_category/{category}', [HomeController::class, 'product_category'])->name('product_category');
 Route::get('/product_sub_category/{type}', [HomeController::class, 'product_sub_category'])->name('product_sub_category');
 Route::get('/product_subsub_category/{level}', [HomeController::class, 'product_subsub_category'])->name('product_subsub_category');
-Route::get('/product_detail', [HomeController::class, 'product_detail'])->name('product_detail');
+Route::get('/product_detail/{id}', [HomeController::class, 'product_detail'])->name('product_detail');
 Route::get('/blogs', [HomeController::class, 'blog'])->name('blogs');
 Route::get('/blog_detail', [HomeController::class, 'blog_detail'])->name('blog_detail');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');

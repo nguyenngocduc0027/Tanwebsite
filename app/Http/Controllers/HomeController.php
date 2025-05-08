@@ -41,9 +41,16 @@ class HomeController extends Controller
         return view('home.pages.product_category',  compact('products'));
     }
 
-    public function product_detail()
+    public function product_detail($id)
     {
-        return view('home.pages.product_detail');
+        $product = Product::find($id);
+          // Lấy 4 sản phẩm cùng danh mục, loại trừ sản phẩm hiện tại
+    $relatedProducts = Product::where('category_id', $product->category_id)
+    ->where('id', '!=', $product->id)
+    ->latest() // hoặc ->inRandomOrder() nếu muốn ngẫu nhiên
+    ->take(6)
+    ->get();
+        return view('home.pages.product_detail', compact('product','relatedProducts'));
     }
 
     public function blog()

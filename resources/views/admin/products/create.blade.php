@@ -1,67 +1,6 @@
 @extends('admin.index')
 @section('content-admin')
-    <style>
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-top: 10px;
-        }
-
-        .image-container,
-        .image-upload-box {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .image-container {
-            background-color: #f0f0f0;
-        }
-
-        .image-container img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .image-container .remove-image {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: rgba(255, 0, 0, 0.7);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 22px;
-            height: 22px;
-            font-size: 14px;
-            line-height: 22px;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .image-upload-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #fafafa;
-            border: 2px dashed #ccc;
-            color: #aaa;
-            font-size: 32px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .image-upload-box:hover {
-            background-color: #eaeaea;
-        }
-    </style>
+  
 
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">

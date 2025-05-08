@@ -27,30 +27,33 @@
 
                                         <div class="swiper-container gallery-top">
                                             <div class="swiper-wrapper" id="lightgallery">
-                                                @for ($i = 0; $i < 7; $i++)
-                                                    <a class="swiper-slide" data-hash="{{ $i }}" href="#"
-                                                        title="Click để xem">
-                                                        <img height="370" width="480"
-                                                            src="/images/products/product1024x1024.jpg" alt="$$$$"
-                                                            data-image="/images/products/product1024x1024.jpg"
-                                                            class="img-responsive mx-auto d-block swiper-lazy" />
-                                                    </a>
-                                                @endfor
+                                              
+                                                @foreach ($product->images as $i => $item)
+                                                    
+                                                <a class="swiper-slide" data-hash="{{ $i }}" href="#"
+                                                    title="Click để xem">
+                                                    <img height="370" width="480"
+                                                        src="{{ asset($item->image ?? '/images/products/dauxa.jpg') }}" alt="$$$$"
+                                                        data-image="{{ asset($item->image ?? '/images/products/dauxa.jpg') }}"
+                                                        class="img-responsive mx-auto d-block swiper-lazy" />
+                                                </a>
+                                                @endforeach
+                                               
                                             </div>
                                         </div>
 
                                         <div class="swiper-container gallery-thumbs ">
                                             <div class="swiper-wrapper">
-                                                @for ($i = 0; $i < 7; $i++)
+                                                @foreach ($product->images as $i => $item)
                                                     <div class="swiper-slide" data-hash="{{ $i }}">
                                                         <div class="p-100">
                                                             <img height="80" width="80"
-                                                                src="/images/products/dauxa.jpg" alt="$$$"
-                                                                data-image="/images/products/dauxa.jpg"
+                                                                src="{{ asset($item->image ?? '/images/products/dauxa.jpg') }}" alt="$$$"
+                                                                data-image="{{ asset($item->image ?? '/images/products/dauxa.jpg') }}"
                                                                 class="swiper-lazy" />
                                                         </div>
                                                     </div>
-                                                @endfor
+                                                    @endforeach
                                             </div>
                                             <div class="swiper-button-next">
                                             </div>
@@ -62,37 +65,43 @@
 
                             </div>
                             <div class="col-lg-6 col-md-12 col-12 details-pro">
-                                <h1 class="title-product">Sản phẩm 1 - loại 1 - kiểu 1 - sản phẩm</h1>
+                                <h1 class="title-product">{{ $product->name }}</h1>
 
                                 <div class="inventory_quantity">
                                     <span class="mb-break">
                                         <span class="stock-brand-title">Danh mục:</span>
-                                        <span class="a-vendor">Đang cập nhật</span>
+                                        <span class="a-vendor">{{ $product->category->name ?? 'Đang cập nhật' }}</span>
                                     </span>
                                     <span class="line">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                                     <span class="mb-break">
                                         <span class="stock-brand-title">Loại:</span>
-                                        <span class="a-vendor">Đang cập nhật</span>
+                                        <span class="a-vendor">{{ $product->type->name ?? 'Đang cập nhật' }}</span>
                                     </span>
                                     <span class="line">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                                     <span class="mb-break">
                                         <span class="stock-brand-title">Kiểu:</span>
-                                        <span class="a-stock">Còn hàng</span>
+                                        <span class="a-stock">{{ $product->level->name ?? 'Đang cập nhật' }}</span>
                                     </span>
                                     <span class="line">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                                     <span class="mb-break">
                                         <span class="stock-brand-title">Mã:</span>
-                                        <span class="a-vendor">Đang cập nhật</span>
+                                        <span class="a-vendor">{{ $product->code ?? 'Đang cập nhật' }}</span>
                                     </span>
                                     <span class="line">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                                     <span class="mb-break">
                                         <span class="stock-brand-title">Thương hiệu:</span>
-                                        <span class="a-vendor">Đang cập nhật</span>
+                                        <span class="a-vendor">{{ $product->brand ?? 'Đang cập nhật' }}</span>
                                     </span>
                                     <span class="line">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                                     <span class="mb-break">
                                         <span class="stock-brand-title">Tình trạng:</span>
-                                        <span class="a-stock">Còn hàng</span>
+                                        <span class="a-stock">
+                                            @if ($product->status == 'conhang')
+                                                Còn hàng
+                                            @else
+                                                Hết hàng
+                                            @endif
+                                        </span>
                                     </span>
                                 </div>
                                 <form enctype="multipart/form-data" data-cart-form id="add-to-cart-form" action="#"
@@ -101,11 +110,12 @@
                                     <div class="price-box clearfix">
 
                                         <span class="special-price">
-                                            <span class="price product-price">3.800.000₫</span>
+                                            <span
+                                                class="price product-price">{{ number_format($product->sale_price) }}₫</span>
                                         </span> <!-- Giá Khuyến mại -->
                                         <span class="old-price">
                                             <del class="price product-price-old">
-                                                4.100.000₫
+                                                {{ number_format($product->price) }}₫
                                             </del>
                                         </span> <!-- Giás gốc -->
                                         <span class="sale-off">-
@@ -194,15 +204,42 @@
 
                                     <div class="line"></div>
 
+                             <div class="product-wish d-flex">
+                                        <a href="#"
+                                            onclick="toggleFavorite({{ $product->id }}, this, {{ auth()->check() ? 'true' : 'false' }})"
+                                            class="setWishlist btn-views btn-circle">
+                                            @php
+                                                $isFavorited =
+                                                    auth()->check() &&
+                                                    auth()->user()->favoriteProducts->contains($product->id);
+                                            @endphp
 
-                                    <div class="product-wish">
-                                        <a href="#" class="setWishlist btn-views"
-                                            data-wish="sam-tuoi-han-quoc-3-cu-1kg" tabindex="0"
-                                            title="Thêm vào yêu thích">
-                                            <img width="25" height="25" src="/images/heart.png"
-                                                alt="Thêm vào yêu thích" />
-                                            Thêm vào yêu thích
+                                            @if ($isFavorited)
+                                                {{-- Trái tim đầy (đã yêu thích) --}}
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="red"
+                                                    viewBox="0 0 24 24" width="24" height="24">
+                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2
+                                                                5.42 4.42 3 7.5 3c1.74 0 3.41 0.81
+                                                                4.5 2.09C13.09 3.81 14.76 3 16.5
+                                                                3 19.58 3 22 5.42 22 8.5c0
+                                                                3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            @else
+                                                {{-- Trái tim rỗng (chưa yêu thích) --}}
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                                    width="24" height="24">
+                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2
+                                                                12.28 2 8.5 2 5.42 4.42 3 7.5
+                                                                3c1.74 0 3.41 0.81 4.5 2.09C13.09
+                                                                3.81 14.76 3 16.5 3 19.58 3
+                                                                22 5.42 22 8.5c0 3.78-3.4
+                                                                6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            @endif
+                                           
                                         </a>
+                                        Yêu thích
                                     </div>
 
                                 </div>
@@ -212,170 +249,7 @@
                     </div>
                     <div class="row">
 
-                        {{-- <div class="col-12 product-coupons margin-bottom-20">
-                            <div class="bg-shadow">
-                                <div class="title">Khuyến mãi dành cho bạn</div>
-                                <div class="swiper_coupons swiper-container">
-                                    <div class="swiper-wrapper">
-                                        @for ($i = 0; $i < 6; $i++)
-                                            <div class="swiper-slide">
-                                                <div class="box-coupon">
-                                                    <div class="mask-ticket">
-                                                    </div>
-                                                    <div class="image">
-                                                        <img width="88" height="88" class="lazyload"
-                                                            src="/images/coupon/img_coupon_1.jpg"
-                                                            data-src="/images/coupon/img_coupon_1.jpg" alt="NEST200">
-                                                    </div>
-                                                    <div class="content_wrap">
-                                                        <a title="Chi tiết" href="javascript:void(0)" class="info-button"
-                                                            data-coupon="NEST200" data-time="12/12/2025"
-                                                            data-content="Áp dụng cho đơn hàng từ <b>4,500,000đ</b> trở lên Không đi kèm với chương trình khác">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
-                                                                <path
-                                                                    d="M144 80c0 26.5-21.5 48-48 48s-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48zM0 224c0-17.7 14.3-32 32-32H96c17.7 0 32 14.3 32 32V448h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H64V256H32c-17.7 0-32-14.3-32-32z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                        <div class="content-top">
-                                                            NEST200
-                                                            <span class="line-clamp line-clamp-2">Giảm 200k giá trị đơn
-                                                                hàng</span>
-                                                        </div>
-                                                        <div class="content-bottom">
-                                                            <span>HSD: 12/12/2025</span>
-                                                            <div class="coupon-code js-copy" data-copy="NEST200"
-                                                                title="Sao chép">Copy mã</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endfor
-                                    </div>
-                                    <div class="swiper-button-prev">
-                                        <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect x="2.13003" y="29" width="38" height="38"
-                                                transform="rotate(-45 2.13003 29)" stroke="black" fill="#fff"
-                                                stroke-width="2" />
-                                            <rect x="8" y="29.2133" width="30" height="30"
-                                                transform="rotate(-45 8 29.2133)" fill="black" />
-                                            <path d="M18.5 29H39.5" stroke="white" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M29 18.5L39.5 29L29 39.5" stroke="white" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </div>
-                                    <div class="swiper-button-next">
-                                        <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect x="2.13003" y="29" width="38" height="38"
-                                                transform="rotate(-45 2.13003 29)" stroke="black" fill="#fff"
-                                                stroke-width="2" />
-                                            <rect x="8" y="29.2133" width="30" height="30"
-                                                transform="rotate(-45 8 29.2133)" fill="black" />
-                                            <path d="M18.5 29H39.5" stroke="white" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M29 18.5L39.5 29L29 39.5" stroke="white" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="popup-coupon">
-                            <div class="content">
-                                <div class="title">
-                                    Thông tin voucher
-                                </div>
-                                <div class="close-popup-coupon" title="Đóng">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        version="1.1" x="0px" y="0px" viewBox="0 0 512.001 512.001"
-                                        style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
-                                        <g>
-                                            <g>
-                                                <path
-                                                    d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717    L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859    c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287    l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285    L284.286,256.002z">
-                                                </path>
-                                            </g>
-                                        </g>
-                                    </svg>
-                                </div>
-                                <ul>
-                                    <li>
-                                        <span>Mã giảm giá:</span>
-                                        <span class="code"></span>
-                                    </li>
-                                    <li>
-                                        <span>Ngày hết hạn:</span>
-                                        <span class="time"></span>
-                                    </li>
-                                    <li>
-                                        <span>Điều kiện:</span>
-                                        <span class="dieukien">
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <script>
-                            var swiper_coupons = null;
-
-                            function initSwiperCoupons() {
-                                swiper_coupons = new Swiper('.swiper_coupons', {
-                                    slidesPerView: 4,
-                                    spaceBetween: 16,
-                                    watchOverflow: true,
-                                    slidesPerGroup: 1,
-                                    navigation: {
-                                        nextEl: '.swiper_coupons .swiper-button-next',
-                                        prevEl: '.swiper_coupons .swiper-button-prev',
-                                    },
-                                    breakpoints: {
-                                        640: {
-                                            slidesPerView: 2,
-                                            spaceBetween: 14
-                                        },
-                                        768: {
-                                            slidesPerView: 2.3,
-                                            spaceBetween: 14
-                                        },
-                                        992: {
-                                            slidesPerView: 2.3,
-                                            spaceBetween: 16
-                                        },
-                                        1024: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 16
-                                        },
-                                        1200: {
-                                            slidesPerView: 4,
-                                            spaceBetween: 16
-                                        }
-                                    }
-                                });
-                            }
-
-                            function destroySwiperCoupons() {
-                                if (swiper_coupons) {
-                                    swiper_coupons.destroy(true, true);
-                                    swiper_coupons = null;
-                                }
-                            }
-
-                            function toggleSwiperCoupons() {
-                                if ($(window).width() <= 767 && swiper_coupons) {
-                                    destroySwiperCoupons();
-                                } else if ($(window).width() > 767 && !swiper_coupons) {
-                                    initSwiperCoupons();
-                                }
-                            }
-                            toggleSwiperCoupons();
-                            $(window).on('resize', function() {
-                                toggleSwiperCoupons();
-                            });
-                        </script> --}}
-
+                        
                         <div class="col-12 margin-bottom-20">
                             <div class="bg-shadow">
                                 <div class="row">
@@ -404,59 +278,7 @@
                                                 <div id="tab-1" class="tab-content active content_extab">
                                                     <div class="rte product_getcontent product-review-content">
                                                         <div class="ba-text-fpt has-height">
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                                                                Quisque faucibus ex sapien vitae pellentesque sem placerat.
-                                                                In id cursus mi pretium tellus duis convallis. Tempus leo eu
-                                                                aenean sed diam urna tempor. Pulvinar vivamus fringilla
-                                                                lacus nec metus bibendum egestas. Iaculis massa nisl
-                                                                malesuada lacinia integer nunc posuere. Ut hendrerit semper
-                                                                vel class aptent taciti sociosqu. Ad litora torquent per
-                                                                conubia nostra inceptos himenaeos.
-
-                                                                Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                                                                Quisque faucibus ex sapien vitae pellentesque sem placerat.
-                                                                In id cursus mi pretium tellus duis convallis. Tempus leo eu
-                                                                aenean sed diam urna tempor. Pulvinar vivamus fringilla
-                                                                lacus nec metus bibendum egestas. Iaculis massa nisl
-                                                                malesuada lacinia integer nunc posuere. Ut hendrerit semper
-                                                                vel class aptent taciti sociosqu. Ad litora torquent per
-                                                                conubia nostra inceptos himenaeos.
-
-                                                                Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                                                                Quisque faucibus ex sapien vitae pellentesque sem placerat.
-                                                                In id cursus mi pretium tellus duis convallis. Tempus leo eu
-                                                                aenean sed diam urna tempor. Pulvinar vivamus fringilla
-                                                                lacus nec metus bibendum egestas. Iaculis massa nisl
-                                                                malesuada lacinia integer nunc posuere. Ut hendrerit semper
-                                                                vel class aptent taciti sociosqu. Ad litora torquent per
-                                                                conubia nostra inceptos himenaeos.
-
-                                                                Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                                                                Quisque faucibus ex sapien vitae pellentesque sem placerat.
-                                                                In id cursus mi pretium tellus duis convallis. Tempus leo eu
-                                                                aenean sed diam urna tempor. Pulvinar vivamus fringilla
-                                                                lacus nec metus bibendum egestas. Iaculis massa nisl
-                                                                malesuada lacinia integer nunc posuere. Ut hendrerit semper
-                                                                vel class aptent taciti sociosqu. Ad litora torquent per
-                                                                conubia nostra inceptos himenaeos.
-
-                                                                Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                                                                Quisque faucibus ex sapien vitae pellentesque sem placerat.
-                                                                In id cursus mi pretium tellus duis convallis. Tempus leo eu
-                                                                aenean sed diam urna tempor. Pulvinar vivamus fringilla
-                                                                lacus nec metus bibendum egestas. Iaculis massa nisl
-                                                                malesuada lacinia integer nunc posuere. Ut hendrerit semper
-                                                                vel class aptent taciti sociosqu. Ad litora torquent per
-                                                                conubia nostra inceptos himenaeos.
-
-                                                                Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                                                                Quisque faucibus ex sapien vitae pellentesque sem placerat.
-                                                                In id cursus mi pretium tellus duis convallis. Tempus leo eu
-                                                                aenean sed diam urna tempor. Pulvinar vivamus fringilla
-                                                                lacus nec metus bibendum egestas. Iaculis massa nisl
-                                                                malesuada lacinia integer nunc posuere. Ut hendrerit semper
-                                                                vel class aptent taciti sociosqu. Ad litora torquent per
-                                                                conubia nostra inceptos himenaeos.!</p>
+                                                            {!! $product->description !!}
                                                         </div>
 
                                                         <div class="show-more hidden-lg hidden-md hidden-sm">
@@ -546,7 +368,8 @@
                                 </h2>
                                 <div class="swiper_product_related swiper-container">
                                     <div class="swiper-wrapper">
-                                        @for ($i = 0; $i < 6; $i++)
+
+                                        @foreach ($relatedProducts as $relatedProduct)
                                             <div class="swiper-slide">
                                                 <div class="item_product_main">
 
@@ -559,24 +382,25 @@
                                                         </span>
 
                                                         <div class="product-thumbnail">
-                                                            <a class="image_thumb scale_hover"
-                                                                href="#"
-                                                                title="San pham so 1">
+                                                            <a class="image_thumb scale_hover" href="#"
+                                                                title="{{ $relatedProduct->name }}">
                                                                 <img class="lazyload duration-300"
-                                                                    src="/images/products/dauxa.jpg"
-                                                                    data-src="/images/products/dauxa.jpg"
-                                                                    alt="san pham so 1">
+                                                                    src="{{ asset($relatedProduct->images->first()->image ?? '/images/products/dauxa.jpg') }}"
+                                                                    data-src="{{ asset($relatedProduct->images->first()->image ?? '/images/products/dauxa.jpg') }}"
+                                                                    alt="{{ $relatedProduct->name }}">
                                                             </a>
                                                         </div>
                                                         <div class="product-info">
                                                             <div class="name-price">
                                                                 <h3 class="product-name line-clamp-2-new">
-                                                                    <a href="#"
-                                                                        title="San pham 1">San pham so {{$i}}</a>
+                                                                    <a href="{{route('product_detail', ['id' => $relatedProduct->id])}}"
+                                                                        title="{{ $relatedProduct->name }}">{{ $relatedProduct->name }}</a>
                                                                 </h3>
                                                                 <div class="product-price-cart">
-                                                                    <span class="compare-price">1.200.000₫</span>
-                                                                    <span class="price">950.000₫</span>
+                                                                    <span
+                                                                        class="compare-price">{{ number_format($relatedProduct->price) }}₫</span>
+                                                                    <span
+                                                                        class="price">{{ number_format($relatedProduct->sale_price) }}₫</span>
                                                                 </div>
                                                             </div>
                                                             <div class="product-button">
@@ -599,20 +423,51 @@
                                                                         </g>
                                                                     </svg>
                                                                 </button>
-                                                                <a href="javascript:void(0)"
-                                                                    class="setWishlist btn-views btn-circle"
-                                                                    data-wish="hong-sam-lat-tam-mat-ong-daedong-han-quoc-hop-10-goi-x-20g"
-                                                                    tabindex="0" title="Thêm vào yêu thích">
-                                                                    <img width="25" height="25"
-                                                                        src="/images/heart.png"
-                                                                        alt="Thêm vào yêu thích" />
+                                                                <a onclick="toggleFavorite({{ $relatedProduct->id }}, this, {{ auth()->check() ? 'true' : 'false' }})"
+                                                                    class="setWishlist btn-views btn-circle">
+                                                                    @php
+                                                                        $isFavorited =
+                                                                            auth()->check() &&
+                                                                            auth()
+                                                                                ->user()
+                                                                                ->favoriteProducts->contains(
+                                                                                    $relatedProduct->id,
+                                                                                );
+                                                                    @endphp
+
+                                                                    @if ($isFavorited)
+                                                                        {{-- Trái tim đầy (đã yêu thích) --}}
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="red" viewBox="0 0 24 24"
+                                                                            width="24" height="24">
+                                                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2
+                                                                            5.42 4.42 3 7.5 3c1.74 0 3.41 0.81
+                                                                            4.5 2.09C13.09 3.81 14.76 3 16.5
+                                                                            3 19.58 3 22 5.42 22 8.5c0
+                                                                            3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                                        </svg>
+                                                                    @else
+                                                                        {{-- Trái tim rỗng (chưa yêu thích) --}}
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="none" stroke="currentColor"
+                                                                            stroke-width="2" viewBox="0 0 24 24"
+                                                                            width="24" height="24">
+                                                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2
+                                                                            12.28 2 8.5 2 5.42 4.42 3 7.5
+                                                                            3c1.74 0 3.41 0.81 4.5 2.09C13.09
+                                                                            3.81 14.76 3 16.5 3 19.58 3
+                                                                            22 5.42 22 8.5c0 3.78-3.4
+                                                                            6.86-8.55 11.54L12 21.35z" />
+                                                                        </svg>
+                                                                    @endif
                                                                 </a>
                                                             </div>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
-                                        @endfor
+                                        @endforeach
+
                                     </div>
                                     <div class="swiper-button-next">
                                         <svg width="58" height="58" viewBox="0 0 58 58" fill="none"

@@ -48,7 +48,8 @@ class ProductController extends Controller
             'code.unique' => 'Má sản phẩm đẫ tốn tại.',
             'price.required' => 'Cần nhập giá.',
             'status.required' => 'Cần nhập trạng thái.',
-        ]);
+        ]);     
+
     
         // Tạo sản phẩm
         $product = Product::create([
@@ -78,7 +79,7 @@ class ProductController extends Controller
             }
         }
 
-        return response()->redirectTo(route('admin.products.index'))->with('success', 'Thêm sản phẩm thành công!');
+        return response()->redirectTo(route('admin.product'))->with('success', 'Thêm sản phẩm thành công!');
     }
 
 
@@ -110,7 +111,8 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
-
+    
+        // Validate
         $request->validate([
             'name' => 'required|string|max:255',
             'code' => 'nullable|string|max:50|unique:products,code,' . $product->id,
@@ -122,17 +124,18 @@ class ProductController extends Controller
             'level_id' => 'required|exists:levels,id',
             'description' => 'nullable|string',
             'document' => 'nullable|string',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif',
         ], [
             'name.required' => 'Cần nhập tên.',
-            'code.unique' => 'Má sản phẩm đẫ tốn tại.',
+            'code.unique' => 'Mã sản phẩm đã tồn tại.',
             'price.required' => 'Cần nhập giá.',
             'status.required' => 'Cần nhập trạng thái.',
             'category_id.required' => 'Cần nhập danh mục.',
             'type_id.required' => 'Cần nhập loại.',
-            'level_id.required' => 'Cần nhập kiểu.',
+            'level_id.required' => 'Cần nhập kiểu.',
         ]);
-
+    
+        // Cập nhật thông tin sản phẩm
         $product->update([
             'name' => $request->name,
             'code' => $request->code,
@@ -145,20 +148,24 @@ class ProductController extends Controller
             'description' => $request->description,
             'document' => $request->document,
         ]);
-
-        // Nếu upload ảnh mới → xóa ảnh cũ + lưu ảnh mới
-        if ($request->hasFile('images')) {
-            foreach ($product->images as $oldImage) {
-                if (file_exists(public_path($oldImage->image))) {
-                    unlink(public_path($oldImage->image));
+    
+        // Xóa ảnh được chọn để xoá
+        if ($request->has('delete_images')) {
+            foreach ($request->delete_images as $imageId) {
+                $image = ProductImage::find($imageId);
+                if ($image && file_exists(public_path($image->image))) {
+                    unlink(public_path($image->image));
+                    $image->delete();
                 }
-                $oldImage->delete();
             }
-
+        }
+    
+        // Upload ảnh mới
+        if ($request->hasFile('images')) {
             foreach ($request->file('images') as $index => $image) {
                 $imageName = time() . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path('/uploads/products'), $imageName);
-
+    
                 ProductImage::create([
                     'product_id' => $product->id,
                     'image' => '/uploads/products/' . $imageName,
@@ -167,9 +174,10 @@ class ProductController extends Controller
                 ]);
             }
         }
-
-        return response()->json(['success' => true, 'message' => 'Cập nhật sản phẩm thành công!']);
+    
+        return redirect()->route('admin.product')->with('success', 'Cập nhật sản phẩm thành công!');
     }
+    
 
 
     /**

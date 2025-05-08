@@ -121,7 +121,7 @@
                                         <div class="product-info">
                                             <div class="name-price">
                                                 <h3 class="product-name line-clamp-2-new">
-                                                    <a href="#" title="{{$product->name}} ">{{$product->name}} </a>
+                                                    <a href="{{route('product_detail', ['id' => $product->id])}}" title="{{$product->name}} ">{{$product->name}} </a>
                                                 </h3>
                                                 <div class="product-price-cart">
                                                     <span class="compare-price">{{number_format($product->price)}}₫</span>
