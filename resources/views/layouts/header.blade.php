@@ -285,7 +285,7 @@
                                             </clipPath>
                                         </defs>
                                     </svg>
-                                    <span class="count_item count_item_pr">0</span>
+                                    <span class="count_item count_item_pr">{{totalQuantityCart()}}</span>
                                 </span>
                                 <span class="item-title sm-hidden">Giỏ hàng</span>
                             </a>

@@ -12,3 +12,8 @@ function category()
     $categories = Category::orderBy('id', 'desc')->get();
     return $categories;
 }
+function totalQuantityCart(){
+    $cart = session('cart', []);
+    $totalQuantity = array_sum(array_column($cart, 'quantity'));
+    return $totalQuantity;
+}
