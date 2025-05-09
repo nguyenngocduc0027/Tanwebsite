@@ -47,6 +47,11 @@ Route::get('/blog_detail', [HomeController::class, 'blog_detail'])->name('blog_d
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/blank', [HomeController::class, 'blank'])->name('blank');
 
+//Cart thêm vào giỏ hàng
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+//End thêm vào giở
 
 // Auth
 Route::get('/login', [AuthController::class, 'view_login'])->name('login');

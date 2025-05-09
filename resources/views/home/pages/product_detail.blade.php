@@ -104,9 +104,10 @@
                                         </span>
                                     </span>
                                 </div>
-                                <form enctype="multipart/form-data" data-cart-form id="add-to-cart-form" action="#"
+                                <form enctype="multipart/form-data" data-cart-form  action="{{ route('cart.add') }}"
                                     method="post" class="form-inline">
-
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <div class="price-box clearfix">
 
                                         <span class="special-price">
@@ -151,9 +152,8 @@
                                                         <button class="btn_num num_1 button button_qty"
                                                             onClick="var result = document.getElementById('qtym'); var qtypro = result.value; if( !isNaN( qtypro ) &amp;&amp; qtypro &gt; 1 ) result.value--;return false;"
                                                             type="button">-</button>
-                                                        <input type="text" id="qtym" name="quantity" value="1"
-                                                            maxlength="3" class="form-control prd_quantity"
-                                                            onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"
+                                                            <input type="text" id="qtym" name="quantity" value="1" maxlength="3"
+                                                            class="form-control prd_quantity" onkeypress="if (isNaN(this.value + String.fromCharCode(event.keyCode))) return false;"
                                                             onchange="if(this.value == 0)this.value=1;">
                                                         <button class="btn_num num_2 button button_qty"
                                                             onClick="var result = document.getElementById('qtym'); var qtypro = result.value; if( !isNaN( qtypro )) result.value++;return false;"
@@ -344,7 +344,7 @@
                                                     <div class="rte">
                                                         <h3>Đánh giá sản phẩm</h3>
                                                         <div class="fb-comments"
-                                                            data-href="http://127.0.0.1:8000/product_detail"
+                                                            data-href="{{route('product_detail', ['id' => $product->id])}}"
                                                             data-width="100%" data-numposts="5"
                                                             data-order-by="reverse_time">
                                                         </div>

@@ -6,58 +6,9 @@ $(document).ready(function ($) {
 		$(this).toggleClass('active')
 		return false;
 	});
-	$('.add_to_cart').click(function(e){	
-		e.preventDefault();		
-		var $this = $(this);
-		var form = $this.parents('form');	
-		$.ajax({
-			type: 'POST',
-			url: '/cart/add.js',
-			async: false,
-			data: form.serialize(),
-			dataType: 'json',
-			beforeSend: function() { },
-			success: function(line_item) {
-				ajaxCart.load();
-				$('.popup-cart-mobile, .backdrop__body-backdrop___1rvky').addClass('active');
-				AddCartMobile(line_item);
-			},
-			cache: false
-		});
-	});
+	
 });
-function callbackFuncGroup(sectionName) {
-	awe_lazyloadImage();
-	$('.'+sectionName+' .add_to_cart').click(function(e){	
-		e.preventDefault();		
-		var $this = $(this);
-		var form = $this.parents('form');	
-		$.ajax({
-			type: 'POST',
-			url: '/cart/add.js',
-			async: false,
-			data: form.serialize(),
-			dataType: 'json',
-			beforeSend: function() { },
-			success: function(line_item) {
-				ajaxCart.load();
-				$('.popup-cart-mobile, .backdrop__body-backdrop___1rvky').addClass('active');
-				AddCartMobile(line_item);
-			},
-			cache: false
-		});
-	});
-	
-	runQuickView();
-	
-	
-	favoriSudes.Wishlist.activityWishlist();
-	
-	if(window.BPR && window.BPR.loadBadges){
-		window.BPR.initDomEls()
-		window.BPR.loadBadges()
-	}
-}
+
 /*Ajax tab 1*/
 $(".not-dqtab").each( function(e){
 	/*khai báo khởi tạo ban đầu cho 2 kiểu tab*/
