@@ -675,19 +675,7 @@
                     thumbnail: false
                 });
             });
-            $('.btn-buyNow').on('click', function(event) {
-                $.ajax({
-                    url: '/cart/add.js',
-                    type: "post",
-                    data: $("#add-to-cart-form").serialize(),
-                    datatype: "json",
-                    success: function(data) {
-                        window.location.href = "cart.html";
-                    },
-                    error: function() {}
-                });
-                event.preventDefault();
-            });
+          
             $('.btn--view-more').on('click', function(e) {
                 e.preventDefault();
                 var $this = $(this);
