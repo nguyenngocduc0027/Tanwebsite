@@ -55,30 +55,25 @@ class CartController extends Controller
    }
    public function updateAll(Request $request)
    {
-       $quantities = $request->input('quantities', []);
        $cart = session()->get('cart', []);
-
-       foreach ($quantities as $id => $quantity) {
+       $quantities = $request->input('quantities', []);
+   
+       foreach ($quantities as $id => $qty) {
            if (isset($cart[$id])) {
-               $cart[$id]['quantity'] = max(1, (int)$quantity);
+               $cart[$id]['quantity'] = max(1, (int)$qty);
            }
        }
-
+   
        session()->put('cart', $cart);
-       return redirect()->back()->with('success', 'Giỏ hàng đã được cập nhật.');
+       return redirect()->back()->with('success', 'Cập nhật giỏ hàng thành công!');
    }
-
-   // Xoá sản phẩm khỏi giỏ
+   
    public function remove($id)
    {
        $cart = session()->get('cart', []);
-
-       if (isset($cart[$id])) {
-           unset($cart[$id]);
-           session()->put('cart', $cart);
-       }
-
-       return redirect()->back()->with('success', 'Đã xoá sản phẩm khỏi giỏ hàng.');
+       unset($cart[$id]);
+       session()->put('cart', $cart);
+       return redirect()->back()->with('success', 'Đã xoá sản phẩm khỏi giỏ hàng!');
    }
 
 }

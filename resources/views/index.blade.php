@@ -42,6 +42,7 @@
     {{-- <link rel="stylesheet" href="/assets/css/fonts.css" /> --}}
     <link rel="stylesheet" href="/assets/css/bootstrap-4-3-min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/cartpage.scss.css" />
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/quickviews_popup_cart.css" />
     <link rel="stylesheet" href="/assets/css/ajaxcart.css" />
