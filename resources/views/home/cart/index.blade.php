@@ -24,13 +24,13 @@
             <div class="wrap_background_aside margin-bottom-40">
                 <div class="row">
                     @if (count($cart) > 0)
-                    @foreach ($cart as $id => $item)
-                   <form id="delete-form-{{ $id }}" action="{{ route('cart.remove', $id) }}" method="POST"
-                   style="display: none;">
-                   @csrf
-                   @method('DELETE')
-               </form>
-                   @endforeach
+                        @foreach ($cart as $id => $item)
+                            <form id="delete-form-{{ $id }}" action="{{ route('cart.remove', $id) }}"
+                                method="POST" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                            </form>
+                        @endforeach
                         <div class="col-xl-8 col-lg-7 col-12 col-cart-left">
                             <div class="bg-shadow margin-bottom-20">
                                 <div class="header-cart">
@@ -59,7 +59,6 @@
                                                     <div
                                                         class="ajaxcart__inner ajaxcart__inner--has-fixed-footer cart_body items">
                                                         @foreach ($cart as $id => $item)
-                                                        
                                                             <div class="ajaxcart__row">
                                                                 <div class="ajaxcart__product cart_product" data-line="1">
                                                                     <a href="{{ route('product_detail', $item['id']) }}"
@@ -74,12 +73,7 @@
                                                                             <a href="{{ route('product_detail', $item['id']) }}"
                                                                                 class="ajaxcart__product-name h4 line-clamp line-clamp-2-new"
                                                                                 title="{{ $item['name'] }}">{{ $item['name'] }}</a>
-                                                                            <span
-                                                                                class="ajaxcart__product-meta variant-title">Mix
-                                                                                2
-                                                                                Vị
-                                                                                (Đông Trùng / Nhân Sâm)
-                                                                            </span>
+
                                                                             <a title="Xóa"
                                                                                 class="cart__btn-remove remove-item-cart ajaxifyCart--remove"
                                                                                 onclick="deleteCartItem({{ $id }})"
@@ -156,11 +150,7 @@
                                                                     <a href="{{ route('product_detail', $item['id']) }}"
                                                                         class="ajaxcart__product-name h4 line-clamp line-clamp-2-new"
                                                                         title="{{ $item['name'] }}">{{ $item['name'] }}</a>
-                                                                    <span class="ajaxcart__product-meta variant-title">Mix 2
-                                                                        Vị
-                                                                        (Đông
-                                                                        Trùng / Nhân Sâm)
-                                                                    </span>
+
                                                                 </div>
                                                                 <div class="grid">
                                                                     <div
@@ -233,10 +223,10 @@
 
                                             <div class="summary-button">
                                                 <div class="cart__btn-proceed-checkout-dt">
-                                                    <button onclick="goToCheckout(event)" type="button"
+                                                    <a  href="{{ route('cart.checkout') }}"
                                                         class="button btn btn-default cart__btn-proceed-checkout btn-primary duration-300"
                                                         id="btn-proceed-checkout" title="Thanh toán ngay">Thanh toán
-                                                        ngay</button>
+                                                        ngay</a>
                                                 </div>
                                                 <a class="return_buy btn btn-extent duration-300"
                                                     title="Tiếp tục mua hàng" href="{{ route('product') }}">Tiếp tục mua
@@ -348,7 +338,7 @@
         </div>
     </section>
 
-   
+
     <script>
         function increaseQuantity(inputId) {
             const input = document.getElementById(inputId);

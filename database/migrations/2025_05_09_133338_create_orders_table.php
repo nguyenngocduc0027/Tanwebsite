@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('customer_email')->nullable();
             $table->string('customer_phone');
             $table->text('customer_address');
+            $table->text('customer_note')->nullable();
+            $table->string('status')->default('pending'); // trạng thái đơn hàng
             $table->decimal('total_amount', 12, 0);
             $table->timestamps();
         });

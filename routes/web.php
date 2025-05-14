@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FavoriteProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomePageController;
@@ -53,6 +54,8 @@ Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/update-all', [CartController::class, 'updateAll'])->name('cart.update_all');
 Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::get('/checkout', [CheckoutController::class, 'checkoutForm'])->name('cart.checkout');
+Route::post('/checkout', [CheckoutController::class, 'placeOrder'])->name('cart.placeOrder');
 
 //End thêm vào giở
 
