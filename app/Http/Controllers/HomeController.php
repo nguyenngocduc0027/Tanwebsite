@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Level;
 use App\Models\Product;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,21 +26,61 @@ class HomeController extends Controller
         return view('home.pages.product');
     }
 
-    public function product_category($id)
+    public function product_category($id, Request $request)
     {
-        $products = Product::where('category_id', $id)->paginate(12);
-        return view('home.pages.product_category', compact('products'));
+        $titleCategory = 'sub_category';
+        $category = Category::all();
+        $categoryId = Category::find($id);
+    
+        $query = Product::where(function ($q) use ($id) {
+            $q->where('category_id', $id)
+              ->orWhere('category_id', $id); // nếu có
+        });
+        
+   
+        // Lọc theo sắp xếp
+        switch ($request->input('sort')) {
+            case 'alpha-asc':
+                $query->orderBy('name', 'asc');
+                break;
+            case 'alpha-desc':
+                $query->orderBy('name', 'desc');
+                break;
+            case 'price-asc':
+                $query->orderBy('sale_price', 'asc');
+                break;
+            case 'price-desc':
+                $query->orderBy('sale_price', 'desc');
+                break;
+            case 'created-desc':
+                $query->orderBy('created_at', 'desc');
+                break;
+            default:
+                $query->latest(); // mặc định
+        }
+        
+    
+        $products = $query->paginate(12)->withQueryString(); // Giữ lại query khi phân trang
+    
+        return view('home.pages.product_category', compact('products','category', 'categoryId','titleCategory'));
     }
+    
     public function product_sub_category($id)
     {
+        $titleCategory = 'sub_type';
+        $category = Type::all();
+        $categoryId = Type::find($id);
         $products = Product::where('type_id', $id)->paginate(12);
-        return view('home.pages.product_category',  compact('products'));
+        return view('home.pages.product_category',  compact('products','category', 'categoryId','titleCategory'));
     }
 
     public function product_subsub_category($id)
     {
+        $titleCategory = 'sub_level';
+        $category = Level::all();
+        $categoryId = Level::find($id);
         $products = Product::where('level_id', $id)->paginate(12);
-        return view('home.pages.product_category',  compact('products'));
+        return view('home.pages.product_category',  compact('products','category', 'categoryId','titleCategory'));
     }
 
     public function product_detail($id)

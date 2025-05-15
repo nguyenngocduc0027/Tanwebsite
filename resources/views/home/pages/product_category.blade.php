@@ -25,6 +25,35 @@
                             <div class="separator-center"></div>
                         </div>
                     </div>
+                    <div class="col-list-cate">
+                        <div class="menu-list">
+                            @foreach ($category as $itemcategory)
+                                @php
+                                    switch ($titleCategory) {
+                                        case 'sub_category':
+                                            $routeName = 'product_category';
+                                            $typle = 'category';
+                                            break;
+                                        case 'sub_type':
+                                            $routeName = 'product_sub_category';
+                                            $typle = 'type';
+                                            break;
+                                        default:
+                                            $routeName = 'product_subsub_category';
+                                            $typle = 'level';
+                                    }
+                                @endphp
+                                <a class="cate-item duration-300 {{ $categoryId == $itemcategory ? 'active' : '' }}"
+                                    href="{{ route($routeName, [$typle => $itemcategory->id]) }}"
+                                    title="{{ $itemcategory->name }}">
+                                    <div class="cate-info-title">{{ $itemcategory->name }}</div>
+                                </a>
+                            @endforeach
+
+
+
+                        </div>
+                    </div>
                     <div class="col-desc">
                         <p class="p_style sm-hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt earum
                             hic explicabo maiores ex
@@ -48,6 +77,10 @@
                                         <span class="count-filter-val"></span>
                                     </a>
                                 </div>
+                                @php
+                                    $sort = request()->get('sort', 'default');
+                                @endphp
+
                                 <div class="sort-cate-right">
                                     <h3>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -59,32 +92,29 @@
                                         </svg> Xếp theo
                                     </h3>
                                     <ul>
-                                        <li class="btn-quick-sort default active">
-                                            <a href="#" onclick="sortby('default')" title="Mặc định"><i></i>Mặc
-                                                định</a>
-                                        </li>
-                                        <li class="btn-quick-sort alpha-asc">
-                                            <a href="#" onclick="sortby('alpha-asc')" title="Tên A-Z"><i></i>Tên
-                                                A-Z</a>
-                                        </li>
-                                        <li class="btn-quick-sort alpha-desc">
-                                            <a href="#" onclick="sortby('alpha-desc')" title="Tên Z-A"><i></i>Tên
-                                                Z-A</a>
-                                        </li>
-                                        <li class="btn-quick-sort position-desc">
-                                            <a href="#" onclick="sortby('created-desc')" title="Hàng mới"><i></i>Hàng
-                                                mới</a>
-                                        </li>
-                                        <li class="btn-quick-sort price-asc">
-                                            <a href="#" onclick="sortby('price-asc')"
-                                                title="Giá thấp đến cao"><i></i>Giá thấp đến cao</a>
-                                        </li>
-                                        <li class="btn-quick-sort price-desc">
-                                            <a href="#" onclick="sortby('price-desc')"
-                                                title="Giá cao xuống thấp"><i></i>Giá cao xuống thấp</a>
-                                        </li>
+                                        @php
+                                            $sortOptions = [
+                                                'default' => 'Mặc định',
+                                                'alpha-asc' => 'Tên A-Z',
+                                                'alpha-desc' => 'Tên Z-A',
+                                                'created-desc' => 'Hàng mới',
+                                                'price-asc' => 'Giá thấp đến cao',
+                                                'price-desc' => 'Giá cao xuống thấp',
+                                            ];
+                                        @endphp
+
+                                        @foreach ($sortOptions as $key => $label)
+                                            <li
+                                                class="btn-quick-sort {{ $key }} {{ $sort == $key ? 'active' : '' }}">
+                                                <a href="javascript:void(0);" onclick="sortby('{{ $key }}')"
+                                                    title="{{ $label }}">
+                                                    <i></i>{{ $label }}
+                                                </a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
+
                             </div>
                         </div>
                         <div class="products-view products-view-grid list_hover_pro">
@@ -92,16 +122,16 @@
                                 @foreach ($products as $product)
                                     <div class="col-6 col-md-3">
                                         <div class="item_product_main">
-                                            <form action="{{ route('cart.add') }}" method="POST" 
+                                            <form action="{{ route('cart.add') }}" method="POST"
                                                 class="variants product-action item-product-main duration-300"
-                                               
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
                                                 <span class="flash-sale">-6%</span>
                                                 <div class="tag-promo" title="Quà tặng">
-                                                    <img src="/images/tag_pro_icon.svg" data-src="/images/tag_pro_icon.svg"
-                                                        alt="Quà tặng" class="lazyload" />
+                                                    <img src="{{ asset('/images/tag_pro_icon.svg') }}"
+                                                        data-src="{{ asset('/images/tag_pro_icon.svg') }}" alt="Quà tặng"
+                                                        class="lazyload" />
                                                     <div class="promotion-content">
                                                         <div class="line-clamp-5-new"
                                                             title="- Tặng 1 túi giấy xách đi kèm - 1 Hộp đường phèn">
@@ -111,7 +141,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-thumbnail">
-                                                    <a class="image_thumb scale_hover" href="#"
+                                                    <a class="image_thumb scale_hover"
+                                                        href="{{ route('product_detail', ['id' => $product->id]) }}"
                                                         title="{{ $product->name }}">
 
                                                         <img class="lazyload duration-300"
@@ -136,7 +167,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-button">
-                                                      
+
                                                         <button class="btn-cart btn-views btn btn-primary "
                                                             title="Thêm vào giỏ hàng" type="submit">
                                                             <span>Thêm vào giỏ</span>
@@ -170,11 +201,12 @@
                                                                 {{-- Trái tim đầy (đã yêu thích) --}}
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="red"
                                                                     viewBox="0 0 24 24" width="24" height="24">
-                                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2
-                                                                    5.42 4.42 3 7.5 3c1.74 0 3.41 0.81
-                                                                    4.5 2.09C13.09 3.81 14.76 3 16.5
-                                                                    3 19.58 3 22 5.42 22 8.5c0
-                                                                    3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                                    <path
+                                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2
+                                                                                        5.42 4.42 3 7.5 3c1.74 0 3.41 0.81
+                                                                                        4.5 2.09C13.09 3.81 14.76 3 16.5
+                                                                                        3 19.58 3 22 5.42 22 8.5c0
+                                                                                        3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                                                 </svg>
                                                             @else
                                                                 {{-- Trái tim rỗng (chưa yêu thích) --}}
@@ -182,11 +214,11 @@
                                                                     stroke="currentColor" stroke-width="2"
                                                                     viewBox="0 0 24 24" width="24" height="24">
                                                                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2
-                                                                    12.28 2 8.5 2 5.42 4.42 3 7.5
-                                                                    3c1.74 0 3.41 0.81 4.5 2.09C13.09
-                                                                    3.81 14.76 3 16.5 3 19.58 3
-                                                                    22 5.42 22 8.5c0 3.78-3.4
-                                                                    6.86-8.55 11.54L12 21.35z" />
+                                                                                        12.28 2 8.5 2 5.42 4.42 3 7.5
+                                                                                        3c1.74 0 3.41 0.81 4.5 2.09C13.09
+                                                                                        3.81 14.76 3 16.5 3 19.58 3
+                                                                                        22 5.42 22 8.5c0 3.78-3.4
+                                                                                        6.86-8.55 11.54L12 21.35z" />
                                                                 </svg>
                                                             @endif
                                                         </a>
@@ -212,5 +244,20 @@
             </div>
         </div>
     </div>
+    <script>
+        function sortby(sortType) {
+            const url = new URL(window.location.href);
+    const params = url.searchParams;
+
+    // Cập nhật sort
+    params.set('sort', sortType);
+
+    // Cập nhật URL với các params giữ nguyên
+    url.search = params.toString();
+
+    // Điều hướng đến URL mới
+    window.location.href = url.toString();
+}
+    </script>
     {{-- @include('home.section.coupon') --}}
 @endsection
