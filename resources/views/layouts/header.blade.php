@@ -337,7 +337,7 @@
 
                                 @foreach (category() as $categorie)
                                     <li class="sudes-main-cate-has-child menu-item-count ">
-                                        <a href="{{ route('product_category', $categorie->id) }}" title="Sản Phẩm 1">
+                                        <a href="{{ route('product_category', $categorie->id) }}" title="{{ $categorie->name }}">
                                             <img class="lazyload" src="/images/index-cate/index-cate-icon-2.png"
                                                 data-src="/images/index-cate/index-cate-icon-2.png" alt="Tổ yến" />
                                             {{ $categorie->name }}
@@ -422,78 +422,37 @@
                                         </svg>
                                     </a>
                                     <i class="open_mnu down_icon"></i>
-                                    {{-- <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu">
+                                        @foreach (category() as $category_lv1)
                                         <li class="dropdown-submenu nav-item-lv2 has-childs2">
-                                            <a class="nav-link" href="{{ route('product_category') }}"
-                                                title="Sản Phẩm 1">Sản Phẩm 1<svg width="8" height="17"
+                                            <a class="nav-link" href="{{ route('product_category', $category_lv1->id) }}"
+                                                title="{{$category_lv1->name}}">{{$category_lv1->name}}<svg width="8" height="17"
                                                     viewBox="0 0 8 17" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M7.13382 7.1278L7.13379 7.12777L0.512271 0.509686L0.795057 0.226752L0.51227 0.509685C0.512123 0.509538 0.51201 0.509431 0.511927 0.509356L7.13382 7.1278ZM7.13382 7.1278C7.62239 7.61603 7.622 8.40641 7.13301 8.89414L7.13298 8.89417L0.502368 15.5089C0.50222 15.509 0.502106 15.5091 0.502022 15.5092C0.501841 15.5092 0.501547 15.5093 0.501149 15.5093C0.500827 15.5093 0.500574 15.5093 0.500392 15.5092L7.13055 8.89499C7.13056 8.89498 7.13057 8.89497 7.13058 8.89495C7.61976 8.407 7.62011 7.61541 7.13138 7.12699L7.13382 7.1278Z">
                                                     </path>
                                                 </svg></a>
-                                            <i class="open_mnu down_icon"></i>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item-lv3">
-                                                    <a class="nav-link" href="{{ route('product_sub_category') }}"
-                                                        title="Loại 1">Loại 1</a>
-                                                </li>
-                                                <li class="nav-item-lv3">
-                                                    <a class="nav-link" href="#" title="Loại 2">Loại 2</a>
-                                                </li>
-                                                <li class="nav-item-lv3">
-                                                    <a class="nav-link" href="#" title="Loại 3">Loại 3</a>
-                                                </li>
-                                                <li class="nav-item-lv3">
-                                                    <a class="nav-link" href="#" title="Loại 4">Loại 4</a>
-                                                </li>
-                                                <li class="nav-item-lv3">
-                                                    <a class="nav-link" href="#" title="Loại 5">Loại 5</a>
-                                                </li>
-                                                <li class="nav-item-lv3">
-                                                    <a class="nav-link" href="#" title="Loại 6">Loại 6</a>
-                                                </li>
-                                            </ul>
+                                                @if (count($category_lv1->types) > 0)
+                                                <i class="open_mnu down_icon"></i>
+                                                <ul class="dropdown-menu">
+                                                    @foreach ($category_lv1->types as $categoryTypes)
+                                                        
+                                                    <li class="nav-item-lv3">
+                                                        <a class="nav-link" href="{{ route('product_sub_category', $categoryTypes->id) }}"
+                                                            title="{{$categoryTypes->name}}">{{$categoryTypes->name}}</a>
+                                                    </li>
+                                                    @endforeach
+                                                    
+                                                </ul>
+                                                @endif
+                                           
                                         </li>
+                                        @endforeach
+                                        
 
-                                        <li class="dropdown-submenu nav-item-lv2 has-childs2">
-                                            <a class="nav-link" href="#" title="Sản Phẩm 2">Sản Phẩm 2<svg
-                                                    width="8" height="17" viewBox="0 0 8 17" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M7.13382 7.1278L7.13379 7.12777L0.512271 0.509686L0.795057 0.226752L0.51227 0.509685C0.512123 0.509538 0.51201 0.509431 0.511927 0.509356L7.13382 7.1278ZM7.13382 7.1278C7.62239 7.61603 7.622 8.40641 7.13301 8.89414L7.13298 8.89417L0.502368 15.5089C0.50222 15.509 0.502106 15.5091 0.502022 15.5092C0.501841 15.5092 0.501547 15.5093 0.501149 15.5093C0.500827 15.5093 0.500574 15.5093 0.500392 15.5092L7.13055 8.89499C7.13056 8.89498 7.13057 8.89497 7.13058 8.89495C7.61976 8.407 7.62011 7.61541 7.13138 7.12699L7.13382 7.1278Z">
-                                                    </path>
-                                                </svg></a>
-                                            <i class="open_mnu down_icon"></i>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item-lv3">
-                                                    <a class="nav-link" href="#"
-                                                        title="Sản Phẩm 2 - Loại 1">Sản Phẩm 2 - Loại 1</a>
-                                                </li>
-                                                <li class="nav-item-lv3">
-                                                    <a class="nav-link" href="#"
-                                                        title="Sản Phẩm 2 - Loại 2">Sản Phẩm 2 - Loại 2</a>
-                                                </li>
-                                                <li class="nav-item-lv3">
-                                                    <a class="nav-link" href="#"
-                                                        title="Sản Phẩm 2 - Loại 3">Sản Phẩm 2 - Loại 3</a>
-                                                </li>
-                                                <li class="nav-item-lv3">
-                                                    <a class="nav-link" href="#"
-                                                        title="Sản Phẩm 2 - Loại 4">Sản Phẩm 2 - Loại 4</a>
-                                                </li>
-                                                <li class="nav-item-lv3">
-                                                    <a class="nav-link" href="#"
-                                                        title="Sản Phẩm 2 - Loại 5">Sản Phẩm 2 - Loại 5</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                        <li class="nav-item-lv2">
-                                            <a class="nav-link" href="#" title="Quà biếu cao cấp">Quà
-                                                biếu cao cấp</a>
-                                        </li>
-                                    </ul> --}}
+                                        
+                                    </ul>
                                 </li>
 
                                 <li class="nav-item" data-section="header_nav">
