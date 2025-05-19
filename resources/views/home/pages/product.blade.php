@@ -21,7 +21,7 @@
                             <div class="separator-center"></div>
                         </div>
                     </div>
-                    <div class="col-list-cate">
+                    {{-- <div class="col-list-cate">
                         <div class="menu-list">
                             <a class="cate-item duration-300 " href="#" title="Dầu Gội">
                                 <div class="cate-info-title">Dầu Gội</div>
@@ -36,12 +36,12 @@
                                 <div class="cate-info-title">Tinh Dầu</div>
                             </a>
                         </div>
-                    </div>
-                    <div class="col-desc">
+                    </div> --}}
+                    {{-- <div class="col-desc">
                         <p class="p_style sm-hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt earum hic explicabo maiores ex
                             id eligendi, molestiae natus eum, voluptates eaque ratione a blanditiis illum veritatis debitis,
                             non voluptate! Enim?</p>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div class="block-collection col-lg-12 col-12">

@@ -1,70 +1,31 @@
 <div class="section_slider">
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide">
+			@foreach ($sliders as $slider)
+				<div class="swiper-slide">
 				<a href="#" class="clearfix" title="Slider 1">
 					<picture>
 						<source
 								media="(min-width: 1200px)"
-								srcset="/images/slider/slider_1.jpg">
+								srcset="{{ asset($slider->image ?? '/images/slider/slider_1.jpg') }}">
 						<source
 								media="(min-width: 992px)"
-								srcset="/images/slider/slider_1.jpg">
+								srcset="{{ asset($slider->image ?? '/images/slider/slider_1.jpg') }}">
 						<source
 								media="(min-width: 569px)"
-								srcset="/images/slider/slider_1.jpg">
+								srcset="{{ asset($slider->image ?? '/images/slider/slider_1.jpg') }}">
 						<source
 								media="(max-width: 480px)"
-								srcset="/images/slider/slider_1.jpg">
+								srcset="{{ asset($slider->image ?? '/images/slider/slider_1.jpg') }}">
 						<img width="1920" height="600"
-							 src="/images/slider/slider_1.jpg"
+							 src="{{ asset($slider->image ?? '/images/slider/slider_1.jpg') }}">
 							 alt="Slider 1" class="img-responsive center-block duration-300" />
 					</picture>
 				</a>
 			</div>
-			<div class="swiper-slide">
-				<a href="#" class="clearfix" title="Slider 2">
-					<picture>
-						<source
-								media="(min-width: 1200px)"
-								srcset="/images/slider/slider_2.jpg">
-						<source
-								media="(min-width: 992px)"
-								srcset="/images/slider/slider_2.jpg">
-						<source
-								media="(min-width: 569px)"
-								srcset="/images/slider/slider_2.jpg">
-						<source
-								media="(max-width: 480px)"
-								srcset="/images/slider/slider_2.jpg">
-						<img width="1920" height="600"
-							 src="/images/slider/slider_2.jpg"
-							 alt="Slider 2" class="img-responsive center-block duration-300" />
-					</picture>
-				</a>
-			</div>
-
-			<div class="swiper-slide">
-				<a href="#" class="clearfix" title="Slider 3">
-					<picture>
-						<source
-								media="(min-width: 1200px)"
-								srcset="/images/slider/slider_3.jpg">
-						<source
-								media="(min-width: 992px)"
-								srcset="/images/slider/slider_3.jpg">
-						<source
-								media="(min-width: 569px)"
-								srcset="/images/slider/slider_3.jpg">
-						<source
-								media="(max-width: 480px)"
-								srcset="/images/slider/slider_3.jpg">
-						<img width="1920" height="600"
-							 src="/images/slider/slider_3.jpg"
-							 alt="Slider 3" class="img-responsive center-block duration-300" />
-					</picture>
-				</a>
-			</div>
+			@endforeach
+			
+		
 		</div>
 		<div class="swiper-button-prev">
 			<svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">

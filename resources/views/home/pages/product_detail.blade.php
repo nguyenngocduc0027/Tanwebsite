@@ -373,10 +373,12 @@
                                             <div class="swiper-slide">
                                                 <div class="item_product_main">
 
-                                                    <form action="#" method="post"
+                                                     <form action="{{ route('cart.add') }}" method="POST"
                                                         class="variants product-action item-product-main duration-300"
                                                         data-cart-form data-id="product-actions-34619470"
                                                         enctype="multipart/form-data">
+                                                        @csrf
+                                                          <input type="hidden" name="product_id" value="{{ $relatedProduct->id }}">
                                                         <span class="flash-sale">-
                                                             21%
                                                         </span>

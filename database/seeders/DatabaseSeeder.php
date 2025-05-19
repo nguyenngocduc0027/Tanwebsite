@@ -9,6 +9,7 @@ use App\Models\Type;
 use App\Models\Level;
 use App\Models\HomePage;
 use App\Models\Product;
+use App\Models\Slider;
 use App\Models\User;
 
 class DatabaseSeeder extends Seeder
@@ -160,15 +161,27 @@ class DatabaseSeeder extends Seeder
                 }
             }
         }
-    
 
-
-
-
-
-
-
-
-
+        Slider::create([
+            'title' => 'Tiêu đề slider',
+            'subtitle' => 'Phụ đề slider',
+            'status' => 1,
+            'image' => '/images/slider/slider_1.jpg',
+            'link' => 'https://example.com',
+        ]);
+        Slider::create([
+            'title' => 'Tiêu đề slider',
+            'subtitle' => 'Phụ đề slider',
+            'status' => 1,
+            'image' => '/images/slider/slider_2.jpg',
+            'link' => 'https://example.com',
+        ]);
+        Slider::create([
+            'title' => 'Tiêu đề slider',
+            'subtitle' => 'Phụ đề slider',
+            'status' => 1,
+            'image' => '/images/slider/slider_3.jpg',
+            'link' => 'https://example.com',
+        ]);
     }
 }
