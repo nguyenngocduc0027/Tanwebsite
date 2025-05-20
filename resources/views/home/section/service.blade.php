@@ -24,48 +24,48 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-6 promo-item duration-300">
                         <div class="icon aspect-1">
                             <img width="50" height="50" class="lazyload"
-                                data-src="/images/ser/ser_2.png"
-                                alt="Sudes Nest"
-                                src="/images/ser/ser_2.png" />
+                                data-src="{{asset($home_pages->image2 ?? '/images/ser/ser_2.png')}}"
+                                alt="{{$home_pages->service2}}"
+                                src="{{asset($home_pages->image2 ?? '/images/ser/ser_2.png')}}" />
                         </div>
                         <div class="info">
                             <h3>
-                                Tư vấn miễn phí
+                                {{$home_pages->service2}}
                             </h3>
                             <span>
-                                Đội ngũ tư vấn tận tình
+                                {{$home_pages->content2}}
                             </span>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-6 promo-item duration-300">
                         <div class="icon aspect-1">
                             <img width="50" height="50" class="lazyload"
-                                data-src="/images/ser/ser_3.png"
+                                data-src="{{asset($home_pages->image3 ?? '/images/ser/ser_3.png')}}"
                                 alt="Sudes Nest"
-                                src="/images/ser/ser_3.png" />
+                                src="{{asset($home_pages->image3 ?? '/images/ser/ser_3.png')}}" />
                         </div>
                         <div class="info">
                             <h3>
-                                Thanh toán
+                                 {{$home_pages->service3}}
                             </h3>
                             <span>
-                                Thanh toán an toàn
+                                {{$home_pages->content3}}
                             </span>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-6 promo-item duration-300">
                         <div class="icon aspect-1">
                             <img width="50" height="50" class="lazyload"
-                                data-src="/images/ser/ser_4.png"
-                                alt="Sudes Nest"
-                                src="/images/ser/ser_4.png" />
+                                data-src="{{asset($home_pages->image4 ?? '/images/ser/ser_4.png')}}"
+                                alt="{{$home_pages->service4?? ''}}"
+                                src="{{asset($home_pages->image4 ?? '/images/ser/ser_4.png')}}" />
                         </div>
                         <div class="info">
                             <h3>
-                                Giải pháp quà tặng
+                              {{$home_pages->service4 ?? ''}}
                             </h3>
                             <span>
-                                Dành cho doanh nghiệp
+                                {{$home_pages->content4 ?? ''}}
                             </span>
                         </div>
                     </div>
