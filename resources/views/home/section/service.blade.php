@@ -8,16 +8,16 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-6 promo-item duration-300">
                         <div class="icon aspect-1">
                             <img width="50" height="50" class="lazyload"
-                                data-src="/images/ser/ser_1.png"
-                                alt="Sudes Nest"
-                                src="/images/ser/ser_1.png" />
+                                data-src="{{asset($home_pages->image1 ?? '/images/ser/ser_1.png')}}"
+                                alt="{{$home_pages->service1}}"
+                                src="{{asset($home_pages->image1 ?? '/images/ser/ser_1.png')}}" />
                         </div>
                         <div class="info">
                             <h3>
-                                Giao hàng siêu tốc
+                                {{$home_pages->service1}}
                             </h3>
                             <span>
-                                Giao hàng trong 24h
+                                {{$home_pages->content1}}
                             </span>
                         </div>
                     </div>

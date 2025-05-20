@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\HomePage;
 use App\Models\Level;
 use App\Models\Product;
 use App\Models\Slider;
@@ -14,9 +15,9 @@ class HomeController extends Controller
     public function home()
     {
        $sliders = Slider::where('status', 1)->get();
-
+        $home_pages = HomePage::find(1);
          $categories = Category::with('products')->get();
-        return view('home.pages.body', compact('categories','sliders'));
+        return view('home.pages.body', compact('categories','sliders', 'home_pages'));
     }
 
     public function about()

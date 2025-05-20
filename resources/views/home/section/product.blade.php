@@ -74,14 +74,7 @@
                                             data-cart-form data-id="product-actions-{{ $product->id }}"
                                             enctype="multipart/form-data">
 
-                                            @if ($product->stock == 0)
-                                                <span class="tag-soldout">Hết hàng</span>
-                                            @else
-                                                @if ($product->discount_percent > 0)
-                                                    <span class="flash-sale">-{{ $product->discount_percent }}%</span>
-                                                @endif
-                                            @endif
-
+                                          
                                             @if ($product->has_gift)
                                                 <div class="tag-promo" title="Quà tặng">
                                                     <img src="{{asset('/images/tag_pro_icon.svg')}}" alt="Quà tặng"
@@ -130,22 +123,50 @@
                                                 <div class="product-button">
                                                     <input type="hidden" name="variantId"
                                                         value="{{ $product->variant_id }}" />
-                                                    @if ($product->stock == 0)
-                                                        <button class="btn-cart btn-views disable btn btn-primary"
+                                                    
+                                                        <a href="{{route('product_detail', ['id' => $product->id])}}" class="btn-cart btn-views add_to_cart btn btn-primary"
                                                             title="Xem chi tiết" type="button">
                                                             <span>Xem chi tiết</span>
                                                         </button>
-                                                    @else
-                                                        <button class="btn-cart btn-views add_to_cart btn btn-primary"
-                                                            title="Thêm vào giỏ hàng">
-                                                            <span>Thêm vào giỏ</span>
-                                                        </button>
-                                                    @endif
-                                                    <a href="#" class="setWishlist btn-views btn-circle"
-                                                        title="Thêm vào yêu thích">
-                                                        <img width="25" height="25" src="{{asset('/images/heart.svg')}}"
-                                                            alt="Thêm vào yêu thích" />
-                                                    </a>
+                                                  
+                                                    <a onclick="toggleFavorite({{ $product->id }}, this, {{ auth()->check() ? 'true' : 'false' }})"
+                                                                    class="setWishlist btn-views btn-circle">
+                                                                    @php
+                                                                        $isFavorited =
+                                                                            auth()->check() &&
+                                                                            auth()
+                                                                                ->user()
+                                                                                ->favoriteProducts->contains(
+                                                                                    $product->id,
+                                                                                );
+                                                                    @endphp
+
+                                                                    @if ($isFavorited)
+                                                                        {{-- Trái tim đầy (đã yêu thích) --}}
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="red" viewBox="0 0 24 24"
+                                                                            width="24" height="24">
+                                                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2
+                                                                            5.42 4.42 3 7.5 3c1.74 0 3.41 0.81
+                                                                            4.5 2.09C13.09 3.81 14.76 3 16.5
+                                                                            3 19.58 3 22 5.42 22 8.5c0
+                                                                            3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                                        </svg>
+                                                                    @else
+                                                                        {{-- Trái tim rỗng (chưa yêu thích) --}}
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="none" stroke="currentColor"
+                                                                            stroke-width="2" viewBox="0 0 24 24"
+                                                                            width="24" height="24">
+                                                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2
+                                                                            12.28 2 8.5 2 5.42 4.42 3 7.5
+                                                                            3c1.74 0 3.41 0.81 4.5 2.09C13.09
+                                                                            3.81 14.76 3 16.5 3 19.58 3
+                                                                            22 5.42 22 8.5c0 3.78-3.4
+                                                                            6.86-8.55 11.54L12 21.35z" />
+                                                                        </svg>
+                                                                    @endif
+                                                                </a>
                                                 </div>
                                             </div>
                                         </form>
