@@ -1,130 +1,34 @@
-<section class="section-index section_brands">
+@if (count($partners) > 0)
+    <section class="section-index section_brands">
     <div class="container">
         <div class="section-title">
             <span class="sub-title">
-                Xã hội vạn thiện
+                {{$home_pages->partner_title ?? ''}}
             </span>
             <h2>
-                Đối tác của chúng tôi
+                {{$home_pages->partner_subtitle ?? ''}}
             </h2>
+            <div class="desc">
+                {{ $home_pages->partner_description ?? '' }}
+            </div>
             <div class="title-separator">
                 <div class="separator-center"></div>
             </div>
         </div>
+
         <div class="swiper_brands swiper-container">
             <div class="swiper-wrapper">
+                @foreach ($partners as $partner)
+                    
                 <div class="swiper-slide">
-                    <a href="#" title="Brand 1" class="brand-item">
-                        <img data-src="/images/brand/img_brand_1.png" alt="Brand 1" width="225" height="113"
+                    <a href="#" title="{{$partner->name}}" class="brand-item">
+                        <img data-src="{{asset($partner->image ?? '/images/brand/img_brand_1.png')}}" alt="{{$partner->name}}" width="225" height="113"
                             class="lazyload"
-                            src="/images/brand/img_brand_1.png" />
+                            src="{{asset($partner->image ?? '/images/brand/img_brand_1.png')}}" />
                     </a>
                 </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 2" class="brand-item">
-                        <img data-src="/images/brand/img_brand_2.png" alt="Brand 2" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_2.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 3" class="brand-item">
-                        <img data-src="/images/brand/img_brand_3.png" alt="Brand 3" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_3.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 4" class="brand-item">
-                        <img data-src="/images/brand/img_brand_4.png" alt="Brand 4" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_4.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 5" class="brand-item">
-                        <img data-src="/images/brand/img_brand_5.png" alt="Brand 5" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_5.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 6" class="brand-item">
-                        <img data-src="/images/brand/img_brand_6.png" alt="Brand 6" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_7.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 7" class="brand-item">
-                        <img data-src="/images/brand/img_brand_7.png" alt="Brand 7" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_7.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 8" class="brand-item">
-                        <img data-src="/images/brand/img_brand_8.png" alt="Brand 8" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_8.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 1" class="brand-item">
-                        <img data-src="/images/brand/img_brand_1.png" alt="Brand 1" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_1.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 2" class="brand-item">
-                        <img data-src="/images/brand/img_brand_2.png" alt="Brand 2" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_2.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 3" class="brand-item">
-                        <img data-src="/images/brand/img_brand_3.png" alt="Brand 3" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_3.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 4" class="brand-item">
-                        <img data-src="/images/brand/img_brand_4.png" alt="Brand 4" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_4.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 5" class="brand-item">
-                        <img data-src="/images/brand/img_brand_5.png" alt="Brand 5" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_5.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 6" class="brand-item">
-                        <img data-src="/images/brand/img_brand_6.png" alt="Brand 6" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_7.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 7" class="brand-item">
-                        <img data-src="/images/brand/img_brand_7.png" alt="Brand 7" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_7.png" />
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#" title="Brand 8" class="brand-item">
-                        <img data-src="/images/brand/img_brand_8.png" alt="Brand 8" width="225" height="113"
-                            class="lazyload"
-                            src="/images/brand/img_brand_8.png" />
-                    </a>
-                </div>
+                @endforeach
+               
             </div>
             <div class="swiper-button-prev">
                 <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
@@ -212,3 +116,5 @@
         toggleSwiperBrand();
     });
 </script>
+
+@endif

@@ -3,11 +3,15 @@
         <div class="wrap_tab_index not-dqtab e-tabs ajax-tab-1" data-section-2="ajax-tab-1">
             <div class="section-title">
                 <span class="sub-title">
-                    XÃ HỘI VẠN THIỆN
+                    {{ $home_pages->product_title ?? '' }}
                 </span>
                 <h2>
-                    <a href="#" title="SẢN PHẨM ĐANG BÁN">SẢN PHẨM ĐANG BÁN</a>
+                    <a href="#" title="{{ $home_pages->product_subtitle ?? '' }}">
+                        {{ $home_pages->product_subtitle ?? '' }}</a>
                 </h2>
+                <div class="desc">
+                  {{$home_pages->product_description ?? ''}}
+                </div>
                 <div class="title-separator">
                     <div class="separator-center"></div>
                 </div>
@@ -74,10 +78,10 @@
                                             data-cart-form data-id="product-actions-{{ $product->id }}"
                                             enctype="multipart/form-data">
 
-                                          
-                                            @if ($product->has_gift)
+
+                                          {{--   @if ($product->has_gift)
                                                 <div class="tag-promo" title="Quà tặng">
-                                                    <img src="{{asset('/images/tag_pro_icon.svg')}}" alt="Quà tặng"
+                                                    <img src="{{ asset('/images/tag_pro_icon.svg') }}" alt="Quà tặng"
                                                         class="lazyload" />
                                                     <div class="promotion-content">
                                                         <div class="line-clamp-5-new"
@@ -90,7 +94,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @endif
+                                            @endif --}}
 
                                             <div class="product-thumbnail">
                                                 <a class="image_thumb scale_hover" href=""
@@ -112,61 +116,61 @@
                                                         @if ($product->sale_price)
                                                             <span
                                                                 class="compare-price">{{ number_format($product->price) }}₫</span>
-                                                                 <span
-                                                            class="price">{{ number_format($product->sale_price) }}₫</span>
-                                                            @else
-                                                                <span class="price">{{ number_format($product->price) }}₫</span>
+                                                            <span
+                                                                class="price">{{ number_format($product->sale_price) }}₫</span>
+                                                        @else
+                                                            <span
+                                                                class="price">{{ number_format($product->price) }}₫</span>
                                                         @endif
-                                                       
+
                                                     </div>
                                                 </div>
                                                 <div class="product-button">
                                                     <input type="hidden" name="variantId"
                                                         value="{{ $product->variant_id }}" />
-                                                    
-                                                        <a href="{{route('product_detail', ['id' => $product->id])}}" class="btn-cart btn-views add_to_cart btn btn-primary"
-                                                            title="Xem chi tiết" type="button">
-                                                            <span>Xem chi tiết</span>
-                                                        </button>
-                                                  
-                                                    <a onclick="toggleFavorite({{ $product->id }}, this, {{ auth()->check() ? 'true' : 'false' }})"
-                                                                    class="setWishlist btn-views btn-circle">
-                                                                    @php
-                                                                        $isFavorited =
-                                                                            auth()->check() &&
-                                                                            auth()
-                                                                                ->user()
-                                                                                ->favoriteProducts->contains(
-                                                                                    $product->id,
-                                                                                );
-                                                                    @endphp
 
-                                                                    @if ($isFavorited)
-                                                                        {{-- Trái tim đầy (đã yêu thích) --}}
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                            fill="red" viewBox="0 0 24 24"
-                                                                            width="24" height="24">
-                                                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2
+                                                    <a href="{{ route('product_detail', ['id' => $product->id]) }}"
+                                                        class="btn-cart btn-views add_to_cart btn btn-primary"
+                                                        title="Xem chi tiết" type="button">
+                                                        <span>Xem chi tiết</span>
+                                                        </button>
+
+                                                        <a onclick="toggleFavorite({{ $product->id }}, this, {{ auth()->check() ? 'true' : 'false' }})"
+                                                            class="setWishlist btn-views btn-circle">
+                                                            @php
+                                                                $isFavorited =
+                                                                    auth()->check() &&
+                                                                    auth()
+                                                                        ->user()
+                                                                        ->favoriteProducts->contains($product->id);
+                                                            @endphp
+
+                                                            @if ($isFavorited)
+                                                                {{-- Trái tim đầy (đã yêu thích) --}}
+                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="red"
+                                                                    viewBox="0 0 24 24" width="24"
+                                                                    height="24">
+                                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2
                                                                             5.42 4.42 3 7.5 3c1.74 0 3.41 0.81
                                                                             4.5 2.09C13.09 3.81 14.76 3 16.5
                                                                             3 19.58 3 22 5.42 22 8.5c0
                                                                             3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                                                                        </svg>
-                                                                    @else
-                                                                        {{-- Trái tim rỗng (chưa yêu thích) --}}
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                            fill="none" stroke="currentColor"
-                                                                            stroke-width="2" viewBox="0 0 24 24"
-                                                                            width="24" height="24">
-                                                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2
+                                                                </svg>
+                                                            @else
+                                                                {{-- Trái tim rỗng (chưa yêu thích) --}}
+                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                    stroke="currentColor" stroke-width="2"
+                                                                    viewBox="0 0 24 24" width="24"
+                                                                    height="24">
+                                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2
                                                                             12.28 2 8.5 2 5.42 4.42 3 7.5
                                                                             3c1.74 0 3.41 0.81 4.5 2.09C13.09
                                                                             3.81 14.76 3 16.5 3 19.58 3
                                                                             22 5.42 22 8.5c0 3.78-3.4
                                                                             6.86-8.55 11.54L12 21.35z" />
-                                                                        </svg>
-                                                                    @endif
-                                                                </a>
+                                                                </svg>
+                                                            @endif
+                                                        </a>
                                                 </div>
                                             </div>
                                         </form>
@@ -181,7 +185,7 @@
 
         <div class="view-more clearfix"
             style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; padding-top: 2rem;">
-            <a href="{{route('product')}}" title="Xem tất cả" class="btn btn-primary frame">
+            <a href="{{ route('product') }}" title="Xem tất cả" class="btn btn-primary frame">
                 <svg width="14" height="32" viewBox="0 0 14 32" fill="none"
                     xmlns="http://www.w3.org/2000/svg" class="border-svg border-svg-left">
                     <path

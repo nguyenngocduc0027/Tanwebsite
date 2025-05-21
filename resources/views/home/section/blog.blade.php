@@ -2,13 +2,16 @@
     <div class="container">
         <div class="section-title">
             <span class="sub-title">
-                Xã Hội Vạn Thiện
+                {{ $home_pages->blog_title ?? '' }}
             </span>
             <h2>
-                <a href="#" title="Tin tức - Tư vấn từ Sudes Nest">
-                    Tin tức - Sự Kiện - Tư vấn
+                <a href="#" title="{{ $home_pages->blog_subtitle ?? '' }}">
+                    {{ $home_pages->blog_subtitle ?? '' }}
                 </a>
             </h2>
+            <div class="desc">
+                {{ $home_pages->blog_description ?? '' }}
+            </div>
             <div class="title-separator">
                 <div class="separator-center"></div>
             </div>
@@ -16,190 +19,65 @@
 
         <div class="content-group3 row">
             <div class="col-lg-4 col-md-12 big-news">
-                <a href="#"
-                    title="Thông tin về blog số 1"
-                    class="news-top_item_img clearfix">
-                    <div class="grow-0">
-                        <div class="item-img">
-                            <img src="/images/blog/09.jpg" data-src="/images/blog/09.jpg"
-                                alt="Thông tin về blog số 1"
-                                class="lazyload duration-300" />
+                @if ($latestBlog)
+                    <a href="{{ route('blog_detail', ['id' => $latestBlog->id]) }}" title="{{ $latestBlog->name }}" class="news-top_item_img clearfix">
+                        <div class="grow-0">
+                            <div class="item-img">
+                                <img src="{{ asset($latestBlog->image ?? '/images/blog/09.jpg') }}"
+                                    data-src="{{ asset($latestBlog->image ?? '/images/blog/09.jpg') }}"
+                                    alt="{{ $latestBlog->name }}" class="lazyload duration-300" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="item-img-content">
-                        <h3>Đây là tiêu đề thông tin về blog số 1</h3>
-                        <div class="content-des d-md-block d-lg-none line-clamp line-clamp-3">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem itaque a, rem omnis hic aut voluptas voluptate illo magni temporibus libero inventore perspiciatis, blanditiis accusantium, natus minima est corrupti sequi.
+                        <div class="item-img-content">
+                            <h3>{{ $latestBlog->name ?? '' }}</h3>
+                            <div class="content-des d-md-block d-lg-none line-clamp line-clamp-3">
+                                {{ $latestBlog->subtitle ?? '' }}
+                            </div>
+                            <p class="time-post">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                                </svg>
+                                <span>
+                                    {{ $latestBlog->created_at->format('d/m/Y') }}
+                                </span>
+                            </p>
                         </div>
-                        <p class="time-post">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-clock" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
-                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
-                            </svg>
-                            <span>
-                                05/01/2024
-                            </span>
-                        </p>
-                    </div>
-                </a>
+                    </a>
+                @endif
             </div>
             <div class="col-lg-8 col-md-12 list-news">
                 <div class="swapper-articles">
-                    <a href="#" title="Thông tin về blog số 2"
-                        class="news-top_item_img">
-                        <div class="grow-0">
-                            <div class="item-img">
-                                <img src="/images/blog/09.jpg" data-src="/images/blog/09.jpg"
-                                    alt="Thông tin về blog số 2"
-                                    class="lazyload duration-300" />
+                    @foreach ($otherBlogs as $otherBlog)
+                        <a href="{{ route('blog_detail', ['id' => $otherBlog->id]) }}" title="{{ $otherBlog->name ?? '' }}" class="news-top_item_img">
+                            <div class="grow-0">
+                                <div class="item-img">
+                                    <img src="{{ asset($otherBlog->image ?? '/images/blog/09.jpg') }}"
+                                        data-src="{{ asset($otherBlog->image ?? '/images/blog/09.jpg') }}"
+                                        alt="{{ $otherBlog->name ?? '' }}" class="lazyload duration-300" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="item-img-content">
-                            <h3 class="line-clamp-2-new">Đây là tiêu đề thông tin về blog số 2</h3>
-                            <p class="time-post">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
-                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
-                                </svg>
-                                <span>
-                                    05/01/2024
-                                </span>
-                            </p>
-                        </div>
-                    </a>
+                            <div class="item-img-content">
+                                <h3 class="line-clamp-2-new">{{ $otherBlog->name ?? '' }}</h3>
+                                <p class="time-post">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                                    </svg>
+                                    <span>
+                                        {{ $otherBlog->created_at->format('d/m/Y') }}
+                                    </span>
+                                </p>
+                            </div>
+                        </a>
+                    @endforeach
 
-                    <a href="#" title="Thông tin về blog số 3"
-                        class="news-top_item_img">
-                        <div class="grow-0">
-                            <div class="item-img">
-                                <img src="/images/blog/09.jpg" data-src="/images/blog/09.jpg"
-                                    alt="Thông tin về blog số 3"
-                                    class="lazyload duration-300" />
-                            </div>
-                        </div>
-                        <div class="item-img-content">
-                            <h3 class="line-clamp-2-new">Đây là tiêu đề thông tin về blog số 3</h3>
-                            <p class="time-post">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
-                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
-                                </svg>
-                                <span>
-                                    05/01/2024
-                                </span>
-                            </p>
-                        </div>
-                    </a>
 
-                    <a href="#" title="Thông tin về blog số 4"
-                        class="news-top_item_img">
-                        <div class="grow-0">
-                            <div class="item-img">
-                                <img src="/images/blog/09.jpg" data-src="/images/blog/09.jpg"
-                                    alt="Thông tin về blog số 4"
-                                    class="lazyload duration-300" />
-                            </div>
-                        </div>
-                        <div class="item-img-content">
-                            <h3 class="line-clamp-2-new">Đây là tiêu đề thông tin về blog số 4</h3>
-                            <p class="time-post">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
-                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
-                                </svg>
-                                <span>
-                                    01/01/2024
-                                </span>
-                            </p>
-                        </div>
-                    </a>
 
-                    <a href="#" title="Thông tin về blog số 5"
-                        class="news-top_item_img">
-                        <div class="grow-0">
-                            <div class="item-img">
-                                <img src="/images/blog/09.jpg"
-                                    data-src="/images/blog/09.jpg"
-                                    alt="Thông tin về blog số 5" class="lazyload duration-300" />
-                            </div>
-                        </div>
-                        <div class="item-img-content">
-                            <h3 class="line-clamp-2-new">Đây là tiêu đề thông tin về blog số 5</h3>
-                            <p class="time-post">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
-                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
-                                </svg>
-                                <span>
-                                    01/01/2024
-                                </span>
-                            </p>
-                        </div>
-                    </a>
-
-                    <a href="#"
-                        title="Thông tin về blog số 6"
-                        class="news-top_item_img">
-                        <div class="grow-0">
-                            <div class="item-img">
-                                <img src="/images/blog/09.jpg"
-                                    data-src="/images/blog/09.jpg"
-                                    alt="Thông tin về blog số 6"
-                                    class="lazyload duration-300" />
-                            </div>
-                        </div>
-                        <div class="item-img-content">
-                            <h3 class="line-clamp-2-new">Đây là tiêu đề thông tin về blog số 6</h3>
-                            <p class="time-post">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
-                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
-                                </svg>
-                                <span>
-                                    01/01/2024
-                                </span>
-                            </p>
-                        </div>
-                    </a>
-
-                    <a href="#"
-                        title="Thông tin về blog số 7"
-                        class="news-top_item_img">
-                        <div class="grow-0">
-                            <div class="item-img">
-                                <img src="/images/blog/09.jpg"
-                                    data-src="/images/blog/09.jpg"
-                                    alt="Thông tin về blog số 7"
-                                    class="lazyload duration-300" />
-                            </div>
-                        </div>
-                        <div class="item-img-content">
-                            <h3 class="line-clamp-2-new">Đây là tiêu đề thông tin về blog số 7</h3>
-                            <p class="time-post">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
-                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
-                                </svg>
-                                <span>
-                                    01/01/2024
-                                </span>
-                            </p>
-                        </div>
-                    </a>
                 </div>
 
             </div>

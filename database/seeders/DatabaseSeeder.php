@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Blog;
+use App\Models\Partner;
+use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 use App\Models\Type;
@@ -11,7 +15,7 @@ use App\Models\HomePage;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\User;
-
+use Carbon\Carbon;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -183,5 +187,29 @@ class DatabaseSeeder extends Seeder
             'image' => '/images/slider/slider_3.jpg',
             'link' => 'https://example.com',
         ]);
+        for ($i = 0; $i < 8; $i++) {
+            Testimonial::create([
+                'name' => 'Khách hàng số ' . $i,
+                'position' => 'Kế Toán',
+                'image' => '/images/feedback/feedback_1_avatar.jpg',
+                'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, atque omnis distinctio iure dignissimos quam nisi ad cum id eveniet tenetur ea provident, sunt dolorem quos eum hic praesentium eos!'
+            ]);
+        }
+        for ($i = 0; $i < 20; $i++) {
+            Blog::create([
+                'name' => 'Tin tức DEMO ' . $i,
+                'author_id' => 1,
+                'date' => Carbon::now(),
+                'image' => '/images/blog/09.jpg',
+                'subtitle' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur, nunc nectincidunt fringilla, ',
+                'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, atque omnis distinctio iure dignissimos quam nisi ad cum id eveniet tenetur ea provident, sunt dolorem quos eum hic praesentium eos!'
+            ]);
+        }
+        for ($i=0; $i <9; $i++) { 
+            Partner::create([
+                'name' => 'Đối tác ' . $i,
+                'image' => '/images/brand/img_brand_' . $i . '.png',
+            ]);
+        }
     }
 }

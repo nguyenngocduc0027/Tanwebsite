@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="col-title">
-                        <h1>Tất cả sản phẩm 1</h1>
+                        <h1>Tất cả sản phẩm</h1>
                         <div class="title-separator">
                             <div class="separator-center"></div>
                         </div>
@@ -55,10 +55,7 @@
                         </div>
                     </div>
                     <div class="col-desc">
-                        <p class="p_style sm-hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt earum
-                            hic explicabo maiores ex
-                            id eligendi, molestiae natus eum, voluptates eaque ratione a blanditiis illum veritatis debitis,
-                            non voluptate! Enim?</p>
+                        <p class="p_style sm-hidden"> {{$home_pages->product_description ?? ''}}</p>
                     </div>
                 </div>
 
@@ -67,15 +64,7 @@
                         <div class="filter-containers">
                             <div class="sort-cate clearfix">
                                 <div class="sudes-filter">
-                                    <a class="btn btn-outline btn-filter" title="Bộ lọc">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z" />
-                                        </svg>
-                                        Bộ lọc
-                                        <span class="count-filter-val"></span>
-                                    </a>
+                                   
                                 </div>
                                 @php
                                     $sort = request()->get('sort', 'default');
@@ -126,20 +115,7 @@
                                                 class="variants product-action item-product-main duration-300"
                                                 enctype="multipart/form-data">
                                                 @csrf
-                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <span class="flash-sale">-6%</span>
-                                                <div class="tag-promo" title="Quà tặng">
-                                                    <img src="{{ asset('/images/tag_pro_icon.svg') }}"
-                                                        data-src="{{ asset('/images/tag_pro_icon.svg') }}" alt="Quà tặng"
-                                                        class="lazyload" />
-                                                    <div class="promotion-content">
-                                                        <div class="line-clamp-5-new"
-                                                            title="- Tặng 1 túi giấy xách đi kèm - 1 Hộp đường phèn">
-                                                            <p><span style="letter-spacing: -0.2px;">- Tặng 1 túi giấy xách
-                                                                    đi kèm <br>- 1 Hộp đường phèn </span></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                               
                                                 <div class="product-thumbnail">
                                                     <a class="image_thumb scale_hover"
                                                         href="{{ route('product_detail', ['id' => $product->id]) }}"
@@ -259,5 +235,25 @@
     window.location.href = url.toString();
 }
     </script>
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sortToggle = document.querySelector('.sort-cate-right h3');
+        const sortList = document.querySelector('.sort-cate-right ul');
+
+        sortToggle.addEventListener('click', function () {
+            if (window.innerWidth <= 768) { // Chỉ cho phép click khi là mobile
+                this.classList.toggle('active');
+
+                if (sortList.style.display === 'block') {
+                    sortList.style.display = 'none';
+                } else {
+                    sortList.style.display = 'block';
+                }
+            }
+        });
+    });
+</script>
+
+
     {{-- @include('home.section.coupon') --}}
 @endsection

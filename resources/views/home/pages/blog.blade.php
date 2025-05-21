@@ -22,7 +22,7 @@
                     <div class="right-content col-lg-12 col-12">
                         <div class="title-page">
                             <h1>Tin Tức</h1>
-                            <p class="p_style sm-hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, tempore dicta? Voluptatem minima dignissimos praesentium nisi impedit commodi distinctio amet, odio modi soluta omnis? Expedita ex voluptatem blanditiis ratione nesciunt.</p>
+                            <p class="p_style sm-hidden"> {{ $home_pages->blog_description ?? '' }}</p>
                             <div class="title-separator">
                                 <div class="separator-center"></div>
                             </div>
@@ -30,32 +30,25 @@
 
                         <div class="row list-news">
 
-                            @for ($i = 1; $i < 9; $i++)
+                            @forelse ($news as $new)
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                     <div class="item-blog">
                                         <div class="wrapper">
-                                            <a class="block-thumb thumb" href="#" title="Blog 1">
+                                            <a class="block-thumb thumb" href="{{ route('blog_detail', ['id' => $new->id]) }}" title="{{ $new->name ?? '' }}">
                                                 <img width="400" height="240" class="lazyload duration-300"
-                                                    src="/images/products/dauxa.jpg" data-src="/images/products/dauxa.jpg"
-                                                    alt="Blog 1">
+                                                    src="{{ asset($new->image ?? '/images/blog/09.jpg') }}" data-src="{{ asset($new->image ?? '/images/blog/09.jpg') }}"
+                                                    alt="{{ $new->name ?? '' }}">
                                             </a>
                                             <div class="block-content">
                                                 <h3>
-                                                    <a href="{{route('blog_detail')}}" title="Blog 1" class="line-clamp-2-new">Blog
-                                                        {{ $i }}</a>
+                                                    <a href="{{ route('blog_detail', ['id' => $new->id]) }}" title="{{ $new->name ?? '' }}"
+                                                        class="line-clamp-2-new">{{ $new->name ?? '' }}
+                                                       </a>
                                                 </h3>
                                                 <div class="article-content">
 
                                                     <p class="justify line-clamp line-clamp-3">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                                                        efficitur, nunc nec
-                                                        tincidunt fringilla, nunc nisi aliquet nunc, nec aliquet nunc
-                                                        nisi
-                                                        aliquam nunc. Donec efficitur, nunc nec tincidunt fringilla,
-                                                        nunc nisi aliquet nunc,
-                                                        nec aliquet nunc nisi aliquam nunc.
-                                                        Donec efficitur, nunc nec tincidunt fringilla, nunc nisi
-                                                        aliquet nunc, nec aliquet nunc
+                                                       {{ $new->subtitle ?? '' }}
                                                     </p>
 
                                                     <div class="article-info">
@@ -69,11 +62,11 @@
                                                                     d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
                                                             </svg>
                                                             <span>
-                                                                05/01/2024
+                                                         {{ $new->created_at->format('d/m/Y') }}
                                                             </span>
                                                         </p>
 
-                                                        <a href="{{ route('blog_detail') }}" title="Đọc thêm"
+                                                        <a href="{{ route('blog_detail', ['id' => $new->id]) }}" title="Đọc thêm"
                                                             class="read-more">Đọc thêm »</a>
                                                     </div>
                                                 </div>
@@ -81,16 +74,19 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endfor
+                            @empty
+                                <div class="col-12 pt-5 pb-5">
+                                    <div class="feedback-item pt-5 pb-5">
+                                        <div class="block-content text-center">
+                                            <p>Tin tức đang được cập nhật</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforelse
+
                             <div class="pagenav">
                                 <nav class="collection-paginate clearfix relative nav_pagi w_100">
-                                    <ul class="pagination clearfix">
-                                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                                        <li class="active page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link link-next-pre" href="#"
-                                                title="2">&raquo;</a></li>
-                                    </ul>
+                                   {{ $news->links('pagination::bootstrap-4') }}
                                 </nav>
                             </div>
 

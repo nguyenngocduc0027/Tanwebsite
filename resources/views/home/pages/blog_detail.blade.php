@@ -9,10 +9,10 @@
                         <span class="mr_lr">></span>
                     </li>
                     <li class="home">
-                        <a href="{{ route('blogs') }}" title="Blog"><span>Blog</span></a>
+                        <a href="{{ route('blogs') }}" title="Blog"><span>Tin tức</span></a>
                         <span class="mr_lr">></span>
                     </li>
-                    <li><strong><span>Blog 1</span></strong></li>
+                    <li><strong><span>{{ $news->name ?? '' }}</span></strong></li>
                 </ul>
             </div>
         </section>
@@ -23,7 +23,7 @@
                         <div class="row">
                             <div class="right-content col-lg-9 col-12">
                                 <div class="article-details bg-shadow clearfix">
-                                    <h1 class="article-title">Blog 1</h1>
+                                    <h1 class="article-title">{{ $news->name ?? '' }}</h1>
                                     <div class="posts">
                                         <div class="time-post f">
                                             <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="clock"
@@ -33,7 +33,7 @@
                                                     d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm216 248c0 118.7-96.1 216-216 216-118.7 0-216-96.1-216-216 0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216zm-148.9 88.3l-81.2-59c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h14c6.6 0 12 5.4 12 12v146.3l70.5 51.3c5.4 3.9 6.5 11.4 2.6 16.8l-8.2 11.3c-3.9 5.3-11.4 6.5-16.8 2.6z"
                                                     class=""></path>
                                             </svg>
-                                            Thứ Sáu, 05/01/2024
+                                            {{ $news->created_at->format('d/m/Y') }}
                                         </div>
                                         <div class="time-post">
                                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user"
@@ -43,30 +43,12 @@
                                                     d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
                                                     class=""></path>
                                             </svg>
-                                            <span>Alpha Team</span>
+                                            <span>{{ $news->author->name }}</span>
                                         </div>
                                     </div>
 
                                     <div class="rte article-content-main">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis doloremque,
-                                            nihil numquam debitis odit tenetur animi quae magni vel aliquid molestiae eaque
-                                            totam voluptatibus quam laboriosam, sapiente vero quibusdam explicabo!</p>
-                                        <figure aria-describedby="caption-attachment-17248" id="attachment_17248"><img
-                                                alt="1-tai-yen-chung-duoc-bao-nhieu-nuoc-buu-yen"
-                                                data-lazy-sizes="(max-width: 800px) 100vw, 800px"
-                                                data-lazy-src="https://buuyen.vn/wp-content/uploads/2023/11/1-tai-yen-chung-duoc-bao-nhieu-nuoc-buu-yen.jpg"
-                                                data-lazy-srcset="https://buuyen.vn/wp-content/uploads/2023/11/1-tai-yen-chung-duoc-bao-nhieu-nuoc-buu-yen.jpg 800w, https://buuyen.vn/wp-content/uploads/2023/11/1-tai-yen-chung-duoc-bao-nhieu-nuoc-buu-yen-300x225.jpg 300w, https://buuyen.vn/wp-content/uploads/2023/11/1-tai-yen-chung-duoc-bao-nhieu-nuoc-buu-yen-768x576.jpg 768w, https://buuyen.vn/wp-content/uploads/2023/11/1-tai-yen-chung-duoc-bao-nhieu-nuoc-buu-yen-150x113.jpg 150w"
-                                                data-ll-status="loaded" decoding="async" height="600"
-                                                sizes="(max-width: 800px) 100vw, 800px"
-                                                src="../buuyen.vn/wp-content/uploads/2023/11/1-tai-yen-chung-duoc-bao-nhieu-nuoc-buu-yen.jpg"
-                                                srcset="https://buuyen.vn/wp-content/uploads/2023/11/1-tai-yen-chung-duoc-bao-nhieu-nuoc-buu-yen.jpg 800w, https://buuyen.vn/wp-content/uploads/2023/11/1-tai-yen-chung-duoc-bao-nhieu-nuoc-buu-yen-300x225.jpg 300w, https://buuyen.vn/wp-content/uploads/2023/11/1-tai-yen-chung-duoc-bao-nhieu-nuoc-buu-yen-768x576.jpg 768w, https://buuyen.vn/wp-content/uploads/2023/11/1-tai-yen-chung-duoc-bao-nhieu-nuoc-buu-yen-150x113.jpg 150w"
-                                                width="800" />
-                                            <figcaption id="caption-attachment-17248">Tổ yến khô</figcaption>
-                                        </figure>
-
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque rerum nisi
-                                            voluptatum aspernatur optio provident blanditiis porro iste animi ex possimus
-                                            deserunt magni corrupti at maiores distinctio, soluta, aliquid iure.</p>
+                                        {!! $news->content !!}
                                     </div>
 
 
@@ -117,25 +99,33 @@
                                             <a href="#" title="Tin tức nổi bật">Tin tức nổi bật</a>
                                         </h2>
                                         <div class="blog_content">
-                                            @for ($i = 1; $i <= 4; $i++)
+                                            @forelse ($relatedNews as $relatedNew)
                                                 <div class="item clearfix">
                                                     <div class="post-thumb">
-                                                        <a class="image-blog scale_hover" href="#" title="Blog 1">
-                                                            <img class="img_blog lazyload"
-                                                                src="/images/products/dauxa.jpg"
-                                                                data-src="/images/products/dauxa.jpg" alt="Blog 1">
+                                                        <a class="image-blog scale_hover" href="{{ route('blog_detail', ['id' => $relatedNew->id]) }}" title="{{$relatedNew->name ?? ''}}">
+                                                            <img class="img_blog lazyload" src="{{ asset($relatedNew->image ?? '/images/blog/09.jpg') }}"
+                                                                data-src="{{ asset($relatedNew->image ?? '/images/blog/09.jpg') }}" alt="{{$relatedNew->name ?? ''}}">
                                                         </a>
                                                     </div>
                                                     <div class="contentright">
-                                                        <h3><a title="Blog 1" href="#">Blog {{$i}}</a></h3>
+                                                        <h3><a title="{{$relatedNew->name ?? ''}}" href="{{ route('blog_detail', ['id' => $relatedNew->id]) }}">{{$relatedNew->name ?? ''}}</a>
+                                                        </h3>
                                                         <p class="time-post">
                                                             <span>
-                                                                05/01/2024
+                                                                  {{ $relatedNew->created_at->format('d/m/Y') }}
                                                             </span>
                                                         </p>
                                                     </div>
                                                 </div>
-                                            @endfor
+                                            @empty
+                                                <div class="col-12 pt-5 pb-5">
+                                                    <div class="feedback-item pt-5 pb-5">
+                                                        <div class="block-content text-center">
+                                                            <p>Tin tức đang được cập nhật</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforelse
                                         </div>
                                     </div>
                                 </div>

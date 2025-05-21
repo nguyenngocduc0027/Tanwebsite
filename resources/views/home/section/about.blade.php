@@ -6,19 +6,17 @@
                     <div class="product-content">
                         <div class="section-title">
                             <span class="sub-title">
-                                Xã Hội Vạn Thiện
+                                {{$home_pages->about_title ?? ''}}
                             </span>
                             <h2>
-                                Câu chuyện về Xã Hội Vạn Thiện
+                                {{$home_pages->about_subtitle ?? ''}}
                             </h2>
                             <div class="title-separator">
                                 <div class="separator-center"></div>
                             </div>
                         </div>
                         <div class="desc">
-                            Như quý vị đã biết: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odit, accusamus explicabo asperiores illum ipsam? Autem deleniti cupiditate consequuntur eveniet commodi obcaecati, incidunt officia ratione voluptates nihil? Facilis, explicabo itaque. <br />
-                            Sản phẩm của <b>Xã Hội Vạn Thiện</b> với chất lượng
-                            tuyệt đối...
+                            {{$home_pages->about_description ?? ''}}
                         </div>
                         <a href="#" title="Xem chi tiết" class="show-more btn btn-extent frame">
                             <svg width="14" height="32" viewBox="0 0 14 32" fill="none"
@@ -46,9 +44,9 @@
                 <div class="col-12 col-lg-6 col-md-12 col-right">
                     <div class="banner-product">
                         <img width="600" height="371"
-                            src="/images/products/section_about_product_1.png"
-                            data-src="/images/products/section_about_product_1.png"
-                            alt="MetaSoft Banner" class="img-responsive center-block lazyload" />
+                            src="{{asset($home_pages->image_about ?? '/images/products/section_about_product_1.png')}}"
+                            data-src="{{asset($home_pages->image_about ?? '/images/products/section_about_product_1.png')}}"
+                            alt=" {{$home_pages->about_title ?? ''}}" class="img-responsive center-block lazyload" />
                     </div>
                 </div>
             </div>

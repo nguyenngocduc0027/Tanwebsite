@@ -119,9 +119,7 @@
                                                 {{ number_format($product->price) }}₫
                                             </del>
                                         </span> <!-- Giás gốc -->
-                                        <span class="sale-off">-
-                                            7%
-                                        </span>
+                                      
                                     </div>
 
                                     <div class="form-product">
@@ -379,9 +377,7 @@
                                                         enctype="multipart/form-data">
                                                         @csrf
                                                           <input type="hidden" name="product_id" value="{{ $relatedProduct->id }}">
-                                                        <span class="flash-sale">-
-                                                            21%
-                                                        </span>
+                                                    
 
                                                         <div class="product-thumbnail">
                                                             <a class="image_thumb scale_hover" href="#"

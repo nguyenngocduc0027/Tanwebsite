@@ -3,13 +3,13 @@
         <div class="container">
             <div class="section-title">
                 <span class="sub-title">
-                    XÃ HỘI VẠN THIỆN
+                    {{ $home_pages->feedback_title ?? '' }}
                 </span>
                 <h2>
-                    Khách hàng nói về chúng tôi
+                    {{ $home_pages->feedback_subtitle ?? '' }}
                 </h2>
                 <div class="desc">
-                    Hơn +5,000 khách hàng đã sử dụng cảm nhận như thế nào về sản phẩm và dịch vụ của Xã Hội Vạn Thiện?
+                    {{ $home_pages->feedback_description ?? '' }}
                 </div>
                 <div class="title-separator">
                     <div class="separator-center"></div>
@@ -17,23 +17,34 @@
             </div>
             <div class="swiper_feedback swiper-container control-top">
                 <div class="swiper-wrapper">
-                    @for ($i = 0; $i < 7; $i++)
+                    @forelse ($testimonials as $testimonial)
                         <div class=" swiper-slide">
                             <div class="avatar">
-                                <img data-src="/images/feedback/feedback_1_avatar.jpg" alt="Ngọc Vy" width="200"
-                                    height="200" class="lazyload" src="/images/feedback/feedback_1_avatar.jpg" />
+                                <img data-src="{{ asset($testimonial->image ?? '/images/feedback/feedback_1_avatar.jpg') }}"
+                                    alt="{{ $testimonial->name ?? '' }}" width="200" height="200" class="lazyload"
+                                    src="{{ asset($testimonial->image ?? '/images/feedback/feedback_1_avatar.jpg') }}" />
                             </div>
                             <div class="feedback-item">
                                 <div class="block-content">
-                                    <b>Khách hàng số {{$i}}</b>
-                                    <span>Kế toán</span>
+                                    <b>{{ $testimonial->name ?? '' }} </b>
+                                    <span>{{ $testimonial->position ?? '' }}</span>
                                     <div class="feedback-content">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, atque omnis distinctio iure dignissimos quam nisi ad cum id eveniet tenetur ea provident, sunt dolorem quos eum hic praesentium eos!
+                                        {{ $testimonial->content ?? '' }}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @empty
+                        <div class="swiper-slide">
+                            <div class="feedback-item">
+                                <div class="block-content">
+                                    <p>Hiện chưa có đánh giá nào.</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforelse
+
+
                 </div>
                 <div class="swiper-button-prev">
                     <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
