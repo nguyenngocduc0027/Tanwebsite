@@ -186,6 +186,13 @@ Route::middleware(['auth', 'role:admin,manager'])->group(function () {
 
     // Inventory
     Route::get('/admin/inventory', [AdminController::class, 'inventory'])->name('admin.inventory');
+    Route::get('/admin/cart', [AdminController::class, 'cart'])->name('admin.cart');
+    Route::get('/admin/cart/{id}', [AdminController::class, 'cartdetail'])->name('admin.cartdetail');
+    Route::delete('/admin/order/{id}', [AdminController::class, 'destroy'])->name('admin.order.destroy');
+    // routes/web.php
+Route::put('admin/order/{id}/status', [AdminController::class, 'updateStatus'])->name('admin.order.updateStatus');
+
+
 });
 
 // User

@@ -17,6 +17,7 @@ use App\Models\Partner;
 use App\Models\Inventory;
 use App\Models\Type;
 use App\Models\Level;
+use App\Models\Order;
 use App\Models\Slider;
 
 class AdminController extends Controller
@@ -70,41 +71,73 @@ class AdminController extends Controller
         return view('admin.pages.category', compact('categories'));
     }
 
-    public function blog(){
+    public function blog()
+    {
         $blogs = Blog::latest()->get();
         return view('admin.pages.blog', compact('blogs'));
     }
 
-    public function product(){
+    public function product()
+    {
         $products = Product::orderBy('id', 'desc')->get(); // Sắp xếp theo id giảm dần
 
         return view('admin.pages.product', compact('products'));
     }
 
-    public function gift(){
+    public function gift()
+    {
         $gifts = Gift::all();
         return view('admin.pages.gift', compact('gifts'));
     }
 
-    public function slider(){
+    public function slider()
+    {
         $sliders = Slider::all();
         return view('admin.pages.slider', compact('sliders'));
     }
 
-    public function testimonial(){
+    public function testimonial()
+    {
         $testimonials = Testimonial::all();
         return view('admin.pages.testimonial', compact('testimonials'));
     }
 
-    public function partner(){
+    public function partner()
+    {
         $partners = Partner::all();
         return view('admin.pages.partner', compact('partners'));
     }
 
-    public function inventory(){
+    public function inventory()
+    {
         $products = Product::all();
         $inventories = Inventory::all();
 
         return view('admin.pages.inventory', compact('products', 'inventories'));
+    }
+    public function cart()
+    {
+        $orders = Order::orderBy('created_at', 'desc')->paginate(15);
+        return view('admin.cart.index', compact('orders'));
+    }
+    public function cartdetail($id)
+    {
+        $order = Order::find($id);
+        return view('admin.cart.detail', compact('order'));
+    }
+    public function destroy($id)
+    {
+        $order = Order::findOrFail($id);
+        $order->delete();
+
+        return redirect()->back()->with('success', 'Xoá đơn hàng thành công!');
+    }
+    public function updateStatus(Request $request, $id)
+    {
+        $order = Order::findOrFail($id);
+        $order->status = $request->input('status');
+        $order->save();
+
+        return redirect()->back()->with('success', 'Cập nhật trạng thái thành công!');
     }
 }

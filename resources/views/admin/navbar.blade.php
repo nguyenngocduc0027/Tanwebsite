@@ -128,6 +128,12 @@
                         <p>Đối Tác</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.cart') }}" class="collapsed" >
+<i class="fas fa-shopping-cart"></i>
+                        <p>Giỏ hàng</p>
+                    </a>
+                </li>
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
