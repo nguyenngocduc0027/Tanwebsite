@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <label>Nội dung</label>
-                        <textarea class="form-control" id="content" rows="10">{{ $blog->content }}</textarea>
+                        <textarea class="form-control tyni" id="content" rows="10">{{ $blog->content }}</textarea>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
@@ -59,7 +59,7 @@
 
             $('.btn-update-blog').click(function(e) {
                 e.preventDefault();
-
+   tinymce.triggerSave();
                 let formData = new FormData();
                 formData.append('name', $('#name').val());
                 formData.append('subtitle', $('#subtitle').val());

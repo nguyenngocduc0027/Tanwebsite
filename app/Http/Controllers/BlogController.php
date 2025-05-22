@@ -105,7 +105,6 @@ class BlogController extends Controller
             $image->move(public_path('/images/blogs/'), $imageName);
             $imagePath = '/images/blogs/' . $imageName;
         }
-
         $blog->update([
             'name' => $request->name,
             'subtitle' => $request->subtitle,

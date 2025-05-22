@@ -20,39 +20,17 @@
                         <div class="product-content">
                             <div class="section-title">
                                 <span class="sub-title">
-                                    Xã Hội Vạn Thiện
+                                    {{$about->title ?? ''}}
                                 </span>
                                 <h2>
-                                    Câu chuyện về Xã Hội Vạn Thiện
+                                   {{$about->subtitle ?? ''}}
                                 </h2>
                                 <div class="title-separator">
                                     <div class="separator-center"></div>
                                 </div>
                             </div>
                             <div class="desc">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet molestiae magni nobis soluta
-                                    quibusdam asperiores officia nostrum? Soluta magnam accusantium consequatur in impedit nisi
-                                    sit, at consectetur voluptas nesciunt. Accusantium!</p>
-                                <br>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit pariatur saepe sint fugiat
-                                    odit exercitationem atque totam ea maiores eligendi eveniet porro eum, et dolorem sit ullam!
-                                    Consequatur, perspiciatis quae.</p>
-                                <br>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet tempora suscipit neque illo
-                                    totam alias labore consectetur vero at officia laboriosam odio vel, facilis quam ab quas
-                                    sed, voluptates sunt.</p>
-                                <br>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet molestiae magni nobis soluta
-                                    quibusdam asperiores officia nostrum? Soluta magnam accusantium consequatur in impedit nisi
-                                    sit, at consectetur voluptas nesciunt. Accusantium!</p>
-                                <br>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit pariatur saepe sint fugiat
-                                    odit exercitationem atque totam ea maiores eligendi eveniet porro eum, et dolorem sit ullam!
-                                    Consequatur, perspiciatis quae.</p>
-                                <br>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet tempora suscipit neque illo
-                                    totam alias labore consectetur vero at officia laboriosam odio vel, facilis quam ab quas
-                                    sed, voluptates sunt.</p>
+                                {!!$about->content ?? ''!!}
                             </div>
                         </div>
                     </div>

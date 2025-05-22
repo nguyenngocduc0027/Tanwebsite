@@ -77,7 +77,8 @@ Route::middleware(['auth', 'role:admin,manager'])->group(function () {
     // My Controller
     Route::get('/get-types/{category_id}', [MyController::class, 'getTypes']);
     Route::get('/get-levels/{type_id}', [MyController::class, 'getLevels']);
-
+    Route::post('/admin/upload-image', [UploadController::class, 'uploadImagetyni'])->name('upload-image');
+    Route::post('/admin/delete-image', [UploadController::class, 'deleteImagetyni'])->name('delete-image');
     // Admin
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.index');
     // Web Config
@@ -190,9 +191,12 @@ Route::middleware(['auth', 'role:admin,manager'])->group(function () {
     Route::get('/admin/cart/{id}', [AdminController::class, 'cartdetail'])->name('admin.cartdetail');
     Route::delete('/admin/order/{id}', [AdminController::class, 'destroy'])->name('admin.order.destroy');
     // routes/web.php
-Route::put('admin/order/{id}/status', [AdminController::class, 'updateStatus'])->name('admin.order.updateStatus');
+    Route::put('admin/order/{id}/status', [AdminController::class, 'updateStatus'])->name('admin.order.updateStatus');
 
 
+
+    Route::get('admin/about/detail', [AdminController::class,'aboutDetail'])->name('admin.aboutDetail');
+    Route::post('/admin/about/update', [AdminController::class, 'aboutUpdate'])->name('admin.about.update');
 });
 
 // User

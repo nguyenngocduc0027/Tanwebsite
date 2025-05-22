@@ -28,7 +28,7 @@
                                     @foreach ($sliders as $item)
                                         <tr>
                                             <td>{{ $item->title }}</td>
-                                            <td>{{ $item->status }}</td>
+                                            <td>{{ $item->status == 1 ?'Hiện' : 'Ẩn' }}</td>
                                             <td>
                                                 <div class="form-button-action">
                                                     <button type="button" data-bs-toggle="modal"

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\About;
 use App\Models\Blog;
 use App\Models\Partner;
 use App\Models\Testimonial;
@@ -16,6 +17,7 @@ use App\Models\Product;
 use App\Models\Slider;
 use App\Models\User;
 use Carbon\Carbon;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -205,11 +207,33 @@ class DatabaseSeeder extends Seeder
                 'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, atque omnis distinctio iure dignissimos quam nisi ad cum id eveniet tenetur ea provident, sunt dolorem quos eum hic praesentium eos!'
             ]);
         }
-        for ($i=0; $i <9; $i++) { 
+        for ($i = 0; $i < 9; $i++) {
             Partner::create([
                 'name' => 'Đối tác ' . $i,
                 'image' => '/images/brand/img_brand_' . $i . '.png',
             ]);
         }
+        About::create([
+            'title' => 'Xã Hội Vạn Thiện',
+            'subtitle' => 'Câu chuyện về Xã Hội Vạn Thiện',
+            'content' => 'Xã Hội Vạn Thiện
+                Câu chuyện về Xã Hội Vạn Thiện
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet molestiae magni nobis soluta quibusdam asperiores officia nostrum? Soluta magnam accusantium consequatur in impedit nisi sit, at consectetur voluptas nesciunt. Accusantium!
+
+
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit pariatur saepe sint fugiat odit exercitationem atque totam ea maiores eligendi eveniet porro eum, et dolorem sit ullam! Consequatur, perspiciatis quae.
+
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet tempora suscipit neque illo totam alias labore consectetur vero at officia laboriosam odio vel, facilis quam ab quas sed, voluptates sunt.
+
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet molestiae magni nobis soluta quibusdam asperiores officia nostrum? Soluta magnam accusantium consequatur in impedit nisi sit, at consectetur voluptas nesciunt. Accusantium!
+
+
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit pariatur saepe sint fugiat odit exercitationem atque totam ea maiores eligendi eveniet porro eum, et dolorem sit ullam! Consequatur, perspiciatis quae.
+
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet tempora suscipit neque illo totam alias labore consectetur vero at officia laboriosam odio vel, facilis quam ab quas sed, voluptates sunt.',
+        ]);
     }
 }

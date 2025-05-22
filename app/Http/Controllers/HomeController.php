@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\HomePage;
@@ -33,7 +34,8 @@ class HomeController extends Controller
         $categories = Category::with('products')->get();
         $testimonials = Testimonial::all();
         $partners = Partner::all();
-        return view('home.pages.about', compact('home_pages', 'categories', 'testimonials', 'partners'));
+        $about = About::find(1);
+        return view('home.pages.about', compact('home_pages', 'categories', 'testimonials', 'partners','about'));
     }
 
     public function product()

@@ -21,7 +21,7 @@
                                     <label for="exampleInputEmail1">Tác Giả</label>
                                     <input type="text" class="form-control" name="author_name" id="author_name"
                                         placeholder="Tác Giả" value="{{ Auth::user()->name }}" disabled>
-                                        <input type="hidden" name="author_id" id="author_id" value="{{ Auth::user()->id }}">
+                                    <input type="hidden" name="author_id" id="author_id" value="{{ Auth::user()->id }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Ngày Đăng</label>
@@ -52,7 +52,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nội Dung</label>
-                                    <textarea name="content" id="content" class="form-control" rows="10"></textarea>
+                                    <textarea name="content tyni" id="content" class="form-control" rows="10"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -63,13 +63,13 @@
     </div>
     <!-- Jquery js CDN -->
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Preview ảnh
-            $('#image').on('change', function () {
+            $('#image').on('change', function() {
                 const file = this.files[0];
                 if (file) {
                     const reader = new FileReader();
-                    reader.onload = function (e) {
+                    reader.onload = function(e) {
                         $('#preview-image').attr('src', e.target.result);
                     };
                     reader.readAsDataURL(file);
@@ -77,9 +77,9 @@
             });
 
             // Xử lý tạo blog
-            $('.btn-create-blog').click(function (e) {
+            $('.btn-create-blog').click(function(e) {
                 e.preventDefault();
-
+                tinymce.triggerSave();
                 let formData = new FormData();
                 formData.append('author_id', $('#author_id').val());
                 formData.append('date', $('#date').val());
@@ -101,7 +101,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    success: function (res) {
+                    success: function(res) {
                         Swal.fire({
                             icon: 'success',
                             title: 'Thành công',
@@ -110,10 +110,10 @@
                             window.location.href = '{{ route('admin.blog') }}';
                         });
                     },
-                    error: function (xhr) {
+                    error: function(xhr) {
                         let errors = xhr.responseJSON.errors;
                         if (errors) {
-                            $.each(errors, function (key, value) {
+                            $.each(errors, function(key, value) {
                                 Toastify({
                                     text: value,
                                     duration: 3000,
@@ -138,5 +138,4 @@
             });
         });
     </script>
-
 @endsection

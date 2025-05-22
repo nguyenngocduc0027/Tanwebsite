@@ -3,8 +3,7 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
             <a href="/dashboard" class="logo">
-                <img src="/images/logo/logo.png" alt="navbar brand" class="navbar-brand"
-                    height="50" />
+                <img src="/images/logo/logo.png" alt="navbar brand" class="navbar-brand" height="50" />
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -24,7 +23,7 @@
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
                 <li class="nav-item">
-                    <a href="/dashboard" class="collapsed" >
+                    <a href="/dashboard" class="collapsed">
                         <i class="fas fa-home"></i>
                         <p>Bảng Điều Khiển</p>
                     </a>
@@ -44,17 +43,17 @@
                     <div class="collapse" id="product">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="{{ route('admin.category')  }}">
+                                <a href="{{ route('admin.category') }}">
                                     <span class="sub-item">Danh Mục</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.product')  }}">
+                                <a href="{{ route('admin.product') }}">
                                     <span class="sub-item">Sản Phẩm</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.gift')  }}">
+                                <a href="{{ route('admin.gift') }}">
                                     <span class="sub-item">Quà Tặng</span>
                                 </a>
                             </li>
@@ -62,7 +61,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.blog')}}" class="collapsed" >
+                    <a href="{{ route('admin.blog') }}" class="collapsed">
                         <i class="fas fa-bookmark"></i>
                         <p>Blog - Tin Tức</p>
                     </a>
@@ -81,7 +80,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('admin.popup_ads')}}">
+                                <a href="{{ route('admin.popup_ads') }}">
                                     <span class="sub-item">Popup Quảng Cáo</span>
                                 </a>
                             </li>
@@ -105,33 +104,39 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.inventory') }}" class="collapsed" >
+                    <a href="{{ route('admin.inventory') }}" class="collapsed">
                         <i class="fas fa-box"></i>
                         <p>Kho Hàng Hóa</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.list_shop')}}" class="collapsed" >
+                    <a href="{{ route('admin.list_shop') }}" class="collapsed">
                         <i class="fas fa-map-marked-alt"></i>
                         <p>Hệ Thống Cửa Hàng</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.testimonial') }}" class="collapsed" >
+                    <a href="{{ route('admin.testimonial') }}" class="collapsed">
                         <i class="fas fa-comments"></i>
                         <p>Phản Hồi</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.partner') }}" class="collapsed" >
+                    <a href="{{ route('admin.partner') }}" class="collapsed">
                         <i class="fas fa-user-friends"></i>
                         <p>Đối Tác</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.cart') }}" class="collapsed" >
-<i class="fas fa-shopping-cart"></i>
+                    <a href="{{ route('admin.cart') }}" class="collapsed">
+                        <i class="fas fa-shopping-cart"></i>
                         <p>Giỏ hàng</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.aboutDetail') }}" class="collapsed">
+                        <i class="	fas fa-file-alt"></i>
+                        <p>Giới thiệu</p>
                     </a>
                 </li>
                 <li class="nav-section">

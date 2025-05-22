@@ -100,7 +100,47 @@
 
     <!-- Kaiadmin JS -->
     <script src="/admin/js/kaiadmin.min.js"></script>
+ <script src="{{ asset('/tinymce/tinymce.min.js') }}"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '.tyni',
+            plugins: 'advlist autolink lists link charmap preview anchor table image',
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help | table | link image | blocks fontfamily fontsize',
+            images_upload_url: "/admin/upload-image",
+            relative_urls: false,
+            document_base_url: "{{ url('/') }}",
+            automatic_uploads: true,
+            setup: function(editor) {
+                editor.on('NodeChange', function(event) {
+                    const currentImages = Array.from(editor.getDoc().querySelectorAll('img')).map(img =>
+                        img.src);
 
+                    if (!editor.oldImages) editor.oldImages = currentImages;
+
+                    const removedImages = editor.oldImages.filter(img => !currentImages.includes(img));
+                    editor.oldImages = currentImages;
+
+                    removedImages.forEach(imageUrl => {
+                        fetch('/admin/delete-image', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    image: imageUrl
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => console.log(data.message))
+                            .catch(error => console.error('Lỗi khi xóa ảnh:', error));
+                    });
+                });
+            }
+        })
+    </script>
     <script>
         $(document).ready(function() {
             $("#basic-datatables").DataTable({});

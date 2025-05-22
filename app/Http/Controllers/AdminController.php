@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Setting;
@@ -139,5 +140,29 @@ class AdminController extends Controller
         $order->save();
 
         return redirect()->back()->with('success', 'Cập nhật trạng thái thành công!');
+    }
+    public function aboutDetail()
+    {
+        $about = About::find(1);
+        return view('admin.about.index', compact('about'));
+    }
+    public function aboutUpdate(Request $request)
+    {
+        // $request->validate([
+        //     'title' => 'required|string|max:255',
+        //     'subtitle' => 'required|string|max:255',
+        //     'content' => 'required|string',
+        // ], [
+        //     'title.required' => 'Tiêu đề là bắt buộc',
+        //     'title.max' => 'Giới hạn 255 kí tự',
+        // ]);
+
+        $about = About::findOrFail(1);
+        $about->title = $request->title;
+        $about->subtitle = $request->subtitle;
+        $about->content = $request->content;
+        $about->save();
+
+        return response()->json(['message' => 'Cập nhật nội dung thành công.']);
     }
 }
