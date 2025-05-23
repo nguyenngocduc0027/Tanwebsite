@@ -10,22 +10,22 @@
     <link rel="canonical" href="index.html" />
     <meta name="revisit-after" content="2 days" />
     <meta name="robots" content="noodp,index,follow" />
-    <meta name="description" content="Xã Hội Vạn Thiện - Tinh Chất Thiên Nhiên." />
-    <meta name="keywords" content="dầu gội, Xã Hội Vạn Thiện, dầu xã, tinh dầu, xà phòng" />
-    <title>Xã Hội Vạn Thiện - Thương hiệu yến sào cao cấp, chất lượng và uy tín</title>
+    <meta name="description" content="{{webConfig()->seo_description ?? 'Xã Hội Vạn Thiện - Tinh Chất Thiên Nhiên.'}}" />
+    <meta name="keywords" content="{{webConfig()->seo_keywords ?? 'dầu gội, Xã Hội Vạn Thiện, dầu xã, tinh dầu, xà phòng'}}" />
+    <title>{{webConfig()->name ?? 'Metasoft'}}</title>
 
     <!-- Meta Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Xã Hội Vạn Thiện - Tinh chất thiên nhiên." />
+    <meta property="og:title" content="{{webConfig()->seo_title ?? 'Xã Hội Vạn Thiện - Tinh Chất Thiên Nhiên.'}}" />
     <meta property="og:description"
-        content="Xã Hội Vạn Thiện - Đến nay đã chiếm trọn niềm tin của khách hàng bởi chất lượng - tinh tế." />
+        content="{{webConfig()->seo_description ?? 'Xã Hội Vạn Thiện - Đến nay đã chiếm trọn niềm tin của khách hàng bởi chất lượng - tinh tế.'}}" />
     <meta property="og:image" content="/images/logo.png" />
     <meta property="og:image:secure_url" content="/images/logo/logo.png" />
     <meta property="og:url" content="#" />
-    <meta property="og:site_name" content="Xã Hội Vạn Thiện" />
+    <meta property="og:site_name" content="{{webConfig()->seo_site_name ?? 'Xã Hội Vạn Thiện'}}" />
 
     <link rel="icon" href="/images/favicon/favicon.png" type="image/x-icon" />
 
@@ -40,30 +40,26 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     {{-- <link rel="stylesheet" href="/assets/css/fonts.css" /> --}}
-    <link rel="stylesheet" href="/assets/css/bootstrap-4-3-min.css" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="/assets/css/cartpage.scss.css" />
-    <link rel="stylesheet" href="/assets/css/index.css" />
-    <link rel="stylesheet" href="/assets/css/quickviews_popup_cart.css" />
-    <link rel="stylesheet" href="/assets/css/ajaxcart.css" />
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <link rel="stylesheet" href="/assets/css/breadcrumb_style.css" />
-    <link rel="stylesheet" href="/assets/css/collection_style.css" />
-    <link rel="stylesheet" href="/assets/css/product_style.scss.css" />
-    <link rel="stylesheet" href="/assets/css/blog_article_style.css" />
-    <link rel="stylesheet" href="/assets/css/sidebar_style.css" />
-    <link rel="stylesheet" href="/assets/css/contact_style.css" />
-    <link rel="stylesheet" href="/assets/css/account_oder_style.css" />
+    <link rel="stylesheet" href="{{asset('/assets/css/bootstrap-4-3-min.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/main.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/cartpage.scss.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/index.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/quickviews_popup_cart.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/ajaxcart.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/breadcrumb_style.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/collection_style.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/product_style.scss.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/blog_article_style.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/sidebar_style.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/contact_style.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/css/account_oder_style.css')}}" />
 
 
-    <script src="/assets/js/swiper.js"></script>
+    <script src="{{asset('/assets/js/swiper.js')}}"></script>
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- Toastify -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <script>
         (function() {
@@ -269,18 +265,18 @@
     <!-- Popup MetaSoft -->
     @include('layouts.popup-left')
 
-    <link rel="stylesheet" href="/assets/css/jquery-ui-min.css" />
+    <link rel="stylesheet" href="{{asset('/assets/css/jquery-ui-min.css')}}" />
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/assets/js/jquery.js"></script>
-    <script src="/assets/js/lazy.js"></script>
+    <script src="{{asset('/assets/js/jquery.js')}}"></script>
+    <script src="{{asset('/assets/js/lazy.js')}}"></script>
     {{-- <script src="/assets/js/stats2.min.js"></script>
     <script src="/assets/js/stats.min.js"></script> --}}
-    <script src="/assets/js/quickview.js"></script>
-    <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/index.js"></script>
+    <script src="{{asset('/assets/js/quickview.js')}}"></script>
+    <script src="{{asset('/assets/js/main.js')}}"></script>
+    <script src="{{asset('/assets/js/index.js')}}"></script>
     @if (session('success'))
         <script>
             Swal.fire({

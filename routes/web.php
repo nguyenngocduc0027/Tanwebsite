@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admin\PoliciesController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CheckoutController;
@@ -46,6 +47,8 @@ Route::get('/product_detail/{id}', [HomeController::class, 'product_detail'])->n
 Route::get('/blogs', [HomeController::class, 'blog'])->name('blogs');
 Route::get('/blog_detail/{id}', [HomeController::class, 'blog_detail'])->name('blog_detail');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('/contact', [HomeController::class, 'submitcontact'])->name('contact.submit');
+
 Route::get('/blank', [HomeController::class, 'blank'])->name('blank');
 
 //Cart thêm vào giỏ hàng
@@ -86,6 +89,26 @@ Route::middleware(['auth', 'role:admin,manager'])->group(function () {
     Route::get('/settings/data', [SettingController::class, 'show'])->name('settings.data');
     Route::post('/settings/update', [SettingController::class, 'update'])->name('settings.update');
 
+    //
+     Route::get('/policies', [PoliciesController::class, 'index'])->name('admin.policies.index');
+
+    // Form tạo mới
+    Route::get('/policies/create', [PoliciesController::class, 'create'])->name('admin.policies.create');
+
+    // Lưu mới
+    Route::post('/policies', [PoliciesController::class, 'store'])->name('admin.policies.store');
+
+    // Hiển thị 1 bản ghi
+    Route::get('/policies/{policy}', [PoliciesController::class, 'show'])->name('admin.policies.show');
+
+    // Form sửa
+    Route::get('/policies/{policy}/edit', [PoliciesController::class, 'edit'])->name('admin.policies.edit');
+
+    // Cập nhật
+    Route::put('/policies/{policy}', [PoliciesController::class, 'update'])->name('admin.policies.update');
+
+    // Xoá
+    Route::delete('/policies/{policy}', [PoliciesController::class, 'destroy'])->name('admin.policies.destroy');
     // Home Page
     Route::get('/home_page', [AdminController::class, 'home_page'])->name('admin.home_page');
     Route::get('/home_page/data', [HomePageController::class, 'show'])->name('homePage.data');

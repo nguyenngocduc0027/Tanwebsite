@@ -4,9 +4,9 @@
 		<div class="modal-body" >
 
 			<form>
-				<a href="#" title="Chương trình khuyến mãi" class="banner-promotion" data-section="banner_popup">
+				<a href="{{popupads()->url ?? '#'}}" title="{{popupads()->name ?? ''}}" class="banner-promotion" data-section="banner_popup">
 					{{-- <script type="text/x-custom-template" data-template="banner_popup"> --}}
-						<img width="600" height="600" alt="Chương trình khuyến mãi" src="/images/popup_banner.jpg" />
+						<img width="600" height="600" alt="{{popupads()->name ?? ''}}" src="{{asset('/images/'. popupads()->image ?? '/images/popup_banner.jpg')}}" />
 					{{-- </script> --}}
 				</a>
 				<div class="check-close">

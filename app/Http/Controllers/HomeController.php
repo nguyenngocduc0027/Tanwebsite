@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\HomePage;
 use App\Models\Level;
 use App\Models\Partner;
@@ -138,7 +139,21 @@ class HomeController extends Controller
     {
         return view('home.pages.contact');
     }
+public function submitcontact(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email',
+        'phone' => 'required',
+        'message' => 'required'
+    ]);
 
+   
+    // Hoặc lưu vào DB nếu đã tạo model Contact:
+    Contact::create($request->only('name', 'email', 'phone', 'message'));
+
+    return back()->with('success', 'Cảm ơn bạn đã liên hệ!');
+}
     public function blank()
     {
         return view('home.pages.blank');

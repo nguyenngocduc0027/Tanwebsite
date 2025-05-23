@@ -13,10 +13,14 @@ use App\Models\Category;
 use App\Models\Type;
 use App\Models\Level;
 use App\Models\HomePage;
+use App\Models\Policie;
+use App\Models\PopupAds;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -167,6 +171,11 @@ class DatabaseSeeder extends Seeder
                 }
             }
         }
+        PopupAds::create([
+            'name' => 'popup',
+            'url' => '',
+            'image'=> '/popup_banner.jpg',
+        ]);
 
         Slider::create([
             'title' => 'Tiêu đề slider',
@@ -235,5 +244,23 @@ class DatabaseSeeder extends Seeder
 
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet tempora suscipit neque illo totam alias labore consectetur vero at officia laboriosam odio vel, facilis quam ab quas sed, voluptates sunt.',
         ]);
+        $policies = [
+            'Chính sách mua hàng',
+            'Chính sách thanh toán',
+            'Chính sách vận chuyển',
+            'Cam kết cửa hàng',
+            'Chính sách bảo mật',
+            'Chính sách thành viên',
+        ];
+
+        foreach ($policies as $title) {
+            DB::table('policies')->insert([
+                'title' => $title,
+                'slug' => Str::slug($title),
+                'content' => '<p>Nội dung đang được cập nhật...</p>',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

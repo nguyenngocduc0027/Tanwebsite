@@ -18,7 +18,7 @@
 								media="(max-width: 480px)"
 								srcset="{{ asset($slider->image ?? '/images/slider/slider_1.jpg') }}">
 						<img width="1920" height="600"
-							 src="{{ asset($slider->image ?? '/images/slider/slider_1.jpg') }}">
+							 src="{{ asset($slider->image ?? '/images/slider/slider_1.jpg') }}"
 							 alt="Slider 1" class="img-responsive center-block duration-300" />
 					</picture>
 				</a>

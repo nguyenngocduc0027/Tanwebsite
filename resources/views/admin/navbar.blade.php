@@ -67,6 +67,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.policies.index') }}" class="collapsed">
+                    <i class="bi bi-book"></i>
+
+                        <p>Chính sách</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#notification-sale">
                         <i class="fas fa-tags"></i>
                         <p>Tin Khuyến Mãi</p>

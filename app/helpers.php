@@ -2,6 +2,9 @@
 <?php
 
 use App\Models\Category;
+use App\Models\Policie;
+use App\Models\PopupAds;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -16,4 +19,16 @@ function totalQuantityCart(){
     $cart = session('cart', []);
     $totalQuantity = array_sum(array_column($cart, 'quantity'));
     return $totalQuantity;
+}
+function popupads(){
+    $ads = PopupAds::find(1);
+    return $ads;
+}
+function webConfig(){
+    $webConfig = Setting::find(1);
+    return $webConfig;
+}
+function policies(){
+    $policies = Policie::find(1);
+    return $policies;
 }
