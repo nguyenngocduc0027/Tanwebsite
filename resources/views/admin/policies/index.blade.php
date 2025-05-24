@@ -20,6 +20,7 @@
                                     <tr>
                                         <th>Tiêu đề</th>
                                         <th>Slug</th>
+                                        <th>Bài</th>
                                         <th>Hành động</th>
                                     </tr>
                                 </thead>
@@ -28,6 +29,11 @@
                                         <tr>
                                             <td>{{ $policy->title }}</td>
                                             <td>{{ $policy->slug }}</td>
+                                            <td>@if ($policy->blog == 'chinh_sach')
+                                                Chính sách
+                                            @else
+                                                Hướng dẫn
+                                            @endif</td>
                                             <td>
                                                 <!-- Nút xem chi tiết -->
                                                 <button class="btn btn-sm btn-info" data-bs-toggle="modal"

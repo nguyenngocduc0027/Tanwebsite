@@ -16,6 +16,7 @@ return new class extends Migration
               $table->string('title'); // tiêu đề chính sách
     $table->string('slug')->unique(); // dùng cho URL
     $table->longText('content'); // nội dung chính sách
+    $table->string('blog'); // nội dung chính sách
             $table->timestamps();
         });
     }

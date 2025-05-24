@@ -9,6 +9,7 @@ use App\Models\Contact;
 use App\Models\HomePage;
 use App\Models\Level;
 use App\Models\Partner;
+use App\Models\Policie;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\Testimonial;
@@ -154,8 +155,8 @@ public function submitcontact(Request $request)
 
     return back()->with('success', 'Cảm ơn bạn đã liên hệ!');
 }
-    public function blank()
+    public function blank(Policie $policy)
     {
-        return view('home.pages.blank');
+        return view('home.pages.blank', compact('policy'));
     }
 }

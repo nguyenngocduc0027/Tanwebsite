@@ -252,12 +252,30 @@ class DatabaseSeeder extends Seeder
             'Chính sách bảo mật',
             'Chính sách thành viên',
         ];
-
+ $date = now()->format('Y-m-d');
         foreach ($policies as $title) {
             DB::table('policies')->insert([
                 'title' => $title,
-                'slug' => Str::slug($title),
+                'slug' => Str::slug($title). $date,
                 'content' => '<p>Nội dung đang được cập nhật...</p>',
+                'blog'=>'chinh_sach',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+        $policies1 = [
+            'Hướng dẫn mua hàng',
+            'Hướng dẫn đổi trả',
+            'Hướng dẫn thanh toán',
+            'Quy định bảo hành',
+            'Hướng đẫn chuyển khoản',
+        ];
+        foreach ($policies1 as $title) {
+            DB::table('policies')->insert([
+                'title' => $title,
+                'slug' => Str::slug($title). $date,
+                'content' => '<p>Nội dung đang được cập nhật...</p>',
+                'blog'=>'huong_dan',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

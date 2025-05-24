@@ -29,6 +29,12 @@ function webConfig(){
     return $webConfig;
 }
 function policies(){
-    $policies = Policie::find(1);
+  $policies = Policie::where('blog', 'chinh_sach')->get();
+
     return $policies;
+}
+function policieshuongdan(){
+  $policiehuongdan = Policie::where('blog', 'huong_dan')->get();
+
+    return $policiehuongdan;
 }

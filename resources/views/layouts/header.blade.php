@@ -469,31 +469,14 @@
                                     </a>
                                     <i class="open_mnu down_icon"></i>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item-lv2">
-                                            <a class="nav-link" href="{{ route('blank') }}"
-                                                title="Chính sách mua hàng">Chính sách
-                                                mua hàng</a>
+                                        @foreach (policies() as $policie)
+                                             <li class="nav-item-lv2">
+                                            <a class="nav-link" href="{{ route('blank', $policie) }}"
+                                                title="{{$policie->title}}">{{$policie->title}}</a>
                                         </li>
-                                        <li class="nav-item-lv2">
-                                            <a class="nav-link" href="#" title="Chính sách thanh toán">Chính
-                                                sách thanh toán</a>
-                                        </li>
-                                        <li class="nav-item-lv2">
-                                            <a class="nav-link" href="#" title="Chính sách vận chuyển">Chính
-                                                sách vận chuyển</a>
-                                        </li>
-                                        <li class="nav-item-lv2">
-                                            <a class="nav-link" href="#" title="Cam kết cửa hàng">Cam
-                                                kết cửa hàng</a>
-                                        </li>
-                                        <li class="nav-item-lv2">
-                                            <a class="nav-link" href="#" title="Chính sách bảo mật">Chính sách
-                                                bảo mật</a>
-                                        </li>
-                                        <li class="nav-item-lv2">
-                                            <a class="nav-link" href="#" title="Chính sách thành viên">Chính
-                                                sách thành viên</a>
-                                        </li>
+                                        @endforeach
+                                       
+                                       
                                     </ul>
                                 </li>
                                 <li class="nav-item ">

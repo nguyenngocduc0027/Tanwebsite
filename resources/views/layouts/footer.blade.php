@@ -99,31 +99,12 @@
                         <span>Chính sách</span>
                     </h4>
                     <ul class="list-menu toggle-mn hidden-mob">
-
-                        <li class="li_menu">
-                            <a href="#" title="Chính sách mua hàng">Chính sách mua hàng</a>
-                        </li>
-
-                        <li class="li_menu">
-                            <a href="#" title="Chính sách thanh toán">Chính sách thanh toán</a>
-                        </li>
-
-                        <li class="li_menu">
-                            <a href="#" title="Chính sách vận chuyển">Chính sách vận chuyển</a>
-                        </li>
-
-                        <li class="li_menu">
-                            <a href="#" title="Cam kết cửa hàng">Cam kết cửa hàng</a>
-                        </li>
-
-                        <li class="li_menu">
-                            <a href="#" title="Chính sách bảo mật">Chính sách bảo mật</a>
-                        </li>
-
-                        <li class="li_menu">
-                            <a href="#" title="Chính sách thành viên">Chính sách thành viên</a>
-                        </li>
-
+                        @foreach (policies() as $policie)
+                            <li class="li_menu">
+                                <a href="{{ route('blank', $policie) }}"
+                                    title="{{ $policie->title }}">{{ $policie->title }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-xs-12 col-md-4 col-lg-cus-20 footer-click">
@@ -131,27 +112,12 @@
                         <span>Hướng dẫn</span>
                     </h4>
                     <ul class="list-menu toggle-mn hidden-mob footer-click">
-
-                        <li class="li_menu">
-                            <a href="#" title="Hướng dẫn mua hàng">Hướng dẫn mua hàng</a>
-                        </li>
-
-                        <li class="li_menu">
-                            <a href="#" title="Hướng dẫn đổi trả">Hướng dẫn đổi trả</a>
-                        </li>
-
-                        <li class="li_menu">
-                            <a href="#" title="Hướng dẫn thanh toán">Hướng dẫn thanh toán</a>
-                        </li>
-
-                        <li class="li_menu">
-                            <a href="#" title="Quy định bảo hành">Quy định bảo hành</a>
-                        </li>
-
-                        <li class="li_menu">
-                            <a href="#" title="Hướng dẫn chuyển khoản">Hướng dẫn chuyển khoản</a>
-                        </li>
-
+                        @foreach (policieshuongdan() as $policieshuongdan)
+                            <li class="li_menu">
+                                <a href="{{ route('blank', $policieshuongdan) }}"
+                                    title="{{ $policieshuongdan->title }}">{{ $policieshuongdan->title }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-xs-12 col-md-4 col-lg-cus-30">
@@ -162,27 +128,27 @@
                         <div class="payment-footer list-menu">
                             <div class="payment-item">
                                 <img class="lazyload" width=126 height=58 alt="MoMo"
-                                    data-src="/images/payment/payment_1.png" src="/images/payment/payment_1.png" />
+                                    data-src="{{asset('/images/payment/payment_1.png')}}" src="{{asset('/images/payment/payment_1.png')}}" />
                             </div>
                             <div class="payment-item">
                                 <img class="lazyload" width=126 height=58 alt="Zalo Pay"
-                                    data-src="/images/payment/payment_2.png" src="/images/payment/payment_2.png" />
+                                    data-src="{{asset('/images/payment/payment_2.png')}}" src="{{asset('/images/payment/payment_2.png')}}" />
                             </div>
                             <div class="payment-item">
                                 <img class="lazyload" width=126 height=58 alt="VnPay"
-                                    data-src="/images/payment/payment_3.png" src="/images/payment/payment_3.png" />
+                                    data-src="{{asset('/images/payment/payment_3.png')}}" src="{{asset('/images/payment/payment_3.png')}}" />
                             </div>
                             <div class="payment-item">
                                 <img class="lazyload" width=126 height=58 alt="Moca"
-                                    data-src="/images/payment/payment_4.png" src="/images/payment/payment_4.png" />
+                                    data-src="{{asset('/images/payment/payment_4.png')}}" src="{{asset('/images/payment/payment_4.png')}}" />
                             </div>
                             <div class="payment-item">
                                 <img class="lazyload" width=126 height=58 alt="Visa"
-                                    data-src="/images/payment/payment_5.png" src="/images/payment/payment_5.png" />
+                                    data-src="{{asset('/images/payment/payment_5.png')}}" src="{{asset('/images/payment/payment_5.png')}}" />
                             </div>
                             <div class="payment-item">
                                 <img class="lazyload" width=126 height=58 alt="ATM"
-                                    data-src="/images/payment/payment_6.png" src="/images/payment/payment_6.png" />
+                                    data-src="{{asset('/images/payment/payment_6.png')}}" src="{{asset('/images/payment/payment_6.png')}}" />
                             </div>
                         </div>
 
@@ -194,11 +160,11 @@
                         <div class="certifi-footer">
                             <a href="#" title="Chứng nhận 1" target="_blank">
                                 <img width=335 height=108 class="lazyload" alt="Chứng nhận 1"
-                                    data-src="/images/certifi/certifi_1.png" src="/images/certifi/certifi_1.png" />
+                                    data-src="{{asset('/images/certifi/certifi_1.png')}}" src="{{asset('/images/certifi/certifi_1.png')}}" />
                             </a>
                             <a href="#" title="Chứng nhận 2" target="_blank">
                                 <img width=335 height=108 class="lazyload" alt="Chứng nhận 2"
-                                    data-src="/images/certifi/certifi_2.png" src="/images/certifi/certifi_2.png" />
+                                    data-src="{{asset('/images/certifi/certifi_2.png')}}" src="{{asset('/images/certifi/certifi_2.png')}}" />
                             </a>
                         </div>
                     </div>

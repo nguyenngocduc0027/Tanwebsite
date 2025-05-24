@@ -68,8 +68,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.policies.index') }}" class="collapsed">
-                    <i class="bi bi-book"></i>
-
+                <i class="	fas fa-file-alt"></i>
                         <p>Chính sách</p>
                     </a>
                 </li>

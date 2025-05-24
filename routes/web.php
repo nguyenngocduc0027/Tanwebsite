@@ -49,7 +49,7 @@ Route::get('/blog_detail/{id}', [HomeController::class, 'blog_detail'])->name('b
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact', [HomeController::class, 'submitcontact'])->name('contact.submit');
 
-Route::get('/blank', [HomeController::class, 'blank'])->name('blank');
+Route::get('/blank/{policy}', [HomeController::class, 'blank'])->name('blank');
 
 //Cart thêm vào giỏ hàng
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');

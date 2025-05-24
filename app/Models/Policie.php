@@ -12,6 +12,7 @@ class Policie extends Model
         'title',
         'slug',
         'content',
+        'blog'
     ];
 
     // Nếu muốn dùng slug để lấy route
